@@ -1,0 +1,16 @@
+//
+//	Pelistina on Cocoa / - PoCo -
+//	共通宣言
+//
+//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif  // __OBJC__
+
+#import "PoCoTypedef.h"
+#import "PoCoDebug.h"
+#import "PoCoConstValue.h"
+#import "PoCoErrorCode.h"
+#import "PoCoGlobalString.h"

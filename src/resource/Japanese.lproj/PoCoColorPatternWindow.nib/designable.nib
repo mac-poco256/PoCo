@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9059"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PoCoColorPatternWindow">
+            <connections>
+                <outlet property="patternInfoView_" destination="8" id="16"/>
+                <outlet property="window" destination="6" id="9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <window title="カラーパターン" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="ColorPattern" animationBehavior="default" id="6" userLabel="Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" nonactivatingPanel="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="433" y="701" width="512" height="160"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="213" height="113"/>
+            <value key="maxSize" type="size" width="512" height="160"/>
+            <view key="contentView" id="5">
+                <rect key="frame" x="0.0" y="0.0" width="512" height="160"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button id="7">
+                        <rect key="frame" x="-2" y="132" width="28" height="30"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <buttonCell key="cell" type="bevel" title="set" bezelStyle="regularSquare" image="setpattern" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="14">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="setPattern:" target="8" id="11"/>
+                        </connections>
+                    </button>
+                    <customView id="8" customClass="PoCoColorPatternView">
+                        <rect key="frame" x="0.0" y="0.0" width="512" height="128"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                        <connections>
+                            <outlet property="set_" destination="7" id="15"/>
+                        </connections>
+                    </customView>
+                </subviews>
+                <animations/>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="10"/>
+            </connections>
+        </window>
+    </objects>
+    <resources>
+        <image name="setpattern" width="18" height="18"/>
+    </resources>
+</document>

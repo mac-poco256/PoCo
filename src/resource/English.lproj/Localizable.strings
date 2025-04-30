@@ -1,0 +1,57 @@
+"BitmapLayerName" = "Image";
+"StringLayerName" = "String";
+"FigureLayerName" = "Figure";
+"FileLayerName" = "File";
+
+"PaletteIncrement" = "Increace palette";
+"PaletteDecrement" = "Decreace palette";
+"PaletteGradation" = "Make Gradient with palette";
+"PaletteElementSet" = "Edit palette";
+"PaletteAttributeSet" = "Set auxiliary attribute";
+"PaletteExchange" = "Exchange palette";
+"SinglePaletteElementSet" = "Edit single palette";
+"PaletteImport" = "Import palette";
+"PalettePaste" = "Paste palette";
+
+"LayerCreateBitmap" = "Create bitmap layer";
+"LayerCreateString" = "Create string layer";
+"LayerCreateFifure" = "Create figure layer";
+"LayerCreateFile" = "Create file layer";
+"LayerInsert" = "Insert layer";
+"LayerDelete" = "Delete layer";
+"LayerMove" = "Move layer";
+"LayerCopy" = "Duplicate layer";
+"LayerDisplaySet" = "Set attribute of visibility";
+"LayerNameSet" = "Set name of layer";
+"LayerDrawLockSet" = "set attribute of editable";
+"LayerUnificate" = "Unify layer";
+
+"CanvasResize" = "Resize canvas";
+
+"ColorPatternSet" = "Register color pattern";
+
+"DrawFreeLine" = "Free Line";
+"DrawLineShape" = "Shape of Line";
+"DrawBoxShape" = "Shape of Rectangle with frame";
+"DrawEllipseShape" = "Shape of Ellipse with frame";
+"DrawParallelogramShape" = "Shape of Parallelogram with frame";
+"DrawBoxFillShape" = "Shape of Rectangle with fill";
+"DrawEllipseFillShape" = "Shape of Ellipse with fill";
+"DrawParallelogramFillShape" = "Shape of Parallelogram with fill";
+"DrawPaint" = "Paint";
+"DrawProportionalFreeLine" = "Free Line with the Pen Pressure";
+"DrawCurveShape" = "Shape of Interpolated curve";
+
+"CopyImage" = "Copy";
+"MoveImage" = "Move";
+
+"PasteImage" = "Paste";
+"Delete" = "Delete";
+"FlipHori" = "Flip Horizontal";
+"FlipVert" = "Flip Vertical";
+"ResizeWithHandle" = "Resize";
+"RotateWithHandle" = "Rotate";
+"AutoGrad" = "Auto gradient";
+"BitmapColorReplace" = "Replace Color";
+"Texture" = "Texture";
+"ImageClip" = "Clip Image";

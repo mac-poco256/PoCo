@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PoCoToolbarWindow">
+            <connections>
+                <outlet property="atomizer_" destination="38" id="123"/>
+                <outlet property="boxFill_" destination="13" id="125"/>
+                <outlet property="box_" destination="10" id="124"/>
+                <outlet property="continuation_" destination="41" id="126"/>
+                <outlet property="densityHold_" destination="155" id="176"/>
+                <outlet property="densityRelation_" destination="153" id="175"/>
+                <outlet property="densityWithPattern_" destination="157" id="177"/>
+                <outlet property="density_" destination="34" id="127"/>
+                <outlet property="drogMove_" destination="19" id="128"/>
+                <outlet property="ellipseFill_" destination="14" id="130"/>
+                <outlet property="ellipse_" destination="11" id="129"/>
+                <outlet property="flip_" destination="40" id="131"/>
+                <outlet property="freeLine_" destination="7" id="132"/>
+                <outlet property="gradation_" destination="36" id="133"/>
+                <outlet property="halfTone_" destination="169" id="179"/>
+                <outlet property="handle_" destination="165" id="171"/>
+                <outlet property="identicalShape_" destination="33" id="134"/>
+                <outlet property="line_" destination="9" id="135"/>
+                <outlet property="normalTone_" destination="167" id="178"/>
+                <outlet property="normal_" destination="35" id="136"/>
+                <outlet property="paint_" destination="16" id="137"/>
+                <outlet property="parallelogramFill_" destination="15" id="139"/>
+                <outlet property="parallelogram_" destination="12" id="138"/>
+                <outlet property="pointHold_" destination="37" id="140"/>
+                <outlet property="pointMove_" destination="39" id="141"/>
+                <outlet property="propotionalFreeLine_" destination="17" id="142"/>
+                <outlet property="random_" destination="42" id="143"/>
+                <outlet property="selection_" destination="18" id="144"/>
+                <outlet property="sizeHold_" destination="149" id="173"/>
+                <outlet property="sizeRelation_" destination="147" id="172"/>
+                <outlet property="sizeWithPattern_" destination="151" id="174"/>
+                <outlet property="skipAlways_" destination="159" id="180"/>
+                <outlet property="skipBinary_" destination="161" id="181"/>
+                <outlet property="skipHold_" destination="163" id="182"/>
+                <outlet property="uniformedDensity_" destination="44" id="145"/>
+                <outlet property="waterDrop_" destination="43" id="146"/>
+                <outlet property="window" destination="6" id="45"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Toolbar" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="6" userLabel="Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" nonactivatingPanel="YES" texturedBackground="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="1" y="597" width="296" height="80"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="296" height="80"/>
+            <value key="maxSize" type="size" width="296" height="80"/>
+            <view key="contentView" id="5">
+                <rect key="frame" x="0.0" y="0.0" width="296" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button id="7">
+                        <rect key="frame" x="1" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="freeline" bezelStyle="shadowlessSquare" image="freeline" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="99">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="71"/>
+                        </connections>
+                    </button>
+                    <button tag="9" id="17">
+                        <rect key="frame" x="25" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="propotionalfreeline" bezelStyle="shadowlessSquare" image="propfreeline" imagePosition="only" alignment="center" borderStyle="border" tag="9" inset="2" id="108">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="80"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="9">
+                        <rect key="frame" x="49" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="line" bezelStyle="shadowlessSquare" image="line" imagePosition="only" alignment="center" borderStyle="border" tag="1" inset="2" id="100">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="73"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="10">
+                        <rect key="frame" x="75" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="box" bezelStyle="shadowlessSquare" image="box" imagePosition="only" alignment="center" borderStyle="border" tag="2" inset="2" id="101">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="72"/>
+                        </connections>
+                    </button>
+                    <button tag="3" id="11">
+                        <rect key="frame" x="99" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="ellipse" bezelStyle="shadowlessSquare" image="ellipse" imagePosition="only" alignment="center" borderStyle="border" tag="3" inset="2" id="102">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="74"/>
+                        </connections>
+                    </button>
+                    <button tag="4" id="12">
+                        <rect key="frame" x="123" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="parallelogram" bezelStyle="shadowlessSquare" image="parallelo" imagePosition="only" alignment="center" borderStyle="border" tag="4" inset="2" id="103">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="75"/>
+                        </connections>
+                    </button>
+                    <button tag="5" id="13">
+                        <rect key="frame" x="149" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="boxfill" bezelStyle="shadowlessSquare" image="boxfill" imagePosition="only" alignment="center" borderStyle="border" tag="5" inset="2" id="104">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="76"/>
+                        </connections>
+                    </button>
+                    <button tag="6" id="14">
+                        <rect key="frame" x="173" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="ellipsefill" bezelStyle="shadowlessSquare" image="ellipsefill" imagePosition="only" alignment="center" borderStyle="border" tag="6" inset="2" id="105">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="77"/>
+                        </connections>
+                    </button>
+                    <button tag="7" id="15">
+                        <rect key="frame" x="197" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="parallelogramfill" bezelStyle="shadowlessSquare" image="parallelofill" imagePosition="only" alignment="center" borderStyle="border" tag="7" inset="2" id="106">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="78"/>
+                        </connections>
+                    </button>
+                    <button tag="8" id="16">
+                        <rect key="frame" x="223" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="paint" bezelStyle="shadowlessSquare" image="paint" imagePosition="only" alignment="center" borderStyle="border" tag="8" inset="2" id="107">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="79"/>
+                        </connections>
+                    </button>
+                    <button tag="10" id="18">
+                        <rect key="frame" x="247" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="selection" bezelStyle="shadowlessSquare" image="select" imagePosition="only" alignment="center" borderStyle="border" tag="10" inset="2" id="109">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="81"/>
+                        </connections>
+                    </button>
+                    <button tag="11" id="19">
+                        <rect key="frame" x="271" y="54" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="dragmove" bezelStyle="shadowlessSquare" image="drag" imagePosition="only" alignment="center" borderStyle="border" tag="11" inset="2" id="110">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="drawMode:" target="-2" id="82"/>
+                        </connections>
+                    </button>
+                    <button id="35">
+                        <rect key="frame" x="1" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="normal" bezelStyle="shadowlessSquare" image="normal" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="113">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="88"/>
+                        </connections>
+                    </button>
+                    <button tag="5" id="44">
+                        <rect key="frame" x="25" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="uniformedensity" bezelStyle="shadowlessSquare" image="uniformdemsity" imagePosition="only" alignment="center" borderStyle="border" tag="5" inset="2" id="122">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="93"/>
+                        </connections>
+                    </button>
+                    <button tag="3" id="34">
+                        <rect key="frame" x="49" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="density" bezelStyle="shadowlessSquare" image="density" imagePosition="only" alignment="center" borderStyle="border" tag="3" inset="2" id="112">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="91"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="38">
+                        <rect key="frame" x="73" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="atomizer" bezelStyle="shadowlessSquare" image="atomizer" imagePosition="only" alignment="center" borderStyle="border" tag="1" inset="2" id="116">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="89"/>
+                        </connections>
+                    </button>
+                    <button tag="4" id="36">
+                        <rect key="frame" x="97" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="gradation" bezelStyle="shadowlessSquare" image="gradation" imagePosition="only" alignment="center" borderStyle="border" tag="4" inset="2" id="114">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="92"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="42">
+                        <rect key="frame" x="123" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="random" bezelStyle="shadowlessSquare" image="random" imagePosition="only" alignment="center" borderStyle="border" tag="2" inset="2" id="120">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="90"/>
+                        </connections>
+                    </button>
+                    <button tag="6" id="43">
+                        <rect key="frame" x="147" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="waterdrop" bezelStyle="shadowlessSquare" image="water" imagePosition="only" alignment="center" borderStyle="border" tag="6" inset="2" id="121">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penStyle:" target="-2" id="94"/>
+                        </connections>
+                    </button>
+                    <button id="167">
+                        <rect key="frame" x="173" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="normaltone" bezelStyle="shadowlessSquare" image="normaltone" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="168">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="normalTone:" target="-2" id="190"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="169">
+                        <rect key="frame" x="197" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="halftone" bezelStyle="shadowlessSquare" image="halftone" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="170">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="halfTone:" target="-2" id="191"/>
+                        </connections>
+                    </button>
+                    <button id="159">
+                        <rect key="frame" x="223" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="skipalways" bezelStyle="shadowlessSquare" image="skipalways" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="160">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="atomizerSkip:" target="-2" id="192"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="161">
+                        <rect key="frame" x="247" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="skipbirnary" bezelStyle="shadowlessSquare" image="skipbinary" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="162">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="atomizerSkip:" target="-2" id="193"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="163">
+                        <rect key="frame" x="271" y="28" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="skippattern" bezelStyle="shadowlessSquare" image="skippattern" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="164">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="atomizerSkip:" target="-2" id="194"/>
+                        </connections>
+                    </button>
+                    <button id="41">
+                        <rect key="frame" x="1" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="continuation" bezelStyle="shadowlessSquare" image="discrete" imagePosition="only" alignment="center" alternateImage="continue" borderStyle="border" inset="2" id="119">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="continuation:" target="-2" id="83"/>
+                        </connections>
+                    </button>
+                    <button id="40">
+                        <rect key="frame" x="25" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="flip" bezelStyle="shadowlessSquare" image="flip" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="118">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="flip:" target="-2" id="84"/>
+                        </connections>
+                    </button>
+                    <button id="165">
+                        <rect key="frame" x="49" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="usehandle" bezelStyle="shadowlessSquare" image="nohandle" imagePosition="only" alignment="center" alternateImage="handle" borderStyle="border" inset="2" id="166">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="handle:" target="-2" id="195"/>
+                        </connections>
+                    </button>
+                    <button id="37">
+                        <rect key="frame" x="75" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="pointhold" bezelStyle="shadowlessSquare" image="pointhold" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="115">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pointMode:" target="-2" id="85"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="39">
+                        <rect key="frame" x="99" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="pointmove" bezelStyle="shadowlessSquare" image="pointmove" imagePosition="only" alignment="center" borderStyle="border" tag="1" inset="2" id="117">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pointMode:" target="-2" id="86"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="33">
+                        <rect key="frame" x="123" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="identicalshape" bezelStyle="shadowlessSquare" image="identical" imagePosition="only" alignment="center" borderStyle="border" tag="2" inset="2" id="111">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="pointMode:" target="-2" id="87"/>
+                        </connections>
+                    </button>
+                    <button id="147">
+                        <rect key="frame" x="149" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="sizerelation" bezelStyle="shadowlessSquare" image="sizeprop" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="148">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penSize:" target="-2" id="184"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="149">
+                        <rect key="frame" x="173" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="sizehold" bezelStyle="shadowlessSquare" image="sizehold" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="150">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penSize:" target="-2" id="185"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="151">
+                        <rect key="frame" x="197" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="sizepattern" bezelStyle="shadowlessSquare" image="sizepattern" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="152">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="penSize:" target="-2" id="186"/>
+                        </connections>
+                    </button>
+                    <button id="153">
+                        <rect key="frame" x="223" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="densityrelation" bezelStyle="shadowlessSquare" image="densityprop" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="154">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="density:" target="-2" id="187"/>
+                        </connections>
+                    </button>
+                    <button tag="1" id="155">
+                        <rect key="frame" x="247" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="densityhold" bezelStyle="shadowlessSquare" image="densityhold" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="156">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="density:" target="-2" id="188"/>
+                        </connections>
+                    </button>
+                    <button tag="2" id="157">
+                        <rect key="frame" x="271" y="2" width="24" height="24"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="square" title="densitypattern" bezelStyle="shadowlessSquare" image="densitypattern" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="158">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="density:" target="-2" id="189"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="46"/>
+            </connections>
+        </window>
+    </objects>
+    <resources>
+        <image name="atomizer" width="18" height="18"/>
+        <image name="box" width="18" height="18"/>
+        <image name="boxfill" width="18" height="18"/>
+        <image name="continue" width="18" height="18"/>
+        <image name="density" width="18" height="18"/>
+        <image name="densityhold" width="18" height="18"/>
+        <image name="densitypattern" width="18" height="18"/>
+        <image name="densityprop" width="18" height="18"/>
+        <image name="discrete" width="18" height="18"/>
+        <image name="drag" width="18" height="18"/>
+        <image name="ellipse" width="18" height="18"/>
+        <image name="ellipsefill" width="18" height="18"/>
+        <image name="flip" width="18" height="18"/>
+        <image name="freeline" width="18" height="18"/>
+        <image name="gradation" width="18" height="18"/>
+        <image name="halftone" width="18" height="18"/>
+        <image name="handle" width="18" height="18"/>
+        <image name="identical" width="18" height="18"/>
+        <image name="line" width="18" height="18"/>
+        <image name="nohandle" width="18" height="18"/>
+        <image name="normal" width="18" height="18"/>
+        <image name="normaltone" width="18" height="18"/>
+        <image name="paint" width="18" height="18"/>
+        <image name="parallelo" width="18" height="18"/>
+        <image name="parallelofill" width="18" height="18"/>
+        <image name="pointhold" width="18" height="18"/>
+        <image name="pointmove" width="18" height="18"/>
+        <image name="propfreeline" width="18" height="18"/>
+        <image name="random" width="18" height="18"/>
+        <image name="select" width="18" height="18"/>
+        <image name="sizehold" width="18" height="18"/>
+        <image name="sizepattern" width="18" height="18"/>
+        <image name="sizeprop" width="18" height="18"/>
+        <image name="skipalways" width="18" height="18"/>
+        <image name="skipbinary" width="18" height="18"/>
+        <image name="skippattern" width="18" height="18"/>
+        <image name="uniformdemsity" width="18" height="18"/>
+        <image name="water" width="18" height="18"/>
+    </resources>
+</document>

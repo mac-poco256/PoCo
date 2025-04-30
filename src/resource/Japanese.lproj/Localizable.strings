@@ -1,0 +1,57 @@
+"BitmapLayerName" = "画像";
+"StringLayerName" = "文字列";
+"FigureLayerName" = "図形";
+"FileLayerName" = "ファイラー";
+
+"PaletteIncrement" = "色要素値を変更（加算）";
+"PaletteDecrement" = "色要素値を変更（減算）";
+"PaletteGradation" = "パレットグラデーション";
+"PaletteElementSet" = "色属性を設定";
+"PaletteAttributeSet" = "色補助属性を設定";
+"PaletteExchange" = "色を交換";
+"SinglePaletteElementSet" = "色属性を設定";
+"PaletteImport" = "パレット取り込み";
+"PalettePaste" = "色を複写";
+
+"LayerCreateBitmap" = "画像レイヤーを生成";
+"LayerCreateString" = "文字列レイヤーを生成";
+"LayerCreateFifure" = "図形レイヤーを生成";
+"LayerCreateFile" = "ファイラーレイヤーを生成";
+"LayerInsert" = "レイヤーを挿入";
+"LayerDelete" = "レイヤーを削除";
+"LayerMove" = "レイヤーを移動";
+"LayerCopy" = "レイヤーを複製";
+"LayerDisplaySet" = "レイヤー表示を切り替え";
+"LayerNameSet" = "レイヤー名称を変更";
+"LayerDrawLockSet" = "レイヤーを固定";
+"LayerUnificate" = "レイヤーを統合";
+
+"CanvasResize" = "画像サイズを変更";
+
+"ColorPatternSet" = "カラーパターンに登録";
+
+"DrawFreeLine" = "自由曲線";
+"DrawLineShape" = "直線";
+"DrawBoxShape" = "矩形（枠）";
+"DrawEllipseShape" = "円／楕円（枠）";
+"DrawParallelogramShape" = "平行四辺形（枠）";
+"DrawBoxFillShape" = "矩形（塗りつぶし）";
+"DrawEllipseFillShape" = "円／楕円（塗りつぶし）";
+"DrawParallelogramFillShape" = "平行四辺形（塗りつぶし）";
+"DrawPaint" = "塗りつぶし";
+"DrawProportionalFreeLine" = "筆圧比例自由曲線";
+"DrawCurveShape" = "曲線";
+
+"CopyImage" = "複製";
+"MoveImage" = "移動";
+
+"PasteImage" = "ペースト";
+"Delete" = "削除";
+"FlipHori" = "左右に反転";
+"FlipVert" = "上下に反転";
+"ResizeWithHandle" = "拡大・縮小";
+"RotateWithHandle" = "回転";
+"AutoGrad" = "自動グラデーション";
+"BitmapColorReplace" = "色置換";
+"Texture" = "テクスチャ";
+"ImageClip" = "切り抜き";
