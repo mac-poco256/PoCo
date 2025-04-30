@@ -12,7 +12,7 @@ So, visit the [web site of PoCo](http://www.poco256.org/en/).
 ## Rights.
 
 Copyright of PoCo is owned by KAENRYUU Koutoku.  
-Whereas, rights of images that are created and/or modified by using PoCo is depended on your mind.  
+On the other hand, rights of images that are created and/or modified by using PoCo is depended on your mind.  
 
 ## Disclaimer.
 
