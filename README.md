@@ -41,3 +41,7 @@ Wednesday, 30th April 2025. KAENRYUU Koutoku.
 
 以上。  
 2025/ 4/30(Wed.) - KAENRYUU Koutoku.  
+
+---
+
+(this tool is created for NAKA Chihiro's art works by KAENRYUU Koutoku. also, NAKA Chihiro and KAENRYUU Koutoku are the same person.)
