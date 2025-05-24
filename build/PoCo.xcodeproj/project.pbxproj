@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -649,7 +649,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = ../src/resource/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		18078A120DC9991200E47CEA /* PoCoControllerPaletteSingleSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPaletteSingleSetter.h; path = ../src/controller/palette/PoCoControllerPaletteSingleSetter.h; sourceTree = "<group>"; };
 		18078A130DC9991200E47CEA /* PoCoControllerPaletteSingleSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPaletteSingleSetter.m; path = ../src/controller/palette/PoCoControllerPaletteSingleSetter.m; sourceTree = "<group>"; };
@@ -749,7 +748,6 @@
 		187ACAAC0899D50C005B400C /* PoCoControllerLayerLockSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerLayerLockSetter.m; path = ../src/controller/layer/PoCoControllerLayerLockSetter.m; sourceTree = "<group>"; };
 		187ACAAD0899D50C005B400C /* PoCoControllerLayerNameSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerLayerNameSetter.h; path = ../src/controller/layer/PoCoControllerLayerNameSetter.h; sourceTree = "<group>"; };
 		187ACAAE0899D50C005B400C /* PoCoControllerLayerNameSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerLayerNameSetter.m; path = ../src/controller/layer/PoCoControllerLayerNameSetter.m; sourceTree = "<group>"; };
-		187FB59E08A73C6F0071C542 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoToolbarWindow.nib; sourceTree = "<group>"; };
 		187FB5CC08A742280071C542 /* PoCoToolbarWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoToolbarWindow.m; path = ../src/window/toolbar/PoCoToolbarWindow.m; sourceTree = "<group>"; };
 		187FB5CD08A742280071C542 /* PoCoToolbarWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoToolbarWindow.h; path = ../src/window/toolbar/PoCoToolbarWindow.h; sourceTree = "<group>"; };
 		188029790883656000A3BA05 /* PoCoControllerPaletteIncrementer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPaletteIncrementer.h; path = ../src/controller/palette/PoCoControllerPaletteIncrementer.h; sourceTree = "<group>"; };
@@ -758,14 +756,12 @@
 		1880298C0883848500A3BA05 /* PoCoControllerPaletteDecrementer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPaletteDecrementer.h; path = ../src/controller/palette/PoCoControllerPaletteDecrementer.h; sourceTree = "<group>"; };
 		18815869089A304000C38E04 /* PoCoLayerTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoLayerTableView.h; path = ../src/window/layer/PoCoLayerTableView.h; sourceTree = "<group>"; };
 		1881586A089A304000C38E04 /* PoCoLayerTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoLayerTableView.m; path = ../src/window/layer/PoCoLayerTableView.m; sourceTree = "<group>"; };
-		1881588B085EFA8B004CA7DC /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoPaletteWindow.nib; sourceTree = "<group>"; };
 		18815890085EFAB3004CA7DC /* PoCoPaletteWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoPaletteWindow.h; path = ../src/window/palette/PoCoPaletteWindow.h; sourceTree = "<group>"; };
 		18815891085EFAB3004CA7DC /* PoCoPaletteWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoPaletteWindow.m; path = ../src/window/palette/PoCoPaletteWindow.m; sourceTree = "<group>"; };
 		1882609E08528C8100751B34 /* PoCoSubView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoSubView.m; path = ../src/window/subview/PoCoSubView.m; sourceTree = "<group>"; };
 		1882609F08528C8100751B34 /* PoCoSubView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoSubView.h; path = ../src/window/subview/PoCoSubView.h; sourceTree = "<group>"; };
 		188260CB085292C800751B34 /* PoCoSubViewWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoSubViewWindow.h; path = ../src/window/subview/PoCoSubViewWindow.h; sourceTree = "<group>"; };
 		188260CC085292C800751B34 /* PoCoSubViewWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoSubViewWindow.m; path = ../src/window/subview/PoCoSubViewWindow.m; sourceTree = "<group>"; };
-		188260F1085293EB00751B34 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoSubViewWindow.nib; sourceTree = "<group>"; };
 		18827C4808655E6800308B40 /* PoCoEditInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoEditInfo.h; path = ../src/PoCoEditInfo.h; sourceTree = "<group>"; };
 		18827C4908655E6800308B40 /* PoCoEditInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoEditInfo.m; path = ../src/PoCoEditInfo.m; sourceTree = "<group>"; };
 		1882EA7B08824C9500E32686 /* PoCoControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerBase.m; path = ../src/controller/PoCoControllerBase.m; sourceTree = "<group>"; };
@@ -774,8 +770,6 @@
 		18832AB2088354F600DF1512 /* PoCoControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerFactory.m; path = ../src/controller/PoCoControllerFactory.m; sourceTree = "<group>"; };
 		18838AEA0884888900AF34B8 /* PoCoControllerPaletteAttributeSetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPaletteAttributeSetter.h; path = ../src/controller/palette/PoCoControllerPaletteAttributeSetter.h; sourceTree = "<group>"; };
 		18838AEB0884888900AF34B8 /* PoCoControllerPaletteAttributeSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPaletteAttributeSetter.m; path = ../src/controller/palette/PoCoControllerPaletteAttributeSetter.m; sourceTree = "<group>"; };
-		188436060886883A00EB2F9C /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoPenStyleWindow.nib; sourceTree = "<group>"; };
-		1885031508B1EF2300ECF080 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoColorPatternWindow.nib; sourceTree = "<group>"; };
 		1885032108B1F06100ECF080 /* PoCoColorPatternWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoColorPatternWindow.h; path = ../src/window/colpattern/PoCoColorPatternWindow.h; sourceTree = "<group>"; };
 		1885032208B1F06100ECF080 /* PoCoColorPatternWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoColorPatternWindow.m; path = ../src/window/colpattern/PoCoColorPatternWindow.m; sourceTree = "<group>"; };
 		1885033C08B1F12600ECF080 /* PoCoColorPatternView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoColorPatternView.h; path = ../src/window/colpattern/PoCoColorPatternView.h; sourceTree = "<group>"; };
@@ -790,7 +784,6 @@
 		1886F3C308C04A7A00DD2470 /* PoCoControllerPictureBitmapReplacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPictureBitmapReplacer.m; path = ../src/controller/picture/PoCoControllerPictureBitmapReplacer.m; sourceTree = "<group>"; };
 		18875896089644F80064AB86 /* PoCoControllerLayerBitmapAdder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerLayerBitmapAdder.h; path = ../src/controller/layer/PoCoControllerLayerBitmapAdder.h; sourceTree = "<group>"; };
 		18875897089644F80064AB86 /* PoCoControllerLayerBitmapAdder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerLayerBitmapAdder.m; path = ../src/controller/layer/PoCoControllerLayerBitmapAdder.m; sourceTree = "<group>"; };
-		1887C49A08939E29003EAE50 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoLayerWindow.nib; sourceTree = "<group>"; };
 		1887C4A708939E74003EAE50 /* PoCoLayerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoLayerWindow.m; path = ../src/window/layer/PoCoLayerWindow.m; sourceTree = "<group>"; };
 		1887C4A808939E74003EAE50 /* PoCoLayerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoLayerWindow.h; path = ../src/window/layer/PoCoLayerWindow.h; sourceTree = "<group>"; };
 		1887E85208979DAF007D9294 /* PoCoLayerOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoLayerOperate.h; path = ../src/window/layer/PoCoLayerOperate.h; sourceTree = "<group>"; };
@@ -799,7 +792,6 @@
 		1888478C0DE7E11400D4FD97 /* PoCoDrawSelection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoDrawSelection.m; sourceTree = "<group>"; };
 		18886DC10885E044005470E0 /* PoCoControllerPictureColorExchanger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPictureColorExchanger.h; path = ../src/controller/picture/PoCoControllerPictureColorExchanger.h; sourceTree = "<group>"; };
 		18886DC20885E044005470E0 /* PoCoControllerPictureColorExchanger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPictureColorExchanger.m; path = ../src/controller/picture/PoCoControllerPictureColorExchanger.m; sourceTree = "<group>"; };
-		1888D73808A302A2002B67C5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoInformationWindow.nib; sourceTree = "<group>"; };
 		1888D76B08A319BC002B67C5 /* PoCoInformationWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoInformationWindow.h; path = ../src/window/info/PoCoInformationWindow.h; sourceTree = "<group>"; };
 		1888D76C08A319BC002B67C5 /* PoCoInformationWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoInformationWindow.m; path = ../src/window/info/PoCoInformationWindow.m; sourceTree = "<group>"; };
 		188B597A089B5AC4003037AC /* PoCoControllerLayerInserter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerLayerInserter.h; path = ../src/controller/layer/PoCoControllerLayerInserter.h; sourceTree = "<group>"; };
@@ -847,8 +839,6 @@
 		189EAC0B08A20D0700DE4AE3 /* PoCoControllerPaletteNoEditter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPaletteNoEditter.m; path = ../src/controller/etc/PoCoControllerPaletteNoEditter.m; sourceTree = "<group>"; };
 		189EAC3C08A20EF800DE4AE3 /* PoCoControllerLayerNoEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerLayerNoEditter.h; path = ../src/controller/etc/PoCoControllerLayerNoEditter.h; sourceTree = "<group>"; };
 		189EAC3D08A20EF800DE4AE3 /* PoCoControllerLayerNoEditter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerLayerNoEditter.m; path = ../src/controller/etc/PoCoControllerLayerNoEditter.m; sourceTree = "<group>"; };
-		189F31F5089861990023E3E4 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = English; path = ../src/resource/English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		18A1057308B5903100E1F084 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoNewDocumentPanel.nib; sourceTree = "<group>"; };
 		18A105C008B59D3D00E1F084 /* PoCoNewDocumentPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoNewDocumentPanel.h; path = ../src/panel/newdoc/PoCoNewDocumentPanel.h; sourceTree = "<group>"; };
 		18A105C108B59D3D00E1F084 /* PoCoNewDocumentPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoNewDocumentPanel.m; path = ../src/panel/newdoc/PoCoNewDocumentPanel.m; sourceTree = "<group>"; };
 		18A196400895FA020036F4BB /* PoCoSelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoSelLayer.h; path = ../src/layer/PoCoSelLayer.h; sourceTree = "<group>"; };
@@ -893,8 +883,6 @@
 		2A37F4ACFDCFA73011CA2CEA /* PoCoMyDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoMyDocument.m; path = ../src/mainview/PoCoMyDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* PoCoMyDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoMyDocument.h; path = ../src/mainview/PoCoMyDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = main.m; path = ../src/main.m; sourceTree = "<group>"; };
-		2A37F4B5FDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		2A37F4B7FDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/MainMenu.nib; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2F019E871A0C57FE009CDE5D /* PoCoEditGradationFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditGradationFill.h; sourceTree = "<group>"; };
@@ -1093,8 +1081,6 @@
 		60396FFD1C1B96AA00CA454A /* PoCoAutoGradationPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoAutoGradationPanel.m; path = ../src/panel/autograd/PoCoAutoGradationPanel.m; sourceTree = "<group>"; };
 		603970001C1BAF8800CA454A /* PoCoAutoGradationColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoAutoGradationColorView.h; path = ../src/panel/autograd/PoCoAutoGradationColorView.h; sourceTree = "<group>"; };
 		603970011C1BAF8800CA454A /* PoCoAutoGradationColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoAutoGradationColorView.m; path = ../src/panel/autograd/PoCoAutoGradationColorView.m; sourceTree = "<group>"; };
-		603970051C1BB12C00CA454A /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoAutoGradationPanel.nib; sourceTree = "<group>"; };
-		603970071C1BB15500CA454A /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoAutoGradationPanel.nib; sourceTree = "<group>"; };
 		603D06260EBEC2F1002AAE9E /* PoCoEditUniformedDensityDrawLine02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditUniformedDensityDrawLine02.h; sourceTree = "<group>"; };
 		603D06270EBEC2F1002AAE9E /* PoCoEditUniformedDensityDrawLine02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoEditUniformedDensityDrawLine02.m; sourceTree = "<group>"; };
 		603D06280EBEC2F1002AAE9E /* PoCoEditUniformedDensityDrawLine03.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditUniformedDensityDrawLine03.h; sourceTree = "<group>"; };
@@ -1131,6 +1117,44 @@
 		603F291F106DD72B00A695B5 /* PoCoControllerPaletteImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPaletteImporter.m; path = ../src/controller/palette/PoCoControllerPaletteImporter.m; sourceTree = "<group>"; };
 		605141991D693F9A00858E86 /* PoCoAutoGradationSizePairOperate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoAutoGradationSizePairOperate.h; path = ../src/panel/autograd/PoCoAutoGradationSizePairOperate.h; sourceTree = "<group>"; };
 		6051419A1D693F9A00858E86 /* PoCoAutoGradationSizePairOperate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoAutoGradationSizePairOperate.m; path = ../src/panel/autograd/PoCoAutoGradationSizePairOperate.m; sourceTree = "<group>"; };
+		605947D82DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../src/resource/ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		605947D92DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ../src/resource/ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		605947DA2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		605947DB2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		605947DC2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoAutoGradationPanel.nib; sourceTree = "<group>"; };
+		605947DD2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoCanvasResizePanel.nib; sourceTree = "<group>"; };
+		605947DE2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoColorReplacePanel.nib; sourceTree = "<group>"; };
+		605947DF2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoDocumentSettingPanel.nib; sourceTree = "<group>"; };
+		605947E02DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoImportPalettePanel.nib; sourceTree = "<group>"; };
+		605947E12DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoNewDocumentPanel.nib; sourceTree = "<group>"; };
+		605947E22DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoPreferencesPanel.nib; sourceTree = "<group>"; };
+		605947E32DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoTexturePanel.nib; sourceTree = "<group>"; };
+		605947E42DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoColorPatternWindow.nib; sourceTree = "<group>"; };
+		605947E52DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoInformationWindow.nib; sourceTree = "<group>"; };
+		605947E62DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoLayerWindow.nib; sourceTree = "<group>"; };
+		605947E72DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoPaletteWindow.nib; sourceTree = "<group>"; };
+		605947E82DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoPenStyleWindow.nib; sourceTree = "<group>"; };
+		605947E92DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoSubViewWindow.nib; sourceTree = "<group>"; };
+		605947EA2DE18EDC00DF7E34 /* ja */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = ja; path = ../src/resource/ja.lproj/PoCoToolbarWindow.nib; sourceTree = "<group>"; };
+		605947EB2DE18EE000DF7E34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../src/resource/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		605947EC2DE18EE000DF7E34 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../src/resource/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		605947FE2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		605947FF2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/MyDocument.nib; sourceTree = "<group>"; };
+		605948002DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoSubViewWindow.nib; sourceTree = "<group>"; };
+		605948012DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoPaletteWindow.nib; sourceTree = "<group>"; };
+		605948022DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoPenStyleWindow.nib; sourceTree = "<group>"; };
+		605948032DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoLayerWindow.nib; sourceTree = "<group>"; };
+		605948042DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoInformationWindow.nib; sourceTree = "<group>"; };
+		605948052DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoToolbarWindow.nib; sourceTree = "<group>"; };
+		605948062DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoColorPatternWindow.nib; sourceTree = "<group>"; };
+		605948072DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoTexturePanel.nib; sourceTree = "<group>"; };
+		605948082DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoColorReplacePanel.nib; sourceTree = "<group>"; };
+		605948092DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoAutoGradationPanel.nib; sourceTree = "<group>"; };
+		6059480A2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoImportPalettePanel.nib; sourceTree = "<group>"; };
+		6059480B2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoCanvasResizePanel.nib; sourceTree = "<group>"; };
+		6059480C2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoDocumentSettingPanel.nib; sourceTree = "<group>"; };
+		6059480D2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoPreferencesPanel.nib; sourceTree = "<group>"; };
+		6059480E2DE18EE800DF7E34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Base; path = ../src/resource/Base.lproj/PoCoNewDocumentPanel.nib; sourceTree = "<group>"; };
 		605EFF431DD6AA0200613491 /* PoCoControllerInvertCurveWithPointsEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoControllerInvertCurveWithPointsEditter.h; sourceTree = "<group>"; };
 		605EFF441DD6AA0200613491 /* PoCoControllerInvertCurveWithPointsEditter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoControllerInvertCurveWithPointsEditter.m; sourceTree = "<group>"; };
 		605EFF471DD70B5600613491 /* PoCoControllerNormalCurveWithPointsEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerNormalCurveWithPointsEditter.h; path = ../src/controller/edit/frame/normal/PoCoControllerNormalCurveWithPointsEditter.h; sourceTree = "<group>"; };
@@ -1157,15 +1181,12 @@
 		606764430EAD3D6B00B4F251 /* PoCoEditUniformedDensityDrawLine01.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoEditUniformedDensityDrawLine01.m; sourceTree = "<group>"; };
 		606764440EAD3D6B00B4F251 /* PoCoEditUniformedDensityDrawLineBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditUniformedDensityDrawLineBase.h; sourceTree = "<group>"; };
 		606764450EAD3D6B00B4F251 /* PoCoEditUniformedDensityDrawLineBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoEditUniformedDensityDrawLineBase.m; sourceTree = "<group>"; };
-		6074331A106C2EC300E60027 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoImportPalettePanel.nib; sourceTree = "<group>"; };
 		6079B8DF1A500EC20046678A /* PoCoSelectionShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoSelectionShape.h; path = ../src/etc/PoCoSelectionShape.h; sourceTree = "<group>"; };
 		6079B8E01A500EC20046678A /* PoCoSelectionShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoSelectionShape.m; path = ../src/etc/PoCoSelectionShape.m; sourceTree = "<group>"; };
 		607B3D2A1F28A27700720192 /* PoCoTexturePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoTexturePanel.h; path = ../src/panel/texture/PoCoTexturePanel.h; sourceTree = "<group>"; };
 		607B3D2B1F28A27700720192 /* PoCoTexturePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoTexturePanel.m; path = ../src/panel/texture/PoCoTexturePanel.m; sourceTree = "<group>"; };
 		607B3D2E1F28AAF400720192 /* PoCoTextureColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoTextureColorView.h; path = ../src/panel/texture/PoCoTextureColorView.h; sourceTree = "<group>"; };
 		607B3D2F1F28AAF400720192 /* PoCoTextureColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoTextureColorView.m; path = ../src/panel/texture/PoCoTextureColorView.m; sourceTree = "<group>"; };
-		607B3D331F293B0600720192 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoTexturePanel.nib; sourceTree = "<group>"; };
-		607B3D351F293B1900720192 /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoTexturePanel.nib; sourceTree = "<group>"; };
 		60844EC61A514F4E00714D79 /* PoCoControllerNormalPasteImageEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoControllerNormalPasteImageEditter.h; sourceTree = "<group>"; };
 		60844EC71A514F4E00714D79 /* PoCoControllerNormalPasteImageEditter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoControllerNormalPasteImageEditter.m; sourceTree = "<group>"; };
 		608CB8C11C1CB436000A2030 /* PoCoEditAutoGradationAdjacent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditAutoGradationAdjacent.h; sourceTree = "<group>"; };
@@ -1256,8 +1277,6 @@
 		60A7E29810ED9743003D4ECF /* PoCoControllerColorPatternSetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerColorPatternSetter.m; path = ../src/controller/etc/PoCoControllerColorPatternSetter.m; sourceTree = "<group>"; };
 		60AF39B80F3D0A62002E4B03 /* PoCoControllerPictureCanvasResizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerPictureCanvasResizer.h; path = ../src/controller/picture/PoCoControllerPictureCanvasResizer.h; sourceTree = "<group>"; };
 		60AF39B90F3D0A62002E4B03 /* PoCoControllerPictureCanvasResizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoControllerPictureCanvasResizer.m; path = ../src/controller/picture/PoCoControllerPictureCanvasResizer.m; sourceTree = "<group>"; };
-		60B895A10F36FDB4001F8EAD /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoDocumentSettingPanel.nib; sourceTree = "<group>"; };
-		60C4504E0F37A764001DB31E /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoCanvasResizePanel.nib; sourceTree = "<group>"; };
 		60C4AB0C0E611DB0009B697D /* PoCoDrawProportional.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoDrawProportional.h; sourceTree = "<group>"; };
 		60C4AB0D0E611DB0009B697D /* PoCoDrawProportional.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoDrawProportional.m; sourceTree = "<group>"; };
 		60C4AB220E6133E0009B697D /* PoCoControllerNormalProportionalFreeLineEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerNormalProportionalFreeLineEditter.h; path = ../src/controller/edit/frame/normal/PoCoControllerNormalProportionalFreeLineEditter.h; sourceTree = "<group>"; };
@@ -1267,7 +1286,6 @@
 		60C7B9B51A859AC9004478A3 /* PoCo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PoCo.entitlements; sourceTree = "<group>"; };
 		60C89E90106C2F02000D1F9B /* PoCoImportPalettePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoImportPalettePanel.h; path = ../src/panel/importpalette/PoCoImportPalettePanel.h; sourceTree = "<group>"; };
 		60C89E91106C2F02000D1F9B /* PoCoImportPalettePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoImportPalettePanel.m; path = ../src/panel/importpalette/PoCoImportPalettePanel.m; sourceTree = "<group>"; };
-		60CA81CB0E7B8B08005981C0 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoPreferencesPanel.nib; sourceTree = "<group>"; };
 		60CA81CE0E7B8B22005981C0 /* PoCoPreferencesPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoPreferencesPanel.h; sourceTree = "<group>"; };
 		60CA81CF0E7B8B22005981C0 /* PoCoPreferencesPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoPreferencesPanel.m; sourceTree = "<group>"; };
 		60D96B2E0F3D68EA00281F91 /* PoCoControllerResizeNoEditter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoControllerResizeNoEditter.h; path = ../src/controller/etc/PoCoControllerResizeNoEditter.h; sourceTree = "<group>"; };
@@ -1284,24 +1302,6 @@
 		60DB42F41C22B717000DC7BB /* PoCoColorReplaceColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoColorReplaceColorView.m; path = ../src/panel/colorreplace/PoCoColorReplaceColorView.m; sourceTree = "<group>"; };
 		60DB42F51C22B717000DC7BB /* PoCoColorReplacePanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoColorReplacePanel.h; path = ../src/panel/colorreplace/PoCoColorReplacePanel.h; sourceTree = "<group>"; };
 		60DB42F61C22B717000DC7BB /* PoCoColorReplacePanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = PoCoColorReplacePanel.m; path = ../src/panel/colorreplace/PoCoColorReplacePanel.m; sourceTree = "<group>"; };
-		60DB42FC1C22B81F000DC7BB /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = ../src/resource/English.lproj/PoCoColorReplacePanel.nib; sourceTree = "<group>"; };
-		60DB42FE1C22B82D000DC7BB /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoColorReplacePanel.nib; sourceTree = "<group>"; };
-		60F06A3A1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Japanese; path = ../src/resource/Japanese.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		60F06A3B1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; lineEnding = 0; name = Japanese; path = ../src/resource/Japanese.lproj/Localizable.strings; sourceTree = "<group>"; };
-		60F06A3C1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		60F06A3D1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/MyDocument.nib; sourceTree = "<group>"; };
-		60F06A3E1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoCanvasResizePanel.nib; sourceTree = "<group>"; };
-		60F06A3F1A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoColorPatternWindow.nib; sourceTree = "<group>"; };
-		60F06A401A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoDocumentSettingPanel.nib; sourceTree = "<group>"; };
-		60F06A411A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoImportPalettePanel.nib; sourceTree = "<group>"; };
-		60F06A421A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoInformationWindow.nib; sourceTree = "<group>"; };
-		60F06A431A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoLayerWindow.nib; sourceTree = "<group>"; };
-		60F06A441A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoNewDocumentPanel.nib; sourceTree = "<group>"; };
-		60F06A451A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoPaletteWindow.nib; sourceTree = "<group>"; };
-		60F06A461A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoPenStyleWindow.nib; sourceTree = "<group>"; };
-		60F06A471A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoPreferencesPanel.nib; sourceTree = "<group>"; };
-		60F06A481A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoSubViewWindow.nib; sourceTree = "<group>"; };
-		60F06A491A64754500F8FE8F /* Japanese */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = Japanese; path = ../src/resource/Japanese.lproj/PoCoToolbarWindow.nib; sourceTree = "<group>"; };
 		60F06D810EA1EFA700FCED9D /* PoCoEditUniformedDensityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = PoCoEditUniformedDensityFactory.h; sourceTree = "<group>"; };
 		60F06D820EA1EFA700FCED9D /* PoCoEditUniformedDensityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PoCoEditUniformedDensityFactory.m; sourceTree = "<group>"; };
 		60F2406D1C74143C003922C9 /* PoCoLayerTableColumn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; name = PoCoLayerTableColumn.h; path = ../src/window/layer/PoCoLayerTableColumn.h; sourceTree = "<group>"; };
@@ -2860,7 +2860,8 @@
 		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1630;
 				TargetAttributes = {
 					8D15AC270486D014006FF6A4 = {
 						DevelopmentTeam = 33CW9T28T8;
@@ -2875,14 +2876,12 @@
 			};
 			buildConfigurationList = 605A27390E1268B4002EE473 /* Build configuration list for PBXProject "PoCo" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
 				ja,
+				en,
+				Base,
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* PoCo */;
 			projectDirPath = "";
@@ -3295,8 +3294,8 @@
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C1660FE840EACC02AAC07 /* English */,
-				60F06A3A1A64754500F8FE8F /* Japanese */,
+				605947D82DE18EDC00DF7E34 /* ja */,
+				605947EB2DE18EE000DF7E34 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -3304,8 +3303,8 @@
 		187FB5A608A73C800071C542 /* PoCoToolbarWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				187FB59E08A73C6F0071C542 /* English */,
-				60F06A491A64754500F8FE8F /* Japanese */,
+				605947EA2DE18EDC00DF7E34 /* ja */,
+				605948052DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoToolbarWindow.nib;
 			sourceTree = "<group>";
@@ -3313,8 +3312,8 @@
 		1881588A085EFA8B004CA7DC /* PoCoPaletteWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1881588B085EFA8B004CA7DC /* English */,
-				60F06A451A64754500F8FE8F /* Japanese */,
+				605947E72DE18EDC00DF7E34 /* ja */,
+				605948012DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoPaletteWindow.nib;
 			sourceTree = "<group>";
@@ -3322,8 +3321,8 @@
 		188260FC0852943B00751B34 /* PoCoSubViewWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				188260F1085293EB00751B34 /* English */,
-				60F06A481A64754500F8FE8F /* Japanese */,
+				605947E92DE18EDC00DF7E34 /* ja */,
+				605948002DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoSubViewWindow.nib;
 			sourceTree = "<group>";
@@ -3331,8 +3330,8 @@
 		1884360E0886884700EB2F9C /* PoCoPenStyleWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				188436060886883A00EB2F9C /* English */,
-				60F06A461A64754500F8FE8F /* Japanese */,
+				605947E82DE18EDC00DF7E34 /* ja */,
+				605948022DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoPenStyleWindow.nib;
 			sourceTree = "<group>";
@@ -3340,8 +3339,8 @@
 		1885031A08B1EF3500ECF080 /* PoCoColorPatternWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1885031508B1EF2300ECF080 /* English */,
-				60F06A3F1A64754500F8FE8F /* Japanese */,
+				605947E42DE18EDC00DF7E34 /* ja */,
+				605948062DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoColorPatternWindow.nib;
 			sourceTree = "<group>";
@@ -3349,8 +3348,8 @@
 		1887C49F08939E33003EAE50 /* PoCoLayerWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1887C49A08939E29003EAE50 /* English */,
-				60F06A431A64754500F8FE8F /* Japanese */,
+				605947E62DE18EDC00DF7E34 /* ja */,
+				605948032DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoLayerWindow.nib;
 			sourceTree = "<group>";
@@ -3358,8 +3357,8 @@
 		1888D73C08A302B8002B67C5 /* PoCoInformationWindow.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1888D73808A302A2002B67C5 /* English */,
-				60F06A421A64754500F8FE8F /* Japanese */,
+				605947E52DE18EDC00DF7E34 /* ja */,
+				605948042DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoInformationWindow.nib;
 			sourceTree = "<group>";
@@ -3367,8 +3366,8 @@
 		189F31F4089861990023E3E4 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				189F31F5089861990023E3E4 /* English */,
-				60F06A3B1A64754500F8FE8F /* Japanese */,
+				605947D92DE18EDC00DF7E34 /* ja */,
+				605947EC2DE18EE000DF7E34 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3376,8 +3375,8 @@
 		18A1057508B5904900E1F084 /* PoCoNewDocumentPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				18A1057308B5903100E1F084 /* English */,
-				60F06A441A64754500F8FE8F /* Japanese */,
+				605947E12DE18EDC00DF7E34 /* ja */,
+				6059480E2DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoNewDocumentPanel.nib;
 			sourceTree = "<group>";
@@ -3385,8 +3384,8 @@
 		2A37F4B4FDCFA73011CA2CEA /* MyDocument.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2A37F4B5FDCFA73011CA2CEA /* English */,
-				60F06A3D1A64754500F8FE8F /* Japanese */,
+				605947DB2DE18EDC00DF7E34 /* ja */,
+				605947FF2DE18EE800DF7E34 /* Base */,
 			);
 			name = MyDocument.nib;
 			sourceTree = "<group>";
@@ -3394,8 +3393,8 @@
 		2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2A37F4B7FDCFA73011CA2CEA /* English */,
-				60F06A3C1A64754500F8FE8F /* Japanese */,
+				605947DA2DE18EDC00DF7E34 /* ja */,
+				605947FE2DE18EE800DF7E34 /* Base */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -3403,8 +3402,8 @@
 		603970041C1BB12C00CA454A /* PoCoAutoGradationPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				603970051C1BB12C00CA454A /* English */,
-				603970071C1BB15500CA454A /* Japanese */,
+				605947DC2DE18EDC00DF7E34 /* ja */,
+				605948092DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoAutoGradationPanel.nib;
 			sourceTree = "<group>";
@@ -3412,8 +3411,8 @@
 		60743319106C2EC300E60027 /* PoCoImportPalettePanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6074331A106C2EC300E60027 /* English */,
-				60F06A411A64754500F8FE8F /* Japanese */,
+				605947E02DE18EDC00DF7E34 /* ja */,
+				6059480A2DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoImportPalettePanel.nib;
 			sourceTree = "<group>";
@@ -3421,8 +3420,8 @@
 		607B3D321F293B0600720192 /* PoCoTexturePanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				607B3D331F293B0600720192 /* English */,
-				607B3D351F293B1900720192 /* Japanese */,
+				605947E32DE18EDC00DF7E34 /* ja */,
+				605948072DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoTexturePanel.nib;
 			sourceTree = "<group>";
@@ -3430,8 +3429,8 @@
 		60B895A00F36FDB4001F8EAD /* PoCoDocumentSettingPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				60B895A10F36FDB4001F8EAD /* English */,
-				60F06A401A64754500F8FE8F /* Japanese */,
+				605947DF2DE18EDC00DF7E34 /* ja */,
+				6059480C2DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoDocumentSettingPanel.nib;
 			sourceTree = "<group>";
@@ -3439,8 +3438,8 @@
 		60C4504D0F37A764001DB31E /* PoCoCanvasResizePanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				60C4504E0F37A764001DB31E /* English */,
-				60F06A3E1A64754500F8FE8F /* Japanese */,
+				605947DD2DE18EDC00DF7E34 /* ja */,
+				6059480B2DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoCanvasResizePanel.nib;
 			sourceTree = "<group>";
@@ -3448,8 +3447,8 @@
 		60CA81CA0E7B8B08005981C0 /* PoCoPreferencesPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				60CA81CB0E7B8B08005981C0 /* English */,
-				60F06A471A64754500F8FE8F /* Japanese */,
+				605947E22DE18EDC00DF7E34 /* ja */,
+				6059480D2DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoPreferencesPanel.nib;
 			sourceTree = "<group>";
@@ -3457,8 +3456,8 @@
 		60DB42FB1C22B81F000DC7BB /* PoCoColorReplacePanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				60DB42FC1C22B81F000DC7BB /* English */,
-				60DB42FE1C22B82D000DC7BB /* Japanese */,
+				605947DE2DE18EDC00DF7E34 /* ja */,
+				605948082DE18EE800DF7E34 /* Base */,
 			);
 			name = PoCoColorReplacePanel.nib;
 			sourceTree = "<group>";
@@ -3482,13 +3481,17 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 33CW9T28T8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = YES;
@@ -3525,12 +3528,16 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = 33CW9T28T8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = NO;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
@@ -3570,8 +3577,8 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUGGING_SYMBOLS = YES;
-				DEVELOPMENT_TEAM = 33CW9T28T8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3592,7 +3599,7 @@
 				INFOPLIST_FILE = "PoCo-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-lz.1";
 				PRODUCT_BUNDLE_IDENTIFIER = org.poco256.PoCo;
@@ -3627,7 +3634,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = 33CW9T28T8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -3647,7 +3653,7 @@
 				INFOPLIST_FILE = "PoCo-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-lz.1";
 				PRODUCT_BUNDLE_IDENTIFIER = org.poco256.PoCo;
