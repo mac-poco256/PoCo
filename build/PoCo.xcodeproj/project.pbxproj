@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -531,6 +531,8 @@
 		60A090431A638F42008E510D /* skipalways.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A090401A638F42008E510D /* skipalways.png */; };
 		60A090441A638F42008E510D /* skipbinary.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A090411A638F42008E510D /* skipbinary.png */; };
 		60A090451A638F42008E510D /* skippattern.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A090421A638F42008E510D /* skippattern.png */; };
+		60A0A08C2DEA98890079B103 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60A0A08B2DEA98890079B103 /* Quartz.framework */; };
+		60A0A0992DEA98890079B103 /* qlpreview.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 60A0A08A2DEA98890079B103 /* qlpreview.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		60A55DBB1C4847C6003269F3 /* anyselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A55DB31C4847C6003269F3 /* anyselect.png */; };
 		60A55DBC1C4847C6003269F3 /* anyselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A55DB41C4847C6003269F3 /* anyselect@2x.png */; };
 		60A55DBD1C4847C6003269F3 /* discrete.png in Resources */ = {isa = PBXBuildFile; fileRef = 60A55DB51C4847C6003269F3 /* discrete.png */; };
@@ -647,6 +649,30 @@
 		8D15AC310486D014006FF6A4 /* PoCoMyDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* PoCoMyDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		60A0A0972DEA98890079B103 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60A0A0892DEA98890079B103;
+			remoteInfo = qlpreview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		60A0A09A2DEA98890079B103 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				60A0A0992DEA98890079B103 /* qlpreview.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -1207,6 +1233,8 @@
 		60A090401A638F42008E510D /* skipalways.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skipalways.png; path = ../src/resource/icon/skipalways.png; sourceTree = SOURCE_ROOT; };
 		60A090411A638F42008E510D /* skipbinary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skipbinary.png; path = ../src/resource/icon/skipbinary.png; sourceTree = SOURCE_ROOT; };
 		60A090421A638F42008E510D /* skippattern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skippattern.png; path = ../src/resource/icon/skippattern.png; sourceTree = SOURCE_ROOT; };
+		60A0A08A2DEA98890079B103 /* qlpreview.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = qlpreview.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		60A0A08B2DEA98890079B103 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		60A55DB31C4847C6003269F3 /* anyselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anyselect.png; path = ../src/resource/icon/anyselect.png; sourceTree = "<group>"; };
 		60A55DB41C4847C6003269F3 /* anyselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "anyselect@2x.png"; path = "../src/resource/icon/anyselect@2x.png"; sourceTree = "<group>"; };
 		60A55DB51C4847C6003269F3 /* discrete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = discrete.png; path = ../src/resource/icon/discrete.png; sourceTree = "<group>"; };
@@ -1315,7 +1343,29 @@
 		8D15AC370486D014006FF6A4 /* PoCo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoCo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		60A0A09D2DEA98890079B103 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 60A0A0892DEA98890079B103 /* qlpreview */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		60A0A08D2DEA98890079B103 /* qlpreview */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (60A0A09D2DEA98890079B103 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = qlpreview; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		60A0A0872DEA98890079B103 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60A0A08C2DEA98890079B103 /* Quartz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC330486D014006FF6A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1985,6 +2035,7 @@
 			isa = PBXGroup;
 			children = (
 				8D15AC370486D014006FF6A4 /* PoCo.app */,
+				60A0A08A2DEA98890079B103 /* qlpreview.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1996,6 +2047,7 @@
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				60A0A08D2DEA98890079B103 /* qlpreview */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 			);
@@ -2150,6 +2202,7 @@
 			isa = PBXGroup;
 			children = (
 				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				60A0A08B2DEA98890079B103 /* Quartz.framework */,
 				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -2835,6 +2888,28 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		60A0A0892DEA98890079B103 /* qlpreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60A0A09E2DEA98890079B103 /* Build configuration list for PBXNativeTarget "qlpreview" */;
+			buildPhases = (
+				60A0A0862DEA98890079B103 /* Sources */,
+				60A0A0872DEA98890079B103 /* Frameworks */,
+				60A0A0882DEA98890079B103 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				60A0A08D2DEA98890079B103 /* qlpreview */,
+			);
+			name = qlpreview;
+			packageProductDependencies = (
+			);
+			productName = qlpreview;
+			productReference = 60A0A08A2DEA98890079B103 /* qlpreview.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8D15AC270486D014006FF6A4 /* PoCo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 605A273A0E1268B4002EE473 /* Build configuration list for PBXNativeTarget "PoCo" */;
@@ -2843,10 +2918,12 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
+				60A0A09A2DEA98890079B103 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				60A0A0982DEA98890079B103 /* PBXTargetDependency */,
 			);
 			name = PoCo;
 			productInstallPath = "$(HOME)/Applications";
@@ -2861,8 +2938,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					60A0A0892DEA98890079B103 = {
+						CreatedOnToolsVersion = 16.3;
+					};
 					8D15AC270486D014006FF6A4 = {
 						DevelopmentTeam = 33CW9T28T8;
 						ProvisioningStyle = Manual;
@@ -2888,11 +2969,19 @@
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* PoCo */,
+				60A0A0892DEA98890079B103 /* qlpreview */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		60A0A0882DEA98890079B103 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3023,6 +3112,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		60A0A0862DEA98890079B103 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D15AC300486D014006FF6A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3289,6 +3385,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		60A0A0982DEA98890079B103 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60A0A0892DEA98890079B103 /* qlpreview */;
+			targetProxy = 60A0A0972DEA98890079B103 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
@@ -3599,7 +3703,7 @@
 				INFOPLIST_FILE = "PoCo-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-lz.1";
@@ -3655,7 +3759,7 @@
 				INFOPLIST_FILE = "PoCo-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "";
-				MACOSX_DEPLOYMENT_TARGET = 11.5;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-lz.1";
 				PRODUCT_BUNDLE_IDENTIFIER = org.poco256.PoCo;
@@ -3670,6 +3774,170 @@
 				);
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		60A0A09B2DEA98890079B103 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = qlpreview/qlpreview.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 187;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 33CW9T28T8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = qlpreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = qlpreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.4.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.poco256.PoCo.qlpreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Development;
+		};
+		60A0A09C2DEA98890079B103 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = qlpreview/qlpreview.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 187;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = 33CW9T28T8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = qlpreview/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = qlpreview;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.4.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.poco256.PoCo.qlpreview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Deployment;
 		};
@@ -3690,6 +3958,15 @@
 			buildConfigurations = (
 				605A27360E1268B4002EE473 /* Development */,
 				605A27370E1268B4002EE473 /* Deployment */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Deployment;
+		};
+		60A0A09E2DEA98890079B103 /* Build configuration list for PBXNativeTarget "qlpreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60A0A09B2DEA98890079B103 /* Development */,
+				60A0A09C2DEA98890079B103 /* Deployment */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Deployment;
