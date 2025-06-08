@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧テーブル
+// PoCoLayerTableView.m
+// implementation of PoCoLayerTableView class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoLayerTableView.h"
@@ -43,6 +43,27 @@
 
 
 // ---------------------------------------------------------- instance - public
+//
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwaed to super class.
+    [super awakeFromNib];
+    
+    // override style.
+    [self setStyle:NSTableViewStylePlain];
+    
+    return;
+}
+
+
 //
 // 表示要求
 //
