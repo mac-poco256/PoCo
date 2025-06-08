@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	パレットウィンドウ管理部
+// PoCoPaletteWindow.h
+// declare interface of PoCoPaletteWindow class.
+// this class is to manage PoCoPalette Window.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -51,10 +52,10 @@
 -(id)init;
 
 // deallocate
--(void)dealloc;
+- (void)dealloc;
 
-// ウィンドウを読み込んだ
--(void)windowDidLoad;
+// window did load.
+- (void)windowDidLoad;
 
 // ウィンドウが閉じられる
 -(void)windowWillClose:(NSNotification *)note;
@@ -67,6 +68,9 @@
 
 // ウィンドウ拡縮
 -(BOOL)isDisclose;
+
+// receive notification of NSViewBoundsDidChangeNotification.
+- (void)boundsDidChangeNotification:(NSNotification *)note;
 
 // パネル内のパーツの処理関数
 -(IBAction)changeDisclose:(id)sender;   // ウィンドウ拡縮

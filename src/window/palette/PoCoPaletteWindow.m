@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	パレットウィンドウ管理部
+// PoCoPaletteWindow.h
+// implementation of PoCoPaletteWindow class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPaletteWindow.h"
@@ -99,7 +99,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
 
 //
-// deallocate
+// deallocate.
 //
 //  Call
 //    None
@@ -107,8 +107,11 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    docCntl_ : document controller(instance 変数)
 //
--(void)dealloc
+- (void)dealloc
 {
+    // unregister observer.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     // 資源を解放
     [self->docCntl_ release];
     self->docCntl_ = nil;
@@ -121,7 +124,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
 
 //
-// ウィンドウを読み込んだ
+// window did load.
 //
 //  Call
 //    mode_            : 色演算モード(outlet)
@@ -133,7 +136,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)windowDidLoad
+- (void)windowDidLoad
 {
     BOOL  stat;
     NSRect r = [[self window] frame];
@@ -168,6 +171,13 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
     // 慣性スクロール禁止
     [self->scroller_ setVerticalScrollElasticity:NSScrollElasticityNone];
+
+    // instruct to post norification, and register self as observer.
+    [[self->scroller_ contentView] setPostsBoundsChangedNotifications:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(boundsDidChangeNotification:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:[self->scroller_ contentView]];
 
     return;
 }
@@ -237,6 +247,24 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 -(BOOL)isDisclose
 {
     return [[NSUserDefaults standardUserDefaults] boolForKey:DISCLOSE_NAME];
+}
+
+
+//
+// receive notification of NSViewBoundsDidChangeNotification.
+//
+//  Call:
+//    note : notification.
+//
+//  Return:
+//    paletteInfoView_ : detail information view of palette.(outlet)
+//
+- (void)boundsDidChangeNotification:(NSNotification *)note
+{
+    // instruct self->paletteInfoView_ to redraw.
+    [self->paletteInfoView_ setNeedsDisplay:YES];
+
+    return;
 }
 
 
