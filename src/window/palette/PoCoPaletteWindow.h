@@ -1,7 +1,7 @@
 //
 // PoCoPaletteWindow.h
 // declare interface of PoCoPaletteWindow class.
-// this class is to manage PoCoPalette Window.
+// this class is to manage PoCoPaletteWindow.
 //
 // Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
