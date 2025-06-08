@@ -52,7 +52,7 @@
 -(id)init;
 
 // deallocate
--(void)dealloc;
+- (void)dealloc;
 
 // window did load.
 - (void)windowDidLoad;

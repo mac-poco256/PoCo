@@ -99,7 +99,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
 
 //
-// deallocate
+// deallocate.
 //
 //  Call
 //    None
@@ -107,8 +107,11 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    docCntl_ : document controller(instance 変数)
 //
--(void)dealloc
+- (void)dealloc
 {
+    // unregister observer.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     // 資源を解放
     [self->docCntl_ release];
     self->docCntl_ = nil;
