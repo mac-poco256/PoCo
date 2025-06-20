@@ -32,7 +32,7 @@
 
 
 //
-// minumum width.
+// minimum width.
 //
 //  Call:
 //    none.
@@ -87,7 +87,7 @@
 
 
 //
-// minumum width.
+// minimum width.
 //
 //  Call:
 //    none.
@@ -149,7 +149,7 @@
 
 
 //
-// minumum width.
+// minimum width.
 //
 //  Call:
 //    none.
@@ -215,7 +215,7 @@
 
 
 //
-// minumum width.
+// minimum width.
 //
 //  Call:
 //    none.
