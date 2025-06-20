@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧テーブルカラム
+// PoCoLayerTableColumn.h
+// declare interface of each table column classes.
+// these classes are to declare width of each table column.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -12,10 +13,10 @@
 {
 }
 
-// 大きさ
--(CGFloat)width;
--(CGFloat)minWidth;
--(CGFloat)maxWidth;
+// declare width.
+- (CGFloat)width;
+- (CGFloat)minWidth;
+- (CGFloat)maxWidth;
 
 @end
 
@@ -25,10 +26,10 @@
 {
 }
 
-// 大きさ
--(CGFloat)width;
--(CGFloat)minWidth;
--(CGFloat)maxWidth;
+// declare width.
+- (CGFloat)width;
+- (CGFloat)minWidth;
+- (CGFloat)maxWidth;
 
 @end
 
@@ -38,10 +39,10 @@
 {
 }
 
-// 大きさ
--(CGFloat)width;
--(CGFloat)minWidth;
--(CGFloat)maxWidth;
+// declare width.
+- (CGFloat)width;
+- (CGFloat)minWidth;
+- (CGFloat)maxWidth;
 
 @end
 
@@ -51,9 +52,9 @@
 {
 }
 
-// 大きさ
--(CGFloat)width;
--(CGFloat)minWidth;
--(CGFloat)maxWidth;
+// declare width.
+- (CGFloat)width;
+- (CGFloat)minWidth;
+- (CGFloat)maxWidth;
 
 @end
