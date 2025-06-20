@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧テーブルカラム
+// PoCoLayerTableColumn.h
+// implementation of PoCoLayerTableColumnXXX class.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoLayerTableColumn.h"
@@ -13,47 +13,49 @@
 // ============================================================================
 @implementation PoCoLayerTableColumnDisplay
 
-// ------------------------------------------------- instance - public - 大きさ
+// ----------------------------------------------------------------------------
+// instance - public - declare width.
+
 //
-// 幅
+// width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)width
+- (CGFloat)width
 {
-    return (CGFloat)(28);
+    return (CGFloat)(32);
 }
 
 
 //
-// 最小幅
+// minimum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)minWidth
+- (CGFloat)minWidth
 {
     return [self width];
 }
 
 
 //
-// 最大幅
+// maximum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)maxWidth
+- (CGFloat)maxWidth
 {
     return [self width];
 }
@@ -66,47 +68,49 @@
 // ============================================================================
 @implementation PoCoLayerTableColumnDrawLock
 
-// ------------------------------------------------- instance - public - 大きさ
+// ----------------------------------------------------------------------------
+// instance - public - declare width.
+
 //
-// 幅
+// width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)width
+- (CGFloat)width
 {
-    return (CGFloat)(28);
+    return (CGFloat)(32);
 }
 
 
 //
-// 最小幅
+// minimum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)minWidth
+- (CGFloat)minWidth
 {
     return [self width];
 }
 
 
 //
-// 最大幅
+// maximum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)maxWidth
+- (CGFloat)maxWidth
 {
     return [self width];
 }
@@ -119,23 +123,25 @@
 // ============================================================================
 @implementation PoCoLayerTableColumnPreview
 
-// ------------------------------------------------- instance - public - 大きさ
+// ----------------------------------------------------------------------------
+// instance - public - declare width.
+
 //
-// 幅
+// width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)width
+- (CGFloat)width
 {
     CGFloat w;
 
     w = (CGFloat)([[(PoCoAppController *)([NSApp delegate]) editInfo] previewSize] + 2);
-    if (w < (CGFloat)(62)) {
-        w = (CGFloat)(62);
+    if (w < (CGFloat)(66)) {
+        w = (CGFloat)(66);
     }
 
     return w;
@@ -143,30 +149,30 @@
 
 
 //
-// 最小幅
+// minimum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)minWidth
+- (CGFloat)minWidth
 {
     return [self width];
 }
 
 
 //
-// 最大幅
+// maximum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)maxWidth
+- (CGFloat)maxWidth
 {
     return [self width];
 }
@@ -179,17 +185,19 @@
 // ============================================================================
 @implementation PoCoLayerTableColumnName
 
-// ------------------------------------------------- instance - public - 大きさ
+// ----------------------------------------------------------------------------
+// instance - public - declare width.
+
 //
-// 幅
+// width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)width
+- (CGFloat)width
 {
     CGFloat w;
 
@@ -197,7 +205,7 @@
     w -= (CGFloat)(27);
     w -= [[[[self tableView] tableColumns] objectAtIndex:0] width];
     w -= [[[[self tableView] tableColumns] objectAtIndex:1] width];
-#if 0   // 種別は表示していないので
+#if 0   // because the type column is NOT visible, exclude from calculation.
     w -= [[[[self tableView] tableColumns] objectAtIndex:2] width];
 #endif  // 0
     w -= [[[[self tableView] tableColumns] objectAtIndex:3] width];
@@ -207,30 +215,30 @@
 
 
 //
-// 最小幅
+// minimum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)minWidth
+- (CGFloat)minWidth
 {
     return [self width];
 }
 
 
 //
-// 最大幅
+// maximum width.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 値
+//  Return:
+//    function : value.
 //
--(CGFloat)maxWidth
+- (CGFloat)maxWidth
 {
     return [self width];
 }
