@@ -1,8 +1,10 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	描画編集系 - 範囲選択
+// PoCoDrawSelection.h
+// declare interface of the drawing feature with selection shape.
+// (the drawing features are to link between UI and the edit controllers.
+//  this class focuses on selection shape.)
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoDrawBase.h"
@@ -23,28 +25,28 @@
     unsigned int modify_;               // 修飾キー
 }
 
-// initialize
+// initialise.
 -(id)initWithDoc:(MyDocument *)doc;
 
-// deallocate
+// deallocate.
 -(void)dealloc;
 
-// 範囲選択系
+// features with selection shape.
 -(void)pasteBitmap:(PoCoLayerBase *)lyr;// ペーストボードから貼り付け
 -(void)delete;                          // 削除
--(void)flipImage:(BOOL)hori;            // 画像反転
--(void)autoGrad:(int)size               // 自動グラデーション
-     isAdjacent:(BOOL)adj
-         matrix:(const BOOL *)mtx
-   withSizePair:(NSDictionary *)sizePair;
--(void)colorReplace:(const unsigned char *)mtx; // 色置換
--(void)texture:(NSArray *)base          // テクスチャ
-  withGradient:(NSArray *)grad;
+- (void)flipImage:(BOOL)hori;           // flip image.
+- (void)autoGrad:(int)size              // auto gradient.
+      isAdjacent:(BOOL)adj
+          matrix:(const BOOL *)mtx
+    withSizePair:(NSDictionary *)sizePair;
+- (void)colorReplace:(const unsigned char *)mtx; // replace color.
+- (void)texture:(NSArray *)base         // texture.
+   withGradient:(NSArray *)grad;
 -(void)selectAll;                       // 全選択
 -(void)selectClear;                     // 選択解除
 -(void)recreatePasteImage;              // 移動画像を再生成
 
-// 補助
+// assistance functions.
 -(void)updateCursorRect;                // Pointer 形状範囲更新
 -(void)drawGuideLine;                   // ガイドライン描画
 -(void)cancelEdit;                      // 編集状態解除
@@ -52,7 +54,7 @@
 -(PoCoBitmap *)originalShape;           // 変形前形状
 -(BOOL)canAutoScroll;                   // autoscroll 実行可否
 
-// イベント処理系
+// event handlers.
 -(void)mouseDown:(NSEvent *)evt;        // 主ボタンダウン
 -(void)mouseDrag:(NSEvent *)evt;        // 主ボタンドラッグ
 -(void)mouseUp:(NSEvent *)evt;          // 主ボタンリリース
