@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	編集系ライブラリ - ぼかし - 基底
+// PoCoEditWaterDropBase.h
+// implementation of PoCoEditWaterDropBase class.
 //
-//	Copyright (C) 2005-2017 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoEditWaterDropBase.h"
@@ -12,17 +12,19 @@
 // ============================================================================
 @implementation PoCoEditWaterDropBase
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
-// initialize
+// initialise.
 //
-//  Call
+//  Call:
 //    bmp   : 描画対象 bitmap
 //    cmode : 色演算モード
 //    plt   : 使用パレット
 //    buf   : 色保持情報
 //
-//  Return
+//  Return:
 //    function     : 実体
 //    srcBitmap_   : 描画元(複製)(instance 変数)
 //    dstBitmap_   : 描画先(instance 変数)
@@ -32,10 +34,10 @@
 //    colorBuffer_ : 色保持情報(instance 変数)
 //    rowBytes_    : row bytes(instance 変数)
 //
--(id)initWithBitmap:(PoCoBitmap *)bmp
-            colMode:(PoCoColorMode)cmode
-            palette:(PoCoPalette *)plt
-             buffer:(PoCoColorBuffer *)buf
+- (id)initWithBitmap:(PoCoBitmap *)bmp
+             colMode:(PoCoColorMode)cmode
+             palette:(PoCoPalette *)plt
+              buffer:(PoCoColorBuffer *)buf
 {
 //    DPRINT((@"[PoCoEditWaterDropBase initWithPattern]\n"));
 
@@ -82,19 +84,19 @@ EXIT:
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
+//  Return:
 //    srcBitmap_   : 描画元(複製)(instance 変数)
 //    dstBitmap_   : 描画先(instance 変数)
 //    cols_        : 色群(instance 変数)
 //    palette_     : 使用パレット(instance 変数)
 //    colorBuffer_ : 色保持情報(instance 変数)
 //
--(void)dealloc
+- (void)dealloc
 {
 //    DPRINT((@"[PoCoEditWaterDropBase dealloc]\n"));
 
@@ -119,9 +121,9 @@ EXIT:
 
 
 //
-// 色演算
+// calculate colour.
 //
-//  Call
+//  Call:
 //    p            : 描画中心
 //    dr           : 描画領域
 //    mask         : 形状(nil 許容)
@@ -133,12 +135,12 @@ EXIT:
 //    colorBuffer_ : 色保持情報(instance 変数)
 //    rowBytes_    : row bytes(instance 変数)
 //
-//  Return
+//  Return:
 //    dstBitmap_ : 描画先(instance 変数)
 //
--(void)calcColor:(PoCoPoint *)p
-    withDrawRect:(PoCoRect *)dr
-        withMask:(PoCoBitmap *)mask
+- (void)calcColor:(PoCoPoint *)p
+     withDrawRect:(PoCoRect *)dr
+         withMask:(PoCoBitmap *)mask
 {
     PoCoRect *r;
     unsigned char *sbmp;
@@ -153,6 +155,7 @@ EXIT:
     PoCoColor *c;
     unsigned char ch;
     PoCoColorMixerUnit *elm;
+    PoCoPoint *dp;
 
     r = nil;
 
@@ -186,7 +189,7 @@ EXIT:
         mrow = ([mask width] + ([mask width] & 1));
         mskip_x = 1;
         mskip_y = (mrow - [r width]);      
-        mbmp = ([mask pixelmap] + (([r top] * mrow) + [r left]));
+        mbmp = ([mask pixelmap] + ((([r top] - [dr top]) * mrow) + ([r left] - [dr left])));
     } else {
         mrow = 0;
         mskip_x = 0;
@@ -195,49 +198,58 @@ EXIT:
     }
 
     // 走査
+    dp = [[PoCoPoint alloc] initX:[r left] 
+                            initY:[r top]];
     y = [r height];
     do {
+        [dp setX:[r left]];
         x = [r width];
         do {
-            // 色を取得
-            c = [self->palette_ palette:*(sbmp)];
-            if ([c noDropper]) {
-                // 使用禁止は除外
-                ;
-            } else if ((mask != nil) &&
-                       (mbmp != NULL) &&
-                       (*(mbmp) == 0)) {
-                // 形状の範囲外も除外
-                ;
-            } else {
-                if (self->colMode_ == PoCoColorMode_RGB) {
-                    // RGB
-                    elm = [[PoCoColorMixerUnit alloc]
-                              initWithElement1:[c red]
-                                  withElement2:[c green]
-                                  withElement3:[c blue]];
+            // whether the drawing point is located within the drawing rectangle.
+            if ([dr isPointInRect:dp]) {
+                // 色を取得
+                c = [self->palette_ palette:*(sbmp)];
+                if ([c noDropper]) {
+                    // 使用禁止は除外
+                    ;
+                } else if ((mask != nil) &&
+                           (mbmp != NULL) &&
+                           (*(mbmp) == 0)) {
+                    // 形状の範囲外も除外
+                    ;
                 } else {
-                    // HLS
-                    elm = [[PoCoColorMixerUnit alloc]
-                              initWithElement1:[c hue]
-                                  withElement2:[c lightness]
-                                  withElement3:[c saturation]];
+                    if (self->colMode_ == PoCoColorMode_RGB) {
+                        // RGB
+                        elm = [[PoCoColorMixerUnit alloc]
+                                  initWithElement1:[c red]
+                                      withElement2:[c green]
+                                      withElement3:[c blue]];
+                    } else {
+                        // HLS
+                        elm = [[PoCoColorMixerUnit alloc]
+                                  initWithElement1:[c hue]
+                                      withElement2:[c lightness]
+                                      withElement3:[c saturation]];
+                    }
+                    [self->cols_ addObject:elm];
+                    [elm release];
                 }
-                [self->cols_ addObject:elm];
-                [elm release];
             }
 
             // 次へ
+            [dp moveX:1];
             (x)--;
             (sbmp)++;
             mbmp += mskip_x;
         } while (x != 0);
 
         // 次へ
+        [dp moveY:1];
         (y)--;
         sbmp += sskip;
         mbmp += mskip_y;
     } while (y != 0);
+    [dp release];
 
     // 色を算出、描画
     if (self->colMode_ == PoCoColorMode_RGB) {
