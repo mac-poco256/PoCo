@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン編集領域
+// PoCoMonochromePatternEditView.h
+// declare interface of view for monochrome pattern editor.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -36,6 +36,9 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
+
+// set the clips to bound property (always return YES).
+- (BOOL)clipsToBounds;
 
 // マウスイベント処理
 -(void)mouseDown:(NSEvent *)evt;

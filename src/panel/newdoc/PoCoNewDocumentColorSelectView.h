@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	新規画像色選択領域
+// PoCoNewDocumentColorSelectView.h
+// declare interface of the colour list view for new document panel.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -25,6 +25,9 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
+
+// set the clips to bound property (always return YES).
+- (BOOL)clipsToBounds;
 
 // 表示要求
 -(void)drawRect:(NSRect)rect;

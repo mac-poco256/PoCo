@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	全パレット表示部
+// PoCoPaletteView.m
+// implementation of PoCoPaletteView class.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPaletteView.h"
@@ -22,7 +22,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 // ============================================================================
 @implementation PoCoPaletteView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // observer を登録
 //
@@ -177,7 +179,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -427,6 +431,21 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 
 
 //
+// set the clips to bound property (always return YES).
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : YES (always).
+//
+- (BOOL)clipsToBounds
+{
+    return YES;
+}
+
+
+//
 // 1色分の描画
 //
 //  Call
@@ -555,7 +574,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// -------------------------- PoCoPaletteView 内 instance 関数 - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers (especially pointing device).
+
 //
 // ボタンダウンイベントの受け入れ可否
 //
@@ -633,7 +654,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ----------------------------------- instance - public - 色詳細設定シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the detailed colour attribute setting sheets.
+
 //
 // 色詳細設定シートを開ける
 //
@@ -762,7 +785,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - for IBActions.
+
 //
 // マスク
 //

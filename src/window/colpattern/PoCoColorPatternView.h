@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	カラーパターン管理部
+// PoCoColorPatternView.h
+// declare interface of colour pattern list view.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -26,6 +26,9 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
+
+// set the clips to bound property (always return YES).
+- (BOOL)clipsToBounds;
 
 // 表示要求
 -(void)drawRect:(NSRect)rect;
