@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン編集領域
+// PoCoMonochromePatternEditView.m
+// implementation of PoCoMonochromePatternEditView class.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoMonochromePatternEditView.h"
@@ -16,7 +16,9 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 // ============================================================================
 @implementation PoCoMonochromePatternEditView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 正規化された座標へ変換
 //
@@ -94,7 +96,9 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -279,7 +283,24 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 }
 
 
-// --------------------------------- instance - public - マウスイベント処理関連
+//
+// set the clips to bound property (always return YES).
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : YES (always).
+//
+- (BOOL)clipsToBounds
+{
+    return YES;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public - event handlers (especially pointing device).
+
 //
 // ボタンダウン処理
 //

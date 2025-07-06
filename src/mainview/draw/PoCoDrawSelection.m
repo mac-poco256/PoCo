@@ -3,6 +3,7 @@
 // implementation of PoCoDrawSelection class.
 //
 // Copyright (C) 2005-2025 KAENRYUU Koutoku.
+//
 
 #import "PoCoDrawSelection.h"
 

@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	全パレット表示部
+// PoCoPaletteView.h
+// declare interface of palette list view on palette window.
+// and this class manages some control items on palette window.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -60,6 +61,9 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
+
+// set the clips to bound property (always return YES).
+- (BOOL)clipsToBounds;
 
 // 1色分の描画
 -(void)drawColor:(int)num

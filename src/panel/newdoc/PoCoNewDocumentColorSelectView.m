@@ -1,9 +1,10 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	新規画像色選択領域
+// PoCoNewDocumentColorSelectView.m
+// implementation of PoCoNewDocumentColorSelectView class.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
+
 
 #import "PoCoNewDocumentColorSelectView.h"
 
@@ -16,7 +17,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 // ============================================================================
 @implementation PoCoNewDocumentColorSelectView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 正規化された座標へ変換
 //
@@ -113,7 +116,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ---------------------------- PoCoNewDocumentColorSelectView 内 instance 関数
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -179,6 +184,21 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //    function : YES
 //
 -(BOOL)isFlipped
+{
+    return YES;
+}
+
+
+//
+// set the clips to bound property (always return YES).
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : YES (always).
+//
+- (BOOL)clipsToBounds
 {
     return YES;
 }
@@ -279,7 +299,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers (especially pointing device).
+
 //
 // ボタンダウン処理
 //
