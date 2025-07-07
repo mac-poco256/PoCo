@@ -54,7 +54,7 @@
 //
 - (void)awakeFromNib
 {
-    // forwaed to super class.
+    // forwarded to super class.
     [super awakeFromNib];
     
     // override style.

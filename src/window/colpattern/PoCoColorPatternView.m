@@ -264,7 +264,7 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 //
 - (void)awakeFromNib
 {
-    // forwaed to super class.
+    // forwarded to super class.
     [super awakeFromNib];
 
     // set property.

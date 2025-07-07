@@ -407,7 +407,7 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 //
 - (void)awakeFromNib
 {
-    // forwaed to super class.
+    // forwarded to super class.
     [super awakeFromNib];
 
     // set property.

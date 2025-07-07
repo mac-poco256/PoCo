@@ -170,7 +170,7 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 //
 - (void)awakeFromNib
 {
-    // forwaed to super class.
+    // forwarded to super class.
     [super awakeFromNib];
 
     // set property.
