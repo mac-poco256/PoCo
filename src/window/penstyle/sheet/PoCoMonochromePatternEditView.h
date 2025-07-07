@@ -25,6 +25,9 @@
 // deallocate
 -(void)dealloc;
 
+// awake from nib.
+- (void)awakeFromNib;
+
 // パターンを取得
 -(PoCoMonochromePattern *)pattern;
 
@@ -36,9 +39,6 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
-
-// set the clips to bound property (always return YES).
-- (BOOL)clipsToBounds;
 
 // マウスイベント処理
 -(void)mouseDown:(NSEvent *)evt;

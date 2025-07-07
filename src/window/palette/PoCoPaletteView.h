@@ -48,8 +48,8 @@
 // deallocate
 -(void)dealloc;
 
-// nib が読み込まれた
--(void)awakeFromNib;
+// awake from nib.
+- (void)awakeFromNib;
 
 // observer
 -(void)changePicture:(NSNotification *)note;  // 表示画像を切り替え
@@ -61,9 +61,6 @@
 
 // 座標系を反転
 -(BOOL)isFlipped;
-
-// set the clips to bound property (always return YES).
-- (BOOL)clipsToBounds;
 
 // 1色分の描画
 -(void)drawColor:(int)num

@@ -254,6 +254,27 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 
 
 //
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwarded to super class.
+    [super awakeFromNib];
+
+    // set property.
+    [self setClipsToBounds:YES];
+    
+    return;
+}
+
+
+//
 // 座標系を反転
 //
 //  Call
@@ -263,21 +284,6 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 //    function : YES
 //
 -(BOOL)isFlipped
-{
-    return YES;
-}
-
-
-//
-// set the clips to bound property (always return YES).
-//
-//  Call:
-//    none.
-//
-//  Return:
-//    function : YES (always).
-//
-- (BOOL)clipsToBounds
 {
     return YES;
 }

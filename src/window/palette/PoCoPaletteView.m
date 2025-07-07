@@ -241,22 +241,28 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 
 
 //
-// nib が読み込まれた
+// awake from nib.
 //
-//  Call
+//  Call:
 //    attributeMask_        : マスク(outlet)
 //    attributeDropper_     : 吸い取り禁止(outlet)
 //    attributeTransparent_ : 透明(outlet)
 //
-//  Return
+//  Return:
 //    attributesRect_[] : 補助属性の初期位置(instance 変数)
 //
--(void)awakeFromNib
+- (void)awakeFromNib
 {
-    // 初期位置を記憶
+    // forwarded to super class.
+    [super awakeFromNib];
+
+    // store initial positions.
     self->attributesRect_[0] = [self->attributeMask_ frame];
     self->attributesRect_[1] = [self->attributeDropper_ frame];
     self->attributesRect_[2] = [self->attributeTransparent_ frame];
+
+    // set property.
+    [self setClipsToBounds:YES];
 
     return;
 }
@@ -425,21 +431,6 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //    function : YES
 // 
 -(BOOL)isFlipped
-{
-    return YES;
-}
-
-
-//
-// set the clips to bound property (always return YES).
-//
-//  Call:
-//    none.
-//
-//  Return:
-//    function : YES (always).
-//
-- (BOOL)clipsToBounds
 {
     return YES;
 }
