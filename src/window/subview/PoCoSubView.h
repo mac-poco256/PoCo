@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	PoCoSubView class
+// PoCoSubView.h
+// declare interface of the view on the sub-view window.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -32,6 +32,9 @@
 
 // deallocate
 -(void)dealloc;
+
+// awake from nib.
+- (void)awakeFromNib;
 
 // observer
 -(void)changePicture:(NSNotification *)note;      // 表示画像を切り替え

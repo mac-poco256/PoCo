@@ -160,6 +160,27 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 
 
 //
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwaed to super class.
+    [super awakeFromNib];
+
+    // set property.
+    [self setClipsToBounds:YES];
+    
+    return;
+}
+
+
+//
 // パターンを取得
 //
 //  Call
@@ -278,21 +299,6 @@ static unsigned int PIX_SIZE = 8;       // 1pixel の占める領域(dot 単位)
 //    function : YES
 //
 -(BOOL)isFlipped
-{
-    return YES;
-}
-
-
-//
-// set the clips to bound property (always return YES).
-//
-//  Call:
-//    none.
-//
-//  Return:
-//    function : YES (always).
-//
-- (BOOL)clipsToBounds
 {
     return YES;
 }

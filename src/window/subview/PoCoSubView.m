@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	PoCoSubView class
+// PoCoSubView.m
+// implementation of PoCoSubView class.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoSubView.h"
@@ -25,7 +25,9 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 // ============================================================================
 @implementation PoCoSubView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // observer を登録
 //
@@ -290,7 +292,9 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 
 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // responsive scroll
 //
@@ -307,7 +311,9 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 #endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -386,6 +392,27 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
     // super class の解放
     [super dealloc];
 
+    return;
+}
+
+
+//
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwaed to super class.
+    [super awakeFromNib];
+
+    // set property.
+    [self setClipsToBounds:YES];
+    
     return;
 }
 
@@ -681,7 +708,9 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // ボタンダウンイベントの受け入れ可否
 //
@@ -843,7 +872,9 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - IBActions.
+
 //
 // 倍率の slider の管理
 //
