@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	PoCoView class
+// PoCoView.m
+// implementation of PoCoView class.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoView.h"
@@ -698,13 +698,13 @@ static const int ZOOM_FACTOR[] = {      // 表示倍率テーブル(0.1%単位)
             result = NO;
         }
     } else if ([menu action] == @selector(colorAttributeMask:)) {
-        [menu setState:(([col isMask]) ? NSOnState : NSOffState)];
+        [menu setState:(([col isMask]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorAttribueDropper:)) {
-        [menu setState:(([col noDropper]) ? NSOnState : NSOffState)];
+        [menu setState:(([col noDropper]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorAttribueTransparent:)) {
-        [menu setState:(([col isTrans]) ? NSOnState : NSOffState)];
+        [menu setState:(([col isTrans]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(useUnderLayer:)) {
-        [menu setState:(([self->editInfo_ useUnderPattern]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ useUnderPattern]) ? NSControlStateValueOn : NSControlStateValueOff)];
     }
 
     return result;
