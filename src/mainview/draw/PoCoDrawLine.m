@@ -262,8 +262,8 @@
     if ([super isNotEditLayer]) {
         // 編集禁止レイヤー
         ;
-    } else if ((([evt modifierFlags] & NSCommandKeyMask) != 0x00) &&
-               (([evt modifierFlags] & NSControlKeyMask) != 0x00)) {
+    } else if ((([evt modifierFlags] & NSEventModifierFlagCommand) != 0x00) &&
+               (([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)) {
         // Command + Control はスポイトとする
         [self drawGuideLine];           // ガイドライン消去
         [super dropper];
@@ -280,7 +280,7 @@
 
         // 取り消し開始
         [super beginUndo:NO];
-    } else if ((([evt modifierFlags] & NSCommandKeyMask) != 0x00) &&
+    } else if ((([evt modifierFlags] & NSEventModifierFlagCommand) != 0x00) &&
                ([evt clickCount] <= 1)) {
         // 直線群
 

@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	選択範囲管理
+// PoCoSelectionShape.h
+// declare interface of implementation for selection shape features.
 //
-//	Copyright (C) 2005-2017 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Foundation/Foundation.h>

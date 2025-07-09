@@ -1713,7 +1713,7 @@ EXIT:
 //    DPRINT((@"\nenter : %s\npointingDeviceType : %d\nPointingDeviceID : %d\n", [evt isEnteringProximity] ? "YES" : "NO", [evt pointingDeviceType], [evt pointingDeviceID]));
 
     if ([self->editInfo_ enableEraser]) {
-        [self->editInfo_ setEraserType:([evt pointingDeviceType] == NSEraserPointingDevice)];
+        [self->editInfo_ setEraserType:([evt pointingDeviceType] == NSPointingDeviceTypeEraser)];
     }
 
     return;
@@ -1751,7 +1751,7 @@ EXIT:
         // すでに描画中
         ;
     } else if (!(self->isSpaceMode_)) {
-        self->isAltMode_ = ((([evt modifierFlags] & NSCommandKeyMask) == 0) && (([evt modifierFlags] & NSAlternateKeyMask) != 0));
+        self->isAltMode_ = ((([evt modifierFlags] & NSEventModifierFlagCommand) == 0) && (([evt modifierFlags] & NSEventModifierFlagOption) != 0));
     }
 
     // 操作実行
@@ -2057,7 +2057,7 @@ EXIT:
 {
     int num;
 
-    if ([evt modifierFlags] & NSControlKeyMask) {
+    if ([evt modifierFlags] & NSEventModifierFlagControl) {
         // 表示倍率変更
         if (((int)([evt deltaX]) == 0) &&
             ((int)([evt deltaY]) == 0) &&

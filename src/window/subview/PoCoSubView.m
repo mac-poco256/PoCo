@@ -815,7 +815,7 @@ static const NSRect EMPTY_RECT = {{0.0, 0.0}, {0.0, 0.0}}; // 空領域
 {
     int num;
 
-    if ([evt modifierFlags] & NSControlKeyMask) {
+    if ([evt modifierFlags] & NSEventModifierFlagControl) {
         // 表示倍率変更   
         if (((int)([evt deltaX]) < 0) || ((int)([evt deltaY]) < 0)) {
             num = (self->zfactNum_ - 1);

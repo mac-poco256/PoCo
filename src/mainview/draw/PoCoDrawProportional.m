@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	描画編集系 - 筆圧比例自由曲線
+// PoCoDrawProportional.m
+// implementation of proportional free line classes.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoDrawProportional.h"
@@ -16,7 +16,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineBase
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -84,7 +86,9 @@
 }
 
 
-// --------------------------------------------------- instance - public - 補助
+// ----------------------------------------------------------------------------
+// instance - public - supplementaries.
+
 //
 // autoscroll 実行可否
 //
@@ -101,7 +105,9 @@
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers.
+
 //
 // 主ボタンダウン
 //
@@ -123,8 +129,8 @@
     } else {
         // shift+ctrl 押し下時は一時的に消しゴム状態とする
         self->prevEraser_ = [self->editInfo_ eraserType];
-        if ((([evt modifierFlags] & NSShiftKeyMask) != 0x00) &&
-            (([evt modifierFlags] & NSControlKeyMask) != 0x00)) {
+        if ((([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) &&
+            (([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)) {
             [self->editInfo_ setEraserType:YES];
         }
 
@@ -264,7 +270,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineNormal
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -304,7 +312,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineUniformedDensity
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -344,7 +354,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineDensity
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -384,7 +396,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineAtomizer
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -424,7 +438,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineGradation
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -464,7 +480,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineRandom
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
@@ -504,7 +522,9 @@
 // ============================================================================
 @implementation PoCoDrawProportionalFreeLineWaterDrop
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // 描画実行
 //
