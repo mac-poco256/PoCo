@@ -1,8 +1,10 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	描画編集系 - 自由曲線
+// PoCoDrawFreeLine.h
+// declare interface of the drawing features with relation to the free line.
+// (the drawing features are to link between UI and the edit controllers.
+//  these classes focuse on the free line.)
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoDrawBase.h"

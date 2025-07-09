@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	Application 管理部
+// PoCoAppController.m
+// implementation of PoCoAppController class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoAppController.h"
@@ -543,49 +543,49 @@ EXIT:
     result = YES;
 
     if ([menu action] == @selector(showSubViewWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:SUBVIEW_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:SUBVIEW_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showPaletteWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PALETTE_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PALETTE_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showPenStyleWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PENSTYLE_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PENSTYLE_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showLayerWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:LAYER_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:LAYER_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showInformationWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:INFORMATION_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:INFORMATION_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showToolbarWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:TOOLBAR_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:TOOLBAR_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showColorPatternWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:COLORPATTERN_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:COLORPATTERN_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeFunction:)) {
-        [menu setState:(((int)([self->editInfo_ drawModeType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ drawModeType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeDrawing:)) {
-        [menu setState:(((int)([self->editInfo_ penStyleType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ penStyleType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(continuesLine:)) {
-        [menu setState:(([self->editInfo_ continuationType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ continuationType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(flipPattern:)) {
-        [menu setState:(([self->editInfo_ flipType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ flipType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(useHandle:)) {
-        [menu setState:(([self->editInfo_ useHandle]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ useHandle]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changePointMove:)) {
-        [menu setState:(((int)([self->editInfo_ pointModeType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ pointModeType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changePenSizeProp:)) {
-        [menu setState:(((int)([self->editInfo_ sizePropType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ sizePropType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeDensityProp:)) {
-        [menu setState:(((int)([self->editInfo_ densityPropType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ densityPropType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(normalTone:)) {
-        [menu setState:(([self->editInfo_ atomizerType]) ? NSOffState : NSOnState)];
+        [menu setState:(([self->editInfo_ atomizerType]) ? NSControlStateValueOff : NSControlStateValueOn)];
     } else if ([menu action] == @selector(halfTone:)) {
-        [menu setState:(([self->editInfo_ atomizerType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ atomizerType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeAtomizerSkip:)) {
-        [menu setState:(((int)([self->editInfo_ atomizerSkip]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ atomizerSkip]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorMixingRGB:)) {
-        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_RGB) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_RGB) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorMixingHLS:)) {
-        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_HLS) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_HLS) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(lockPalette:)) {
-        [menu setState:(([self->editInfo_ lockPalette]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ lockPalette]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(paletteDisclose:)) {
-        [menu setState:(([self->paletteWindow_ isDisclose]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->paletteWindow_ isDisclose]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(registerColorPattern:)) {
         result = (!([[self->editInfo_ selRect] empty]));
     }

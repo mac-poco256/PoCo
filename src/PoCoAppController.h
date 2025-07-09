@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	Application 管理部
+// PoCoAppController.h
+// declare interface of application controller.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Foundation/Foundation.h>

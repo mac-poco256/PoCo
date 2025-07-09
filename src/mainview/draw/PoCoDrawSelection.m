@@ -889,7 +889,7 @@ KEY_MOVE:
             [view addCursorRect:[view toDispRect:r]
                          cursor:[NSCursor closedHandCursor]];
             [r release];
-        } else if (([NSEvent modifierFlags] & NSCommandKeyMask) != 0x00) {
+        } else if (([NSEvent modifierFlags] & NSEventModifierFlagCommand) != 0x00) {
             // 塗り選択中は形状を変えない
             ;
         } else {
@@ -1281,33 +1281,33 @@ KEY_MOVE:
         // 編集禁止レイヤー
         ;
     } else {
-        if (([evt modifierFlags] & NSCommandKeyMask) != 0x00) {
+        if (([evt modifierFlags] & NSEventModifierFlagCommand) != 0x00) {
             // 塗り選択
             self->isPaint_ = YES;
             if (self->shape_ != nil) {
                 // ガイドライン消去
                 [self drawGuideLine];
             }
-            if ((([evt modifierFlags] & NSShiftKeyMask) != 0x00) &&
+            if ((([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) &&
                 ([self->shape_ resultRect] != nil) &&
                 (!([[self->shape_ resultRect] empty]))) {
                 // 結合
                 [self->shape_ seedJoin:[self->editInfo_ pdPos]
                                 bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                              isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                              isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                             colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
-            } else if (([evt modifierFlags] & NSAlternateKeyMask) != 0x00) {
+            } else if (([evt modifierFlags] & NSEventModifierFlagOption) != 0x00) {
                 // 分離
                 [self->shape_ seedSeparate:[self->editInfo_ pdPos]
                                     bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                                  isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                                  isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                                 colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
             } else {
                 // 範囲生成開始
                 [self initSelectionShape];
                 [self->shape_ seedNew:[self->editInfo_ pdPos]
                                bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                             isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                             isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                            colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
             }
         } else if ([self->shape_ startTrans:[self->editInfo_ pdPos]
@@ -1550,7 +1550,7 @@ KEY_MOVE:
                 // 編集実行
                 [self exec:edit_withHandle
                     isCopy:((self->isCopy_) ||
-                            (([evt modifierFlags] & NSControlKeyMask) != 0x00))];
+                            (([evt modifierFlags] & NSEventModifierFlagControl) != 0x00))];
 
                 // 取り消し終了(取り消し群にする)
                 [super endUndo:YES];
@@ -1642,12 +1642,12 @@ KEY_MOVE:
             [self delete];
         } else {
             // 移動
-            if (([evt modifierFlags] & NSAlternateKeyMask) != 0x00) {
+            if (([evt modifierFlags] & NSEventModifierFlagOption) != 0x00) {
                 gap = 1;
             } else {
                 gap = MAX(1, [[self->document_ view] handleRectGap]);
             }
-            if (([evt modifierFlags] & NSShiftKeyMask) != 0x00) {
+            if (([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) {
                 gap *= 5;
             }
             cp = [[self->shape_ originalHandle:PoCoHandleType_center] lefttop];
@@ -1699,7 +1699,7 @@ KEY_MOVE:
                             isLiveUpdateResult:NO];
                     [self->shape_ endTrans];
                     [self exec:edit_key_move
-                        isCopy:(([evt modifierFlags] & NSControlKeyMask) != 0x00)];
+                        isCopy:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)];
                     [super endUndo:NO];     // 取り消し終了
 
                     // 選択範囲更新

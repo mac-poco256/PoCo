@@ -268,7 +268,7 @@
     PoCoLayerOperate *oprt = (PoCoLayerOperate *)([self delegate]);
     const int targetRow = [oprt targetRowInTableView:self];
     const BOOL isCopy = ((self->isRightDown_) ||
-                         (([evt modifierFlags] & NSControlKeyMask) != 0));
+                         (([evt modifierFlags] & NSEventModifierFlagControl) != 0));
 
     if (self->isMoving_) {
         [oprt tableView:self setTargetRow:-1];

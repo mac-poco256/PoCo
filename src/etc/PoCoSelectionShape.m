@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	選択範囲管理
+// PoCoSelectionShape.m
+// implementation of PoCoSelectionShape class.
 //
-//	Copyright (C) 2005-2017 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoSelectionShape.h"
@@ -883,7 +883,7 @@
         [self clearResult];
 
         // 方向束縛
-        if (([evt modifierFlags] & NSShiftKeyMask) != 0x00) {
+        if (([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) {
             // 移動方向
             if (self->modify_ == PoCoModifierType_move_hori) {
                 // 水平移動を維持
@@ -982,7 +982,7 @@
 
     if ([self isCornerHandle]) {
         // 方向束縛
-        if (([evt modifierFlags] & NSShiftKeyMask) != 0x00) {
+        if (([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) {
             if ((self->modify_ == PoCoModifierType_resize_similer_hori) ||
                 (self->modify_ == PoCoModifierType_resize_similer_vert)) {
                 // 相似変形を維持
@@ -1196,7 +1196,7 @@
 
     if ([self isEdgeHandle]) {
         // 方向束縛
-        if (([evt modifierFlags] & NSShiftKeyMask) != 0x00) {
+        if (([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) {
             // 角度
             self->modify_ = PoCoModifierType_rotate;
         } else {
