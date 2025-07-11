@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 // ----------------------------------------------------------------------------
-@interface PoCoLayerTableView : NSTableView
+@interface PoCoLayerTableView : NSTableView <NSMenuItemValidation>
 {
     BOOL isMoving_;                     // YES : 移動操作    NO : 通常操作
     BOOL isRightDown_;                  // 副ボタン押し下

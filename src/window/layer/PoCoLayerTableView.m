@@ -128,11 +128,11 @@
 -(BOOL)validateMenuItem:(NSMenuItem *)menu
 {
     BOOL result;
+    
+    result = YES;
 
     if ([menu action] == @selector(selectAll:)) {
         result = ((PoCoView *)([(MyDocument *)([[NSDocumentController sharedDocumentController] currentDocument]) view]) != nil);
-    } else {
-        result = [super validateMenuItem:menu];
     }
 
     return result;
