@@ -378,7 +378,7 @@ static const int ZOOM_FACTOR[] = {      // 表示倍率テーブル(0.1%単位)
 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6)
         // touch event を受け取る
-        [self setAcceptsTouchEvents:YES];
+        [self setAllowedTouchTypes:(NSTouchTypeMaskDirect | NSTouchTypeMaskIndirect)];
         [self setWantsRestingTouches:YES];
 #endif  // MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
     }
