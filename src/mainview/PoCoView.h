@@ -15,7 +15,7 @@
 @class PoCoDrawBase;
 
 // ----------------------------------------------------------------------------
-@interface PoCoView : NSView
+@interface PoCoView : NSView <NSMenuItemValidation>
 {
     IBOutlet NSSlider *slider_;         // 倍率の slider
     IBOutlet MyDocument *document_;     // 編集対象の元締め

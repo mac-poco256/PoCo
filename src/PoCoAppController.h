@@ -28,7 +28,8 @@
 @class PoCoTileSteadyPattern;
 
 // ----------------------------------------------------------------------------
-@interface PoCoAppController : NSObject {
+@interface PoCoAppController : NSObject <NSMenuItemValidation>
+{
     BOOL willFinish_;                   // 終了処理中か
 
     // 各補助・設定パネルの管理用 instance 変数
