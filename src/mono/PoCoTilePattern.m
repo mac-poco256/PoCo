@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン管理部
+// PoCoTilePattern.m
+// implementation of classes to management tile patterns.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoTilePattern.h"
@@ -41,7 +41,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoTilePattern
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -77,7 +79,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -209,7 +213,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoTileSteadyPattern
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -228,7 +234,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //

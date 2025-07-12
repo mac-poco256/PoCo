@@ -1,20 +1,23 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン定義
+// PoCoMonochromePattern.h
+// declare interface of base classes for monochrome pattern.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
-// 主にペン先・タイルパターンで使用する
-// 1dot = 1byte で表現されるが、alpha channel の意図は持っていない
-// (単に mask の判定で、bit field の扱いを省くための措置)
+// the monochrome pattern is used by pen style and tile pattern.
+// monochrome pattern is represented by 1 byte per 1 pixel.
+// but this is not intended that have alpha channel.
+// (rather, this is to reduce bit field computation.)
 //
 
 #import <Cocoa/Cocoa.h>
 
-// 参照 class の宣言
+// declare prtotypes of class.
 @class PoCoBitmap;
 
 // ----------------------------------------------------------------------------
+// declare PoCoMonochromePattern that represents base class of the monochrome pattern.
+
 @interface PoCoMonochromePattern : NSObject <NSCoding>
 {
     unsigned int width_;                // 幅(dot 単位)
@@ -60,7 +63,8 @@
 
 
 // ----------------------------------------------------------------------------
-// ペン先/タイルパターン管理部の基底(共通 interface の定義)
+// declare PoCoMonochromePatternConatainerBase that represents base class of the monochrome pattern container.
+
 @interface PoCoMonochromePatternContainerBase : NSObject
 {
 }

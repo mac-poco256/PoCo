@@ -1,13 +1,15 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン管理部
+// PoCoTilePattern.h
+// declare interface of classes to management tile patterns.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoMonochromePattern.h"
 
 // ----------------------------------------------------------------------------
+// declare mutable tile pattern container.
+
 @interface PoCoTilePattern : PoCoMonochromePatternContainerBase
 {
     PoCoMonochromePattern *pattern_[TILE_PATTERN_NUM];
@@ -33,6 +35,8 @@
 
 
 // ----------------------------------------------------------------------------
+// declare immutable tile pattern container.
+
 @interface PoCoTileSteadyPattern : PoCoMonochromePatternContainerBase
 {
     PoCoMonochromePattern *pattern_[TILE_PATTERN_NUM];

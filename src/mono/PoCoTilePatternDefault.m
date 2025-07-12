@@ -1,13 +1,15 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン初期値
+// PoCoPenStyleDefault.m
+// implementation of the default tile patterns.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoTilePatternDefault.h"
 
-// ------------------------------------------------------- 各タイルパターン定義
+// ----------------------------------------------------------------------------
+// declare each tile pattern.
+
 PoCoTilePatternDefaultType PoCoTilePatternDefault[TILE_PATTERN_NUM] = {
 // 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f   // pat 0
 {{ 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,  // 0
@@ -118,7 +120,7 @@ PoCoTilePatternDefaultType PoCoTilePatternDefault[TILE_PATTERN_NUM] = {
    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}},// f
 
 // 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f   // pat 6
-#if 0   // 旧仕様（標準パターンから補間関係にある部分を埋める）
+#if 0   // old (complement to default pattern.)
 {{ 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0,  // 0
    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // 1
    1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,  // 2
@@ -135,7 +137,7 @@ PoCoTilePatternDefaultType PoCoTilePatternDefault[TILE_PATTERN_NUM] = {
    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // d
    1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,  // e
    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}},// f
-#else   // 0 // 新仕様（標準パターンから右1dotシフト）
+#else   // 0  // new (shift 1 dot from default pattern.)
 {{ 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1,  // 0
    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  // 1
    1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0,  // 2
@@ -281,7 +283,7 @@ PoCoTilePatternDefaultType PoCoTilePatternDefault[TILE_PATTERN_NUM] = {
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}},// f
 
 // 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f   // pat e
-#if 0   // 旧仕様（標準パターンから補間関係にある部分を埋める）
+#if 0   // old (complement to default pattern.)
 {{ 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1,  // 0
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // 1
    0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,  // 2
@@ -298,7 +300,7 @@ PoCoTilePatternDefaultType PoCoTilePatternDefault[TILE_PATTERN_NUM] = {
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // d
    0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,  // e
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}},// f
-#else   // 0 // 新仕様（標準パターンから右1dotシフト）
+#else   // 0  // new (shift 1 dot from default pattern.)
 {{ 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,  // 0
    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // 1
    0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1,  // 2
