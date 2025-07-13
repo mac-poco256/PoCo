@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン管理部
+// PoCoTilePattern.m
+// implementation of classes to management tile patterns.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoTilePattern.h"
@@ -41,7 +41,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoTilePattern
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -65,7 +67,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         pat = [[PoCoMonochromePattern alloc] init];
         setPattern(pat, l);
-        [dic setObject:[NSArchiver archivedDataWithRootObject:pat]
+        [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:pat
+                                             requiringSecureCoding:YES
+                                                             error:nil]
                 forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
         [pat release];
     }
@@ -77,7 +81,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -107,9 +113,11 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
         // ペン先の読み込み
         def = [NSUserDefaults standardUserDefaults];
         for (l = 0; l < TILE_PATTERN_NUM; (l)++) {
-            self->pattern_[l] = [NSUnarchiver unarchiveObjectWithData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]];
+            self->pattern_[l] = [NSKeyedUnarchiver unarchivedObjectOfClass:[PoCoMonochromePattern class]
+                                                                  fromData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]
+                                                                     error:nil];
             if (self->pattern_[l] == nil) {
-                DPRINT((@"can't create penstyle : %d\n", l));
+                DPRINT((@"can't create tile pattern : %d\n", l));
                 [self release];
                 self = nil;
                 break;
@@ -194,7 +202,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
         // 設定を更新
         [[NSUserDefaults standardUserDefaults]
-            setObject:[NSArchiver archivedDataWithRootObject:self->pattern_[index]]
+            setObject:[NSKeyedArchiver archivedDataWithRootObject:self->pattern_[index]
+                                            requiringSecureCoding:YES
+                                                            error:nil]
                forKey:[NSString stringWithFormat:PATTERN_NAME, index]];
     }
 
@@ -209,7 +219,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoTileSteadyPattern
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -228,7 +240,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //

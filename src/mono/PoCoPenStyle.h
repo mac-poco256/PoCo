@@ -1,13 +1,15 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先管理部
+// PoCoPenStyle.h
+// declare interface of classes to management pen styles.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoMonochromePattern.h"
 
 // ----------------------------------------------------------------------------
+// declare mutable pen style container.
+
 @interface PoCoPenStyle : PoCoMonochromePatternContainerBase
 {
     PoCoMonochromePattern *pattern_[PEN_STYLE_NUM];
@@ -33,7 +35,9 @@
 
 
 // ----------------------------------------------------------------------------
-@ interface PoCoPenSteadyStyle : PoCoMonochromePatternContainerBase
+// declare immutable pen style container.
+
+@interface PoCoPenSteadyStyle : PoCoMonochromePatternContainerBase
 {
     PoCoMonochromePattern *pattern_[PEN_STYLE_NUM];
 }

@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先管理部
+// PoCoPenStyle.m
+// implementation of classes to management pen styles.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPenStyle.h"
@@ -15,7 +15,9 @@ static NSString *PATTERN_NAME = @"PoCoPenStyleData_%d";
 // 内部関数プロトタイプ
 static void  setPattern(PoCoMonochromePattern *pat, int i);
 
-// ------------------------------------------------------------------- 内部関数
+// ----------------------------------------------------------------------------
+// local functions.
+
 //
 // 初期値を設定
 //
@@ -41,7 +43,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoPenStyle
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -65,7 +69,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         pat = [[PoCoMonochromePattern alloc] init];
         setPattern(pat, l);
-        [dic setObject:[NSArchiver archivedDataWithRootObject:pat]
+        [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:pat
+                                             requiringSecureCoding:YES
+                                                             error:nil]
                 forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
         [pat release];
     }
@@ -77,7 +83,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -107,7 +115,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
         // ペン先の読み込み
         def = [NSUserDefaults standardUserDefaults];
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
-            self->pattern_[l] = [NSUnarchiver unarchiveObjectWithData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]];
+            self->pattern_[l] = [NSKeyedUnarchiver unarchivedObjectOfClass:[PoCoMonochromePattern class]
+                                                                  fromData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]
+                                                                     error:nil];
             if (self->pattern_[l] == nil) {
                 DPRINT((@"can't create penstyle : %d\n", l));
                 [self release];
@@ -194,7 +204,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
         // 設定を更新
         [[NSUserDefaults standardUserDefaults]
-            setObject:[NSArchiver archivedDataWithRootObject:self->pattern_[index]]
+            setObject:[NSKeyedArchiver archivedDataWithRootObject:self->pattern_[index]
+                                            requiringSecureCoding:YES
+                                                            error:nil]
                forKey:[NSString stringWithFormat:PATTERN_NAME, index]];
     }
 
@@ -209,7 +221,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoPenSteadyStyle
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -228,7 +242,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //

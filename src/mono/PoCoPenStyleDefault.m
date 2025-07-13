@@ -1,13 +1,14 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先初期値
+// PoCoPenStyleDefault.m
+// implementation of the default pen styles.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
-
 #import "PoCoPenStyleDefault.h"
 
-// --------------------------------------------------------------- 各ペン先定義
+// ----------------------------------------------------------------------------
+// declare each pen style.
+
 PoCoPenStyleDefaultType PoCoPenStyleDefault[PEN_STYLE_NUM] = {
 // 0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f   // pat 0
 {{ 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0,  // 0

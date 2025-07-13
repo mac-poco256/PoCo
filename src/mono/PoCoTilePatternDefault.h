@@ -1,17 +1,17 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン初期値
+// PoCoTilePatternDefault.h
+// declare the default tile patterns.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #include  <Cocoa/Cocoa.h>
 
-// 広域型宣言
-typedef struct {                        // パターン定義
+// define global types.
+typedef struct {                        // the default tile pattern.
     unsigned char dat[(TILE_PATTERN_SIZE + (TILE_PATTERN_SIZE & 1)) * TILE_PATTERN_SIZE];
 } PoCoTilePatternDefaultType;
 
 
-// 広域変数宣言
+// declare global variable.
 extern PoCoTilePatternDefaultType PoCoTilePatternDefault[];
