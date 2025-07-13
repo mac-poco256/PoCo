@@ -37,6 +37,21 @@
 }
 
 
+//
+// property: supportsSecureCoding.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : always YES.
+//
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
+
 // ----------------------------------------------------------------------------
 // instance - public.
 

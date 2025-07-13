@@ -18,7 +18,7 @@
 // ----------------------------------------------------------------------------
 // declare PoCoMonochromePattern that represents base class of the monochrome pattern.
 
-@interface PoCoMonochromePattern : NSObject <NSCoding>
+@interface PoCoMonochromePattern : NSObject <NSSecureCoding>
 {
     unsigned int width_;                // 幅(dot 単位)
     unsigned int height_;               // 高さ(dot 単位)
@@ -29,6 +29,9 @@
 
 // 初期設定
 +(void)initialize;
+
+// property: supportsSecureCoding.
++ (BOOL)supportsSecureCoding;
 
 // initialize
 -(id)init;
