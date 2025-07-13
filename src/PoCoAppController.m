@@ -380,6 +380,21 @@ EXIT:
 
 
 //
+// express this app supports secure state restoration.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : always YES.
+//
+- (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app
+{
+    return YES;
+}
+
+
+//
 // 主ツールバーを取得
 //
 //  Call

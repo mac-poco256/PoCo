@@ -81,6 +81,9 @@
 // アプリケーションが終了する
 -(void)applicationWillTerminate:(NSNotification *)note;
 
+// express this app supports secure state restoration.
+- (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app;
+
 // メニューを更新
 -(BOOL)validateMenuItem:(NSMenuItem *)menu;
 
