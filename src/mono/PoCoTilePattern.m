@@ -137,7 +137,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
                                                                 error:nil];
                 [def setObject:newData
                         forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
+#if 0    // official document says; this method is unnecessary and shouldn’t be used.
                 [def synchronize];
+#endif   // 0
             }
             self->pattern_[l] = pat;
             if (self->pattern_[l] == nil) {
