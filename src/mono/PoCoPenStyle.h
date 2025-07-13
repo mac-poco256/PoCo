@@ -19,7 +19,7 @@
 +(void)initialize;
 
 // initialize
--(id)init;
+- (id)init;
 
 // deallocate
 -(void)dealloc;

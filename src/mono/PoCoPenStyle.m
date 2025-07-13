@@ -87,39 +87,62 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // instance - public.
 
 //
-// initialize
+// initialise.
 //
 //  Call
 //    None
 //
 //  Return
-//    function   : 実体
-//    pattern_[] : ペン先(instance 変数)
+//    function   : instance.
+//    pattern_[] : pen styles.(instance)
 //
--(id)init
+- (id)init
 {
     int l;
     NSUserDefaults *def;
+    NSData *data;
+    PoCoMonochromePattern *pat;
+    NSData *newData;
 
     DPRINT((@"[PoCoPenStyle init]\n"));
 
-    // super class の初期化
+    // forward to super class.
     self = [super init];
 
-    // 自身の初期化
+    // initialise myself.
     if (self != nil) {
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
             self->pattern_[l] = nil;
         }
 
-        // ペン先の読み込み
+        // load each pen style from UserDefaults.
         def = [NSUserDefaults standardUserDefaults];
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
-            self->pattern_[l] = [NSKeyedUnarchiver unarchivedObjectOfClass:[PoCoMonochromePattern class]
-                                                                  fromData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]
-                                                                     error:nil];
+            // retrieve pen style with key.
+            data = [def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]];
+
+            // unarichve data.
+            pat = [NSKeyedUnarchiver unarchivedObjectOfClass:[PoCoMonochromePattern class]
+                                                    fromData:data
+                                                       error:nil];
+
+            // whether data could be unarchived.
+            if (pat == nil) {
+                // could not be unarchied, then assuming that this is old version. so that, convert data unarchived to current class.
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                pat = [NSUnarchiver unarchiveObjectWithData:data];
+# pragma clang diagnostic pop
+                newData = [NSKeyedArchiver archivedDataWithRootObject:pat
+                                                requiringSecureCoding:YES
+                                                                error:nil];
+                [def setObject:newData
+                        forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
+                [def synchronize];
+            }
+            self->pattern_[l] = pat;
             if (self->pattern_[l] == nil) {
-                DPRINT((@"can't create penstyle : %d\n", l));
+                DPRINT((@"can't create pen style : %d\n", l));
                 [self release];
                 self = nil;
                 break;
