@@ -81,35 +81,51 @@
 -(void)keyUp:(NSEvent *)evt;            // キーリリース処理
 
 // 補助属性設定シート関連
--(IBAction)raiseAttributeSheet:(id)sender;
--(IBAction)endAttributeSheet:(id)sender;
--(void)attributeSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo;
--(IBAction)rangeOfMask:(id)sender;
--(IBAction)rangeOfDropper:(id)sender;
--(IBAction)rangeOfTransparent:(id)sender;
--(void)invokeUpdateAllRange;
+- (IBAction)raiseAttributeSheet:(id)sender;
+- (IBAction)endAttributeSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)attributeSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)attributeSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (IBAction)rangeOfMask:(id)sender;
+- (IBAction)rangeOfDropper:(id)sender;
+- (IBAction)rangeOfTransparent:(id)sender;
+- (void)invokeUpdateAllRange;
 
 // グラデーション作成シート関連
--(IBAction)raiseGradationSheet:(id)sender;
--(IBAction)endGradationSheet:(id)sender;
--(void)gradationSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo;
+- (IBAction)raiseGradationSheet:(id)sender;
+- (IBAction)endGradationSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)gradationSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)gradationSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 // パレット入れ替えシート関連
--(IBAction)raiseExchangeSheet:(id)sender;
--(IBAction)endExchangeSheet:(id)sender;
--(void)exchangeSheetDidEnd:(NSWindow *)sheet
-                returnCode:(int)returnCode
-               contextInfo:(void *)contextInfo;
+- (IBAction)raiseExchangeSheet:(id)sender;
+- (IBAction)endExchangeSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)exchangeSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)exchangeSheetDidEnd:(NSWindow *)sheet
+                 returnCode:(int)returnCode
+                contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 // パレット複写シート関連
--(IBAction)raisePasteSheet:(id)sender;
--(IBAction)endPasteSheet:(id)sender;
--(void)pasteSheetDidEnd:(NSWindow *)sheet
-             returnCode:(int)returnCode
-            contextInfo:(void *)contextInfo;
+- (IBAction)raisePasteSheet:(id)sender;
+- (IBAction)endPasteSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)pasteSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)pasteSheetDidEnd:(NSWindow *)sheet
+              returnCode:(int)returnCode
+             contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 @end

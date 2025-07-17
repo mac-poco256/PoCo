@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先ウィンドウ管理部
+// PoCoPenStyleWindow.h
+// declare interface of pen style window.
+// and this class manages some control items on pen style window.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -53,12 +54,17 @@
 -(void)keyUp:(NSEvent *)evt;            // キーリリース処理
 
 // パターン設定シート関連
--(void)raisePatternSheet:(id)sender
-                 pattern:(PoCoMonochromePattern *)pat;
--(IBAction)endPatternSheet:(id)sender;
--(void)patternSheetDidEnd:(NSWindow *)sheet
-               returnCode:(int)returnCode
-              contextInfo:(void *)contextInfo;
+- (void)raisePatternSheet:(id)sender
+                  pattern:(PoCoMonochromePattern *)pat;
+- (IBAction)endPatternSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)patternSheetDidEnd:(NSModalResponse)returnCode
+               contextInfo:(void *)contextInfo;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)patternSheetDidEnd:(NSWindow *)sheet
+                returnCode:(int)returnCode
+               contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 // パターン/スライダーの切り替え
 -(void)nextPenStyle;
