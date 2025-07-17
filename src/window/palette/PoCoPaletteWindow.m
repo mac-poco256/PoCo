@@ -856,7 +856,7 @@ EXIT:
 
 
 // ----------------------------------------------------------------------------
-// instance - public - for the palette copy setting sheet.
+// instance - public - for the palette paste setting sheet.
 
 //
 // パレット複写シートを開く
