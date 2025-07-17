@@ -646,7 +646,7 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 
 
 // ----------------------------------------------------------------------------
-// instance - public - for the detailed colour attribute setting sheets.
+// instance - public - for the detailed colour attribute setting sheet.
 
 //
 // 色詳細設定シートを開ける
@@ -661,7 +661,7 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //    accessoryDropper_     : 吸い取り禁止(outlet)
 //    accessoryTransparent_ : 透明(outlet)
 //
--(void)raiseColorInfoSheet
+- (void)raiseColorInfoSheet
 {
     PoCoColor *col;
 
@@ -692,11 +692,20 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
     [self->accessoryTransparent_ setState:([col isTrans]) ? 1 : 0];
 
     // シートを開ける
+
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->infoSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf colorInfoSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->infoSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(colorInfoSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -713,7 +722,7 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //  Return
 //    None
 //
--(IBAction)endColorInfoSheet:(id)sender
+- (IBAction)endColorInfoSheet:(id)sender
 {
     // 補助属性設定シートを閉じる
     [self->infoSheet_ orderOut:sender];
@@ -740,9 +749,13 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //  Return
 //    None
 //
--(void)colorInfoSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     CGFloat red;
     CGFloat green;

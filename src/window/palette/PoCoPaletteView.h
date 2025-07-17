@@ -75,11 +75,15 @@
 -(void)mouseDragged:(NSEvent *)evt;     // ドラッグ処理
 
 // 色詳細設定シート関連
--(void)raiseColorInfoSheet;
--(IBAction)endColorInfoSheet:(id)sender;
--(void)colorInfoSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo;
+- (void)raiseColorInfoSheet;
+- (IBAction)endColorInfoSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 // IBAction 系
 -(IBAction)attributeMask:(id)sender;
