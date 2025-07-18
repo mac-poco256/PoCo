@@ -533,7 +533,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
                  contextInfo:(void *)contextInfo
 #endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
-    DPRINT((@"did close attributeSheet : %d\n", returnCode));
+    DPRINT((@"did close attributeSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode == 0) {
@@ -712,7 +712,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
                  contextInfo:(void *)contextInfo
 #endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
-    DPRINT((@"did close gradationSheet : %d\n", returnCode));
+    DPRINT((@"did close gradationSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode == 0) {
@@ -819,7 +819,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
     PoCoPaletteExchangePair *pair;
     PoCoControllerFactory *factory;
 
-    DPRINT((@"did close exchangeSheet : %d\n", returnCode));
+    DPRINT((@"did close exchangeSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode != 0) {
@@ -948,7 +948,7 @@ EXIT:
     PoCoPaletteExchangePair *pair;
     PoCoControllerFactory *factory;
 
-    DPRINT((@"did close pasteSheet : %d\n", returnCode));
+    DPRINT((@"did close pasteSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode != 0) {
