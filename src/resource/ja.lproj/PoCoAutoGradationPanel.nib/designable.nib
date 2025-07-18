@@ -150,7 +150,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12">
                         <rect key="frame" x="281" y="13" width="93" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="push" title="実行" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="27">
+                        <buttonCell key="cell" type="push" title="実行する" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="27">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -198,7 +198,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="yhR-2i-ujT">
                             <rect key="frame" x="1" y="1" width="223" height="133"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="Fa6-wV-vgi" id="F1I-87-ggF">
                                     <rect key="frame" x="0.0" y="0.0" width="223" height="110"/>
@@ -231,7 +231,7 @@ Gw
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="sizeForSlider" width="125" minWidth="40" maxWidth="1000" id="u7Z-pS-adH">
+                                        <tableColumn identifier="sizeForSlider" width="96" minWidth="40" maxWidth="1000" id="u7Z-pS-adH">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="サイズ">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -255,7 +255,7 @@ Gw
                             <rect key="frame" x="224" y="24" width="15" height="110"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <tableHeaderView key="headerView" id="Fa6-wV-vgi">
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="Fa6-wV-vgi">
                             <rect key="frame" x="0.0" y="0.0" width="223" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
@@ -263,7 +263,7 @@ Gw
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hj8-LI-oXd">
                         <rect key="frame" x="173" y="13" width="93" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="push" title="設定" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="JoN-dE-uL0">
+                        <buttonCell key="cell" type="push" title="設定する" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="JoN-dE-uL0">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -274,7 +274,7 @@ DQ
                             <action selector="endSizeDetailSheet:" target="-2" id="Qle-pb-Di9"/>
                         </connections>
                     </button>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-Cl-NIA">
+                    <button tag="1" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-Cl-NIA">
                         <rect key="frame" x="68" y="13" width="105" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="push" title="キャンセル" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="c7W-wy-Iys">
