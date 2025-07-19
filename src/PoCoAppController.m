@@ -1556,7 +1556,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)addBitmapLayer:(id)sender
+- (IBAction)addBitmapLayer:(id)sender
 {
     [self->layerWindow_ newBitmapLayer:sender];
 
@@ -1574,9 +1574,27 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)addStringLayer:(id)sender
+- (IBAction)addStringLayer:(id)sender
 {
     [self->layerWindow_ newStringLayer:sender];
+
+    return;
+}
+
+
+//
+// copy layer.
+//
+//  Call:
+//    sender       : 送信元(api 引数)
+//    layerWindow_ : レイヤー(instance 変数)
+//
+//  Return:
+//    none.
+//
+- (IBAction)copyLayer:(id)sender
+{
+    [self->layerWindow_ copyLayer:sender];
 
     return;
 }
@@ -1592,7 +1610,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)deleteLayer:(id)sender
+- (IBAction)deleteLayer:(id)sender
 {
     [self->layerWindow_ deleteLayer:sender];
 
@@ -1610,7 +1628,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)unificateLayer:(id)sender
+- (IBAction)unificateLayer:(id)sender
 {
     [self->layerWindow_ unificateLayer:sender];
 
