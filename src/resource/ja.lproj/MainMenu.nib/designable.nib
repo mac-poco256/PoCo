@@ -835,10 +835,16 @@ CA
                                     <action selector="addStringLayer:" target="210" id="383"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="レイヤーを削除" id="319">
+                            <menuItem title="レイヤーを複製" id="319">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="deleteLayer:" target="210" id="384"/>
+                                    <action selector="copyLayer:" target="210" id="muC-pj-kzu"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="レイヤーを削除" id="PsC-cT-jEm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="deleteLayer:" target="210" id="tKz-Bb-zc4"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="レイヤーを統合" id="339">

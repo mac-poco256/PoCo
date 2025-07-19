@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤーウィンドウ管理部
+// PoCoLayerWindow.h
+// implementation of PoCoLayerWindow class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoLayerWindow.h"
@@ -21,7 +21,9 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 // ============================================================================
 @implementation PoCoLayerWindow
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -128,7 +130,9 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 }
 
 
-// ------------------------------------------- instance - public - メニュー関連
+// ----------------------------------------------------------------------------
+// instance - public - for menu.
+
 //
 // 画像レイヤー生成
 //
@@ -139,7 +143,7 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 //  Return
 //    None
 //
--(void)newBitmapLayer:(id)sender
+- (void)newBitmapLayer:(id)sender
 {
     [(PoCoLayerOperate *)([self->layerTableView_ delegate]) newBitmapLayer:sender];
 
@@ -157,9 +161,27 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 //  Return
 //    None
 //
--(void)newStringLayer:(id)sender
+- (void)newStringLayer:(id)sender
 {
     [(PoCoLayerOperate *)([self->layerTableView_ delegate]) newStringLayer:sender];
+
+    return;
+}
+
+
+//
+// copy layer.
+//
+//  Call:
+//    sender          : 操作対象
+//    layerTableView_ : レイヤー一覧テーブル(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)copyLayer:(id)sender
+{
+    [(PoCoLayerOperate *)([self->layerTableView_ delegate]) copyLayer:sender];
 
     return;
 }
@@ -175,7 +197,7 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 //  Return
 //    None
 //
--(void)deleteLayer:(id)sender
+- (void)deleteLayer:(id)sender
 {
     [(PoCoLayerOperate *)([self->layerTableView_ delegate]) deleteLayer:sender];
 
@@ -193,7 +215,7 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 //  Return
 //    None
 //
--(void)unificateLayer:(id)sender
+- (void)unificateLayer:(id)sender
 {
     [(PoCoLayerOperate *)([self->layerTableView_ delegate]) unificateLayer:sender];
 
@@ -201,7 +223,9 @@ static const NSSize RESIZE_INC = (NSSize){1.0, 52.0};
 }
 
 
-// ----------------------------------------- instance - public - イベントの取得
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // キーダウン処理
 //

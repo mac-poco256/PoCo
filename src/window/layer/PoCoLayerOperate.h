@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧操舵部
+// PoCoLayerOperate.h
+// declare interface of delegate for layer list operation.
+// this class is to manege and operate the layer list and link between UI and the edit controllers.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -26,6 +27,7 @@
 
     IBOutlet NSButton *newBitmapLayerButton_;
     IBOutlet NSButton *newStringLayerButton_;
+    IBOutlet NSButton *copyLayerButton_;
     IBOutlet NSButton *deleteLayerButton_;
     IBOutlet NSButton *unificateLayerButton_;
 }
@@ -44,10 +46,11 @@
 -(void)updatePreview:(NSNotification *)note;  // 見本更新(全更新)
 
 // 各 IBAction
--(IBAction)newBitmapLayer:(id)sender;   // 画像レイヤー生成
--(IBAction)newStringLayer:(id)sender;   // 文字列レイヤー生成
--(IBAction)deleteLayer:(id)sender;      // レイヤー削除
--(IBAction)unificateLayer:(id)sender;   // 表示レイヤー統合
+- (IBAction)newBitmapLayer:(id)sender;   // 画像レイヤー生成
+- (IBAction)newStringLayer:(id)sender;   // 文字列レイヤー生成
+- (IBAction)copyLayer:(id)sender;        // copy layer.
+- (IBAction)deleteLayer:(id)sender;      // レイヤー削除
+- (IBAction)unificateLayer:(id)sender;   // 表示レイヤー統合
 
 // 一覧用デリゲート
 -(BOOL)tableView:(NSTableView *)table

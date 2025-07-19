@@ -1,8 +1,9 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤーウィンドウ管理部
+// PoCoLayerWindow.h
+// declare interface of PoCoLayerWindow class.
+// this class is to manage PoCoLayerWindow.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -34,10 +35,11 @@
 -(NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)sender;
 
 // メニュー関連
--(void)newBitmapLayer:(id)sender;       // 画像レイヤー生成
--(void)newStringLayer:(id)sender;       // 文字列レイヤー生成
--(void)deleteLayer:(id)sender;          // レイヤー削除
--(void)unificateLayer:(id)sender;       // 表示レイヤー統合
+- (void)newBitmapLayer:(id)sender;       // 画像レイヤー生成
+- (void)newStringLayer:(id)sender;       // 文字列レイヤー生成
+- (void)copyLayer:(id)sender;            // copy layer.
+- (void)deleteLayer:(id)sender;          // レイヤー削除
+- (void)unificateLayer:(id)sender;       // 表示レイヤー統合
 
 // イベントの取得
 -(void)keyDown:(NSEvent *)evt;          // キーダウン処理

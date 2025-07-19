@@ -156,10 +156,11 @@
 -(IBAction)pastePalette:(id)sender;
 
 // レイヤー編集
--(IBAction)addBitmapLayer:(id)sender;
--(IBAction)addStringLayer:(id)sender;
--(IBAction)deleteLayer:(id)sender;
--(IBAction)unificateLayer:(id)sender;
+- (IBAction)addBitmapLayer:(id)sender;
+- (IBAction)addStringLayer:(id)sender;
+- (IBAction)copyLayer:(id)sender;
+- (IBAction)deleteLayer:(id)sender;
+- (IBAction)unificateLayer:(id)sender;
 
 // カラーパターン登録
 -(IBAction)registerColorPattern:(id)sender;
