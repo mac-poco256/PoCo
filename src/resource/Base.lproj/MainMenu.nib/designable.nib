@@ -835,6 +835,12 @@ CA
                                     <action selector="addStringLayer:" target="210" id="383"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Copy" id="16q-3f-UtR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="copyLayer:" target="210" id="3OE-94-Bqe"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Delete" id="319">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
