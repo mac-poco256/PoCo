@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン表示・選択部
+// PoCoPenStyleView.h
+// declare interface of view for the tile patterns.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -33,5 +33,9 @@
 // 選択内容の切り替え
 -(void)nextSelection;
 -(void)prevSelection;
+
+// revert.
+- (void)revertAllPatterns;
+- (void)revertPattern;
 
 @end

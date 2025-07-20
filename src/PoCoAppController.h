@@ -137,13 +137,17 @@
 -(IBAction)changeAtomizerSkip:(id)sender;
 
 // ペン先/タイルパターンの切り替え
--(IBAction)nextPenStyle:(id)sender;
--(IBAction)prevPenStyle:(id)sender;
--(IBAction)nextPenSize:(id)sender;
--(IBAction)prevPenSize:(id)sender;
--(IBAction)nextTilePattern:(id)sender;
--(IBAction)prevTilePattern:(id)sender;
--(IBAction)changeDensity:(id)sender;
+- (IBAction)nextPenStyle:(id)sender;
+- (IBAction)prevPenStyle:(id)sender;
+- (IBAction)revertAllPenStyles:(id)sender;
+- (IBAction)revertPenStyle:(id)sender;
+- (IBAction)nextPenSize:(id)sender;
+- (IBAction)prevPenSize:(id)sender;
+- (IBAction)nextTilePattern:(id)sender;
+- (IBAction)prevTilePattern:(id)sender;
+- (IBAction)revertAllTilePatterns:(id)sender;
+- (IBAction)revertTilePattern:(id)sender;
+- (IBAction)changeDensity:(id)sender;
 
 // パレット編集
 -(IBAction)lockPalette:(id)sender;
