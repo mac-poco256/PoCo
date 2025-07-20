@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン表示・選択部 - 基底
+// PoCoMonochromePatternView.h
+// declare interface of base class for the monochrome pattern view.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -43,5 +43,9 @@
 // 選択内容の切り替え
 -(void)nextSelection;
 -(void)prevSelection;
+
+// revert.
+- (void)revertAllPatterns;
+- (void)revertPattern;
 
 @end

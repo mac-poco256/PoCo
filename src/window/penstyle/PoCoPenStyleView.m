@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先表示・選択部
+// PoCoPenStyleView.m
+// implementation of PoCoPenStyleView class.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPenStyleView.h"
@@ -15,7 +15,9 @@
 // ============================================================================
 @implementation PoCoPenStyleView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 選択肢切り替え
 //
@@ -39,7 +41,9 @@
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -97,7 +101,8 @@
 {
     const unsigned int sel = [[(PoCoAppController *)([NSApp delegate]) editInfo] penNumber];
 
-    [[(PoCoAppController *)([NSApp delegate]) penStyle] setPattern:pat atIndex:sel];
+    [[(PoCoAppController *)([NSApp delegate]) penStyle] setPattern:pat
+                                                           atIndex:sel];
     [self setNeedsDisplayInRect:[super numToRect:sel]];
 
     return;
@@ -129,7 +134,10 @@
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // ボタンダウンイベントの受け入れ可否
 //
@@ -179,6 +187,9 @@
 }
 
 
+// ----------------------------------------------------------------------------
+// instance - public - change the selected pattern.
+
 //
 // 次の選択肢へ
 //
@@ -222,6 +233,47 @@
         (num)--;
     }
     [self setSelection:num];
+
+    return;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public - revert pattern.
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    [[(PoCoAppController *)([NSApp delegate]) penStyle] revertAllPatterns];
+    [self setNeedsDisplay:YES];
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern
+{
+    const int sel = (int)([[(PoCoAppController *)([NSApp delegate]) editInfo] penNumber]);
+
+    [[(PoCoAppController *)([NSApp delegate]) penStyle] revertPattern:sel];
+    [self setNeedsDisplayInRect:[super numToRect:sel]];
 
     return;
 }

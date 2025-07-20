@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	タイルパターン表示・選択部
+// PoCoTilePatternView.m
+// implementation of PoCoTilePatternView class.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoTilePatternView.h"
@@ -15,7 +15,9 @@
 // ============================================================================
 @implementation PoCoTilePatternView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 選択肢切り替え
 //
@@ -39,7 +41,9 @@
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -97,7 +101,8 @@
 {
     const unsigned int sel = [[(PoCoAppController *)([NSApp delegate]) editInfo] tileNumber];
 
-    [[(PoCoAppController *)([NSApp delegate]) tilePattern] setPattern:pat atIndex:sel];
+    [[(PoCoAppController *)([NSApp delegate]) tilePattern] setPattern:pat
+                                                              atIndex:sel];
     [self setNeedsDisplayInRect:[super numToRect:sel]];
 
     return;
@@ -130,7 +135,9 @@
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // ボタンダウンイベントの受け入れ可否
 //
@@ -180,6 +187,9 @@
 }
 
 
+// ----------------------------------------------------------------------------
+// instance - public - change the selected pattern.
+
 //
 // 次の選択肢へ
 //
@@ -223,6 +233,47 @@
         (num)--;
     }
     [self setSelection:num];
+
+    return;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public - revert pattern.
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    [[(PoCoAppController *)([NSApp delegate]) tilePattern] revertAllPatterns];
+    [self setNeedsDisplay:YES];
+
+    return;
+}
+
+
+//
+// revert pattern.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern
+{
+    const int sel = (int)([[(PoCoAppController *)([NSApp delegate]) editInfo] tileNumber]);
+
+    [[(PoCoAppController *)([NSApp delegate]) tilePattern] revertPattern:sel];
+    [self setNeedsDisplayInRect:[super numToRect:sel]];
 
     return;
 }

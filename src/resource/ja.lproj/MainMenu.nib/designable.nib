@@ -577,6 +577,25 @@ CA
                                     <action selector="prevPenStyle:" target="-1" id="332"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="ペン形状をリセット" id="1uA-01-Uxq">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="ペン形状をリセット" id="cRo-Gl-qIT">
+                                    <items>
+                                        <menuItem title="すべてをリセットする" id="h6t-MQ-dcI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertAllPenStyles:" target="-1" id="PTF-MR-EJN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="選択中をリセットする" tag="5" id="lHi-hJ-8qH">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertPenStyle:" target="-1" id="6K6-ZR-CYf"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="586"/>
                             <menuItem title="ペン太さを太くする" keyEquivalent="]" id="588">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
@@ -601,6 +620,25 @@ CA
                                 <connections>
                                     <action selector="prevTilePattern:" target="-1" id="328"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem title="タイルパターンをリセット" id="VcT-bH-8yF">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="タイルパターンをリセット" id="AUi-7a-N51">
+                                    <items>
+                                        <menuItem title="すべてをリセットする" id="O1X-Li-sHm">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertAllTilePatterns:" target="-1" id="8eH-mR-004"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="選択中をリセットする" tag="5" id="WAJ-R7-Nsh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertTilePattern:" target="-1" id="PGP-06-xPB"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="587"/>
                             <menuItem title="濃度を濃くする" tag="100" keyEquivalent="[" id="590">

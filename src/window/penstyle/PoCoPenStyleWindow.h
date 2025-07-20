@@ -67,12 +67,16 @@
 #endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 // パターン/スライダーの切り替え
--(void)nextPenStyle;
--(void)prevPenStyle;
--(void)nextPenSize;
--(void)prevPenSize;
--(void)nextTilePattern;
--(void)prevTilePattern;
--(void)addDensity:(int)val;
+- (void)nextPenStyle;
+- (void)prevPenStyle;
+- (void)revertAllPenStyles;
+- (void)revertPenStyle;
+- (void)nextPenSize;
+- (void)prevPenSize;
+- (void)nextTilePattern;
+- (void)prevTilePattern;
+- (void)revertAllTilePatterns;
+- (void)revertTilePattern;
+- (void)addDensity:(int)val;
 
 @end

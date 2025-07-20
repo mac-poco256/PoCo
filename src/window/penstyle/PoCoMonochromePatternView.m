@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン表示・選択部 - 基底
+// PoCoMonochromePatternView.m
+// implementation of PoCoMonochromePatternView class.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoMonochromePatternView.h"
@@ -18,7 +18,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 // ============================================================================
 @implementation PoCoMonochromePatternView
 
-// --------------------------------- PoCoMonochromePatternView 内 instance 関数
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -194,6 +196,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 }
 
 
+// ----------------------------------------------------------------------------
+// instance - public - change the selected pattern.
+
 //
 // 次の選択肢へ
 //  基底では何もしない
@@ -222,6 +227,45 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 //
 -(void)prevSelection
 {
+    return;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public - revert pattern.
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern
+{
+    // do nothing.
+    ;
+
     return;
 }
 

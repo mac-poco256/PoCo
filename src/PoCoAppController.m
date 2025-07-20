@@ -1284,7 +1284,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextPenStyle:(id)sender
+- (IBAction)nextPenStyle:(id)sender
 {
     [self->penStyleWindow_ nextPenStyle];
 
@@ -1302,9 +1302,45 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevPenStyle:(id)sender
+- (IBAction)prevPenStyle:(id)sender
 {
     [self->penStyleWindow_ prevPenStyle];
+
+    return;
+}
+
+
+//
+// revert all pen styles to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertAllPenStyles:(id)sender
+{
+    [self->penStyleWindow_ revertAllPenStyles];
+
+    return;
+}
+
+
+//
+// revert current pen style to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertPenStyle:(id)sender
+{
+    [self->penStyleWindow_ revertPenStyle];
 
     return;
 }
@@ -1320,7 +1356,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextPenSize:(id)sender
+- (IBAction)nextPenSize:(id)sender
 {
     [self->penStyleWindow_ nextPenSize];
 
@@ -1338,7 +1374,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevPenSize:(id)sender
+- (IBAction)prevPenSize:(id)sender
 {
     [self->penStyleWindow_ prevPenSize];
 
@@ -1356,7 +1392,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextTilePattern:(id)sender
+- (IBAction)nextTilePattern:(id)sender
 {
     [self->penStyleWindow_ nextTilePattern];
 
@@ -1374,9 +1410,45 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevTilePattern:(id)sender
+- (IBAction)prevTilePattern:(id)sender
 {
     [self->penStyleWindow_ prevTilePattern];
+
+    return;
+}
+
+
+//
+// revert all tile patterns to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertAllTilePatterns:(id)sender
+{
+    [self->penStyleWindow_ revertAllTilePatterns];
+
+    return;
+}
+
+
+//
+// revert current tile pattern to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertTilePattern:(id)sender
+{
+    [self->penStyleWindow_ revertTilePattern];
 
     return;
 }
@@ -1392,7 +1464,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)changeDensity:(id)sender
+- (IBAction)changeDensity:(id)sender
 {
     [self->penStyleWindow_ addDensity:(int)([sender tag])];
 

@@ -324,7 +324,7 @@ EXIT:
 //  Return
 //    None
 //
--(void)nextPenStyle
+- (void)nextPenStyle
 {
     [self->penStyleView_ nextSelection];
 
@@ -341,10 +341,44 @@ EXIT:
 //  Return
 //    None
 //
--(void)prevPenStyle
+- (void)prevPenStyle
 {
     [self->penStyleView_ prevSelection];
 
+    return;
+}
+
+
+//
+// revert all pen styles to default.
+//
+//  Call:
+//    penStyleView_ : view for pen style.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPenStyles
+{
+    [self->penStyleView_ revertAllPatterns];
+
+    return;
+}
+
+
+//
+// revert current pen style to default.
+//
+//  Call:
+//    penStyleView_ : view for pen style.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertPenStyle
+{
+    [self->penStyleView_ revertPattern];
+    
     return;
 }
 
@@ -358,7 +392,7 @@ EXIT:
 //  Return
 //    penSizeSlider_ : ペン先大きさ(outlet)
 //
--(void)nextPenSize
+- (void)nextPenSize
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
 
@@ -380,7 +414,7 @@ EXIT:
 //  Return
 //    penSizeSlider_ : ペン先大きさ(outlet)
 //
--(void)prevPenSize
+- (void)prevPenSize
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
 
@@ -402,7 +436,7 @@ EXIT:
 //  Return
 //    None
 //
--(void)nextTilePattern
+- (void)nextTilePattern
 {
     [self->tilePatternView_ nextSelection];
 
@@ -419,9 +453,43 @@ EXIT:
 //  Return
 //    None
 //
--(void)prevTilePattern
+- (void)prevTilePattern
 {
     [self->tilePatternView_ prevSelection];
+
+    return;
+}
+
+
+//
+// revert all tile patterns to default.
+//
+//  Call:
+//    tilePatternView_ : view for tile pattern.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertAllTilePatterns
+{
+    [self->tilePatternView_ revertAllPatterns];
+
+    return;
+}
+
+
+//
+// revert current tile pattern to default.
+//
+//  Call:
+//    tilePatternView_ : view for tile pattern.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertTilePattern
+{
+    [self->tilePatternView_ revertPattern];
 
     return;
 }
@@ -436,7 +504,7 @@ EXIT:
 //  Return
 //    densitySlider_ : 濃度(outlet)
 //
--(void)addDensity:(int)val
+- (void)addDensity:(int)val
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
     int den;

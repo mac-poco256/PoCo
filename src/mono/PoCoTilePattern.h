@@ -15,21 +15,25 @@
     PoCoMonochromePattern *pattern_[TILE_PATTERN_NUM];
 }
 
-// 初期設定
-+(void)initialize;
+// initialise (class).
++ (void)initialize;
 
-// initialize
+// initialise (instance).
 - (id)init;
 
-// deallocate
--(void)dealloc;
+// deallocate.
+- (void)dealloc;
 
-// 参照
--(PoCoMonochromePattern *)pattern:(int)index;
+// get pattern at index.
+- (PoCoMonochromePattern *)pattern:(int)index;
 
-// 設定
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index;
+// set pattern at index.
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index;
+
+// revert.
+- (void)revertAllPatterns;
+- (void)revertPattern:(int)index;
 
 @end
 
@@ -42,20 +46,24 @@
     PoCoMonochromePattern *pattern_[TILE_PATTERN_NUM];
 }
 
-// 初期設定
-+(void)initialize;
+// initialise (class).
++ (void)initialize;
 
-// initialize
--(id)init;
+// initialise (instance).
+- (id)init;
 
-// deallocate
--(void)dealloc;
+// deallocate.
+- (void)dealloc;
 
-// 参照
--(PoCoMonochromePattern *)pattern:(int)index;
+// get pattern at index.
+- (PoCoMonochromePattern *)pattern:(int)index;
 
-// 設定
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index;
+// set pattern at index.
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index;
+
+// revert.
+- (void)revertAllPatterns;
+- (void)revertPattern:(int)index;
 
 @end

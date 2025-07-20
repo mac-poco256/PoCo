@@ -577,6 +577,25 @@ CA
                                     <action selector="prevPenStyle:" target="-1" id="332"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Revert Pen Style" id="Pef-hk-o4h">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Revert Pen Style" id="u8o-C4-9o3">
+                                    <items>
+                                        <menuItem title="Revert All" id="KYx-jK-yJB">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertAllPenStyles:" target="-1" id="tvh-wI-C6T"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Revert" tag="5" id="EbQ-1D-2Kx">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertPenStyle:" target="-1" id="SD9-8U-tmv"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="584"/>
                             <menuItem title="Bold Width" keyEquivalent="]" id="586">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
@@ -601,6 +620,25 @@ CA
                                 <connections>
                                     <action selector="prevTilePattern:" target="-1" id="328"/>
                                 </connections>
+                            </menuItem>
+                            <menuItem title="Revert Tile Pattern" id="GGi-Gj-pqp">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Revert Tile Pattern" id="qIs-AT-3vw">
+                                    <items>
+                                        <menuItem title="Revert All" id="fsG-ys-uud">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertAllTilePatterns:" target="-1" id="r8m-Q7-5m2"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Revert" tag="5" id="xKX-k7-wfA">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="revertTilePattern:" target="-1" id="N2n-Kd-PoT"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="585"/>
                             <menuItem title="Thick Tint" keyEquivalent="[" id="590">
