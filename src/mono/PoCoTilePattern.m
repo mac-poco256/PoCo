@@ -9,24 +9,27 @@
 
 #import "PoCoTilePatternDefault.h"
 
-// 内部変数
+// declare internal variable.
 static NSString *PATTERN_NAME = @"PoCoTilePatternData_%d";
 
-// 内部関数プロトタイプ
-static void  setPattern(PoCoMonochromePattern *pat, int i);
+// declare prototype for local functions.
+static void  setDefaultPattern(PoCoMonochromePattern *pat, int i);
 
-// ------------------------------------------------------------------- 内部関数
+// ----------------------------------------------------------------------------
+// local functions.
+
 //
-// 初期値を設定
+// set default pattern.
 //
-//  Call
-//    pat : パターン
-//    i   : インデックス
+//  Call:
+//    pat                      : a pattern.
+//    i                        : index (default pattern).
+//    PoCoTilePatternDefault[] : default patterns.(global)
 //
-//  Return
-//    pat : パターン
+//  Return:
+//    pat : a pattern.
 //
-static void  setPattern(PoCoMonochromePattern *pat, int i)
+static void  setDefaultPattern(PoCoMonochromePattern *pat, int i)
 {
     [pat setPattern:(const unsigned char *)(&(PoCoTilePatternDefault[i]))
               width:TILE_PATTERN_SIZE
@@ -45,15 +48,15 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // class - public.
 
 //
-// 初期設定
+// initialise (class).
 //
-//  Call
-//    PoCoTilePatternDefault[] : 初期値(内部変数)
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
-+(void)initialize
++ (void)initialize
 {
     int l;
     NSMutableDictionary *dic;
@@ -63,10 +66,10 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
     dic = [NSMutableDictionary dictionary];
 
-    // ペン先初期値を順次設定
+    // create each default pattern.
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         pat = [[PoCoMonochromePattern alloc] init];
-        setPattern(pat, l);
+        setDefaultPattern(pat, l);
         [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:pat
                                              requiringSecureCoding:YES
                                                              error:nil]
@@ -74,7 +77,7 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
         [pat release];
     }
 
-    // default を設定
+    // register the default patterns in UserDefaults.
     [[NSUserDefaults standardUserDefaults] registerDefaults:dic];
 
     return;
@@ -92,9 +95,9 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 //
 //  Return:
 //    function   : instance.
-//    pattern_[] : tile patterns.(instance)
+//    pattern_[] : the tile patterns.(instance)
 //
--(id) init
+- (id)init
 {
     int l;
     NSUserDefaults *def;
@@ -157,25 +160,25 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    pattern_[] : ペン先(instance 変数)
+//  Return:
+//    pattern_[] : the tile patterns.(instance)
 //
--(void)dealloc
+- (void)dealloc
 {
     int l;
 
-    // 資源の解放
+    // release resources allocated.
     for (l = 0; l < TILE_PATTERN_NUM; (l)++) {
         [self->pattern_[l] release];
         self->pattern_[l] = nil;
     }
 
-    // super class の解放
+    // forward to super class.
     [super dealloc];
 
     return;
@@ -183,16 +186,16 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 参照
+// get pattern at index.
 //
-//  Call
-//    index      : 番号
-//    pattern_[] : ペン先(instance 変数)
+//  Call:
+//    index      : index.
+//    pattern_[] : the tile patterns.(instance)
 //
-//  Return
-//    function : ペン先
+//  Return:
+//    function : a tile pattern.
 //
--(PoCoMonochromePattern *)pattern:(int)index
+- (PoCoMonochromePattern *)pattern:(int)index
 {
     PoCoMonochromePattern *pat;
 
@@ -207,31 +210,79 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 設定
+// set pattern at index.
 //
 //  Call
-//    pat   : パターン
-//    index : 番号
+//    pat   : a tile pattern.
+//    index : index.
 //
 //  Return
-//    pattern_[] : ペン先(instance 変数)
+//    pattern_[] : the tile patterns.(instance)
 //
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index
 {
     if ((index < 0) || (index >= TILE_PATTERN_NUM)) {
         ;
     } else {
+        // set pattern.
         [self->pattern_[index] setPattern:[pat pattern]
                                     width:[pat width]
                                    height:[pat height]];
 
-        // 設定を更新
+        // update UserDefaults.
         [[NSUserDefaults standardUserDefaults]
             setObject:[NSKeyedArchiver archivedDataWithRootObject:self->pattern_[index]
                                             requiringSecureCoding:YES
                                                             error:nil]
                forKey:[NSString stringWithFormat:PATTERN_NAME, index]];
+    }
+
+    return;
+}
+
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    int l;
+
+    for (l = 0; l < TILE_PATTERN_NUM; (l)++) {
+        [self revertPattern:l];
+    }
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    index : index.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern:(int)index
+{
+    if ((index < 0) || (index >= TILE_PATTERN_NUM)) {
+        ;
+    } else {
+        // remove from UserDefaults.
+        [[NSUserDefaults standardUserDefaults]
+            removeObjectForKey:[NSString stringWithFormat:PATTERN_NAME, index]];
+
+        // revert pattern to default.
+        setDefaultPattern(self->pattern_[index], index);
     }
 
     return;
@@ -249,17 +300,17 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // class - public.
 
 //
-// 初期設定
+// initialise (class).
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
-+(void)initialize
++ (void)initialize
 {
-    // 何もしない
+    // do nothing.
     ;
 
     return;
@@ -270,41 +321,43 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // instance - public.
 
 //
-// initialize
+// initialise (instance).
 //
 //  Call
-//    PoCoTilePatternDefault[] : 初期値(内部変数)
+//    PoCoTilePatternDefault[] : default patterns.(global)
 //
 //  Return
-//    function   : 実体
-//    pattern_[] : ペン先(instance 変数)
+//    function   : instance.
+//    pattern_[] : the tile patterns.(instance)
 //
--(id)init
+- (id)init
 {
     int l;
     int i;
 
     DPRINT((@"[PoCoTileSteadyPattern init]\n"));
 
-    // super class の初期化
+    // forward to super class.
     self = [super init];
 
-    // 自身の初期化
+    // initialise myself.
     if (self != nil) {
         for (l = 0; l < TILE_PATTERN_NUM; (l)++) {
             self->pattern_[l] = nil;
         }
 
-        // ペン先の読み込み
+        // creat each tile pattern (0 to 7).
         for (l = 0, i = 0; l < (TILE_PATTERN_NUM >> 1); (l)++, (i)++) {
             self->pattern_[i] = [[PoCoMonochromePattern alloc] init];
-            setPattern(self->pattern_[i], l);
+            setDefaultPattern(self->pattern_[i], l);
         }
+
+        // creat each tile pattern (8 to 14 (the loading is reversed)).
         for (l = (TILE_PATTERN_NUM - 2);
              l >= ((TILE_PATTERN_NUM >> 1) - 1);
              (l)--, (i)++) {
             self->pattern_[i] = [[PoCoMonochromePattern alloc] init];
-            setPattern(self->pattern_[i], l);
+            setDefaultPattern(self->pattern_[i], l);
         }
     }
 
@@ -313,25 +366,25 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    pattern_[] : ペン先(instance 変数)
+//  Return:
+//    pattern_[] : the tile patterns.(instance)
 //
--(void)dealloc
+- (void)dealloc
 {
     int l;
 
-    // 資源の解放
+    // release resources allocated.
     for (l = 0; l < TILE_PATTERN_NUM; (l)++) {
         [self->pattern_[l] release];
         self->pattern_[l] = nil;
     }
 
-    // super class の解放
+    // forward to super class.
     [super dealloc];
 
     return;
@@ -339,16 +392,16 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 参照
+// get pattern at index.
 //
-//  Call
-//    index      : 番号
-//    pattern_[] : ペン先(instance 変数)
+//  Call:
+//    index      : index.
+//    pattern_[] : the tile patterns.(instance)
 //
-//  Return
-//    function : ペン先
+//  Return:
+//    function : a tile pattern.
 //
--(PoCoMonochromePattern *)pattern:(int)index
+- (PoCoMonochromePattern *)pattern:(int)index
 {
     PoCoMonochromePattern *pat;
 
@@ -363,19 +416,55 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 設定
+// set pattern at index.
 //
 //  Call
-//    pat   : パターン
-//    index : 番号
+//    pat   : a tile pattern.
+//    index : index.
 //
 //  Return
-//    None
+//    pattern_[] : the tile patterns.(instance)
 //
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index
 {
-    // 何もしない
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    index : index.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern:(int)index
+{
+    // do nothing.
     ;
 
     return;
