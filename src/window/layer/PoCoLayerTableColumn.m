@@ -27,7 +27,7 @@
 //
 - (CGFloat)width
 {
-    return (CGFloat)(32);
+    return (CGFloat)(38);
 }
 
 
@@ -82,7 +82,7 @@
 //
 - (CGFloat)width
 {
-    return (CGFloat)(32);
+    return (CGFloat)(38);
 }
 
 
