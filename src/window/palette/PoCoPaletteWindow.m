@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	パレットウィンドウ管理部
+// PoCoPaletteWindow.h
+// implementation of PoCoPaletteWindow class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPaletteWindow.h"
@@ -35,7 +35,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 // ============================================================================
 @implementation PoCoPaletteWindow
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -68,7 +70,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -99,7 +103,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
 
 //
-// deallocate
+// deallocate.
 //
 //  Call
 //    None
@@ -107,8 +111,11 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    docCntl_ : document controller(instance 変数)
 //
--(void)dealloc
+- (void)dealloc
 {
+    // unregister observer.
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     // 資源を解放
     [self->docCntl_ release];
     self->docCntl_ = nil;
@@ -121,7 +128,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
 
 //
-// ウィンドウを読み込んだ
+// window did load.
 //
 //  Call
 //    mode_            : 色演算モード(outlet)
@@ -133,7 +140,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)windowDidLoad
+- (void)windowDidLoad
 {
     BOOL  stat;
     NSRect r = [[self window] frame];
@@ -168,6 +175,13 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
     // 慣性スクロール禁止
     [self->scroller_ setVerticalScrollElasticity:NSScrollElasticityNone];
+
+    // instruct to post norification, and register self as observer.
+    [[self->scroller_ contentView] setPostsBoundsChangedNotifications:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(boundsDidChangeNotification:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:[self->scroller_ contentView]];
 
     return;
 }
@@ -240,7 +254,27 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+//
+// receive notification of NSViewBoundsDidChangeNotification.
+//
+//  Call:
+//    note : notification.
+//
+//  Return:
+//    paletteInfoView_ : detail information view of palette.(outlet)
+//
+- (void)boundsDidChangeNotification:(NSNotification *)note
+{
+    // instruct self->paletteInfoView_ to redraw.
+    [self->paletteInfoView_ setNeedsDisplay:YES];
+
+    return;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public - IBActions.
+
 //
 // ウィンドウ拡縮
 //
@@ -306,7 +340,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// ----------------------------------------- instance - public - イベントの取得
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // キーダウン処理
 //
@@ -369,7 +405,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// --------------------------------- instance - public - 補助属性設定シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the palette attributes setting sheet.
+
 //
 // 補助属性設定シートを開く
 //  PoCoPaletteWindow 内 [attribute] button の action
@@ -388,7 +426,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)raiseAttributeSheet:(id)sender
+- (IBAction)raiseAttributeSheet:(id)sender
 {
     int l;
     PoCoColor *col;
@@ -419,11 +457,19 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
     [self->attributeTransparentView_ setRange:l];
 
     // 補助属性設定シートを開ける
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->attributeSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf attributeSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->attributeSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(attributeSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -443,7 +489,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)endAttributeSheet:(id)sender
+- (IBAction)endAttributeSheet:(id)sender
 {
     DPRINT((@"will close attributeSheet\n"));
 
@@ -479,11 +525,15 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)attributeSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)attributeSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)attributeSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
-    DPRINT((@"did close attributeSheet : %d\n", returnCode));
+    DPRINT((@"did close attributeSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode == 0) {
@@ -511,7 +561,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)rangeOfMask:(id)sender
+- (void)rangeOfMask:(id)sender
 {
     [self->attributeMaskView_ setRange:(int)([sender integerValue])];
 
@@ -529,7 +579,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)rangeOfDropper:(id)sender
+- (void)rangeOfDropper:(id)sender
 {
     [self->attributeDropperView_ setRange:(int)([sender integerValue])];
 
@@ -547,7 +597,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)rangeOfTransparent:(id)sender
+- (void)rangeOfTransparent:(id)sender
 {
     [self->attributeTransparentView_ setRange:(int)([sender integerValue])];
 
@@ -568,7 +618,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //    attributeDropperView_     : 吸い取り禁止設定(outlet)
 //    attributeTransparentView_ : 透過設定(outlet)
 //
--(void)invokeUpdateAllRange
+- (void)invokeUpdateAllRange
 {
     [self->attributeMaskView_        setRange:(int)([self->rangeOfMask_        integerValue])];
     [self->attributeDropperView_     setRange:(int)([self->rangeOfDropper_     integerValue])];
@@ -578,7 +628,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// --------------------------- instance - public - グラデーション作成シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the making colour gradient setting sheet.
+
 //
 // グラデーション作成シートを開く
 //  PoCoPaletteWindow 内 [gradation] button の action
@@ -591,17 +643,25 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)raiseGradationSheet:(id)sender
+- (IBAction)raiseGradationSheet:(id)sender
 {
     DPRINT((@"open gradationSheet\n"));
 
     // グラデーション作成シートを開ける
     [self->gradationView_ setNeedsDisplay:YES];
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->gradationSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf gradationSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->gradationSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(gradationSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -618,7 +678,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)endGradationSheet:(id)sender
+- (IBAction)endGradationSheet:(id)sender
 {
     DPRINT((@"will close gradationSheet\n"));
 
@@ -644,11 +704,15 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)gradationSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)gradationSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)gradationSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
-    DPRINT((@"did close gradationSheet : %d\n", returnCode));
+    DPRINT((@"did close gradationSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode == 0) {
@@ -662,7 +726,9 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 }
 
 
-// ----------------------------- instance - public - パレット入れ替えシート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the palette exchange setting sheet.
+
 //
 // パレット入れ替えシートを開く
 //  PoCoPaletteWindow 内 [gradation] button の action
@@ -675,7 +741,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)raiseExchangeSheet:(id)sender
+- (IBAction)raiseExchangeSheet:(id)sender
 {
     DPRINT((@"open exchangeSheet\n"));
 
@@ -684,11 +750,19 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 
     // パレット入れ替えシートを開ける
     [self->exchangeView_ setNeedsDisplay:YES];
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->exchangeSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf exchangeSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->exchangeSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(exchangeSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -705,7 +779,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(IBAction)endExchangeSheet:(id)sender
+- (IBAction)endExchangeSheet:(id)sender
 {
     DPRINT((@"will close exchangeSheet\n"));
 
@@ -731,9 +805,13 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
 //  Return
 //    None
 //
--(void)exchangeSheetDidEnd:(NSWindow *)sheet
-                returnCode:(int)returnCode
-               contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)exchangeSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)exchangeSheetDidEnd:(NSWindow *)sheet
+                 returnCode:(int)returnCode
+                contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     id  cntl;
     BOOL upd;
@@ -741,7 +819,7 @@ static NSString *TRNS_SELRANGE = @"PoCoPaletteWindowTransparentSelectionRange";
     PoCoPaletteExchangePair *pair;
     PoCoControllerFactory *factory;
 
-    DPRINT((@"did close exchangeSheet : %d\n", returnCode));
+    DPRINT((@"did close exchangeSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode != 0) {
@@ -777,7 +855,9 @@ EXIT:
 }
 
 
-// --------------------------------- instance - public - パレット複写シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the palette paste setting sheet.
+
 //
 // パレット複写シートを開く
 //  PoCoPaletteWindow 内 [gradation] button の action
@@ -790,7 +870,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)raisePasteSheet:(id)sender
+- (IBAction)raisePasteSheet:(id)sender
 {
     DPRINT((@"open pasteSheet\n"));
 
@@ -799,11 +879,19 @@ EXIT:
 
     // パレット複写シートを開ける
     [self->pasteView_ setNeedsDisplay:YES];
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->pasteSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf pasteSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->pasteSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(pasteSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -820,7 +908,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)endPasteSheet:(id)sender
+- (IBAction)endPasteSheet:(id)sender
 {
     DPRINT((@"will close pasteSheet\n"));
 
@@ -846,9 +934,13 @@ EXIT:
 //  Return
 //    None
 //
--(void)pasteSheetDidEnd:(NSWindow *)sheet
-                returnCode:(int)returnCode
-               contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)pasteSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)pasteSheetDidEnd:(NSWindow *)sheet
+              returnCode:(int)returnCode
+             contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     id  cntl;
     BOOL upd;
@@ -856,7 +948,7 @@ EXIT:
     PoCoPaletteExchangePair *pair;
     PoCoControllerFactory *factory;
 
-    DPRINT((@"did close pasteSheet : %d\n", returnCode));
+    DPRINT((@"did close pasteSheet : %d\n", (int)(returnCode)));
 
     // [set] で抜けていたら、設定を反映
     if (returnCode != 0) {

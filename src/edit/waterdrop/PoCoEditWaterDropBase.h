@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	編集系ライブラリ - ぼかし - 基底
+// PoCoEditWaterDropBase.h
+// declare interface of base class of the blur (water drop) edit feature.
 //
-//	Copyright (C) 2005-2017 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -24,18 +24,18 @@
     int rowBytes_;                      // row bytes
 }
 
-// initialize
--(id)initWithBitmap:(PoCoBitmap *)bmp
-            colMode:(PoCoColorMode)cmode
-            palette:(PoCoPalette *)plt
-             buffer:(PoCoColorBuffer *)buf;
+// initialise.
+- (id)initWithBitmap:(PoCoBitmap *)bmp
+             colMode:(PoCoColorMode)cmode
+             palette:(PoCoPalette *)plt
+              buffer:(PoCoColorBuffer *)buf;
 
-// deallocate
--(void)dealloc;
+// deallocate.
+- (void)dealloc;
 
-// 色演算
--(void)calcColor:(PoCoPoint *)p
-    withDrawRect:(PoCoRect *)dr
-        withMask:(PoCoBitmap *)mask;
+// calculate colour.
+- (void)calcColor:(PoCoPoint *)p
+     withDrawRect:(PoCoRect *)dr
+         withMask:(PoCoBitmap *)mask;
 
 @end

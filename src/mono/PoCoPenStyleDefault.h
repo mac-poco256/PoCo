@@ -1,17 +1,17 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先初期値
+// PoCoPenStyleDefault.h
+// declare the default pen styles.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #include  <Cocoa/Cocoa.h>
 
-// 広域型宣言
-typedef struct {                        // パターン定義
+// define global types.
+typedef struct {                        // the defult pen style.
     unsigned char dat[(PEN_STYLE_SIZE + (PEN_STYLE_SIZE & 1)) * PEN_STYLE_SIZE];
 } PoCoPenStyleDefaultType;
 
 
-// 広域変数宣言
+// declare global variable.
 extern PoCoPenStyleDefaultType PoCoPenStyleDefault[];

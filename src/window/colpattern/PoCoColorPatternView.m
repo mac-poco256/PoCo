@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	カラーパターン管理部
+// PoCoColorPatternView.m
+// implementation of PoCoColorPatternView class.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoColorPatternView.h"
@@ -25,7 +25,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 // ============================================================================
 @implementation PoCoColorPatternView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // observer を登録
 //
@@ -179,7 +181,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -245,6 +249,27 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
     // super class の解放
     [super dealloc];
 
+    return;
+}
+
+
+//
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwarded to super class.
+    [super awakeFromNib];
+
+    // set property.
+    [self setClipsToBounds:YES];
+    
     return;
 }
 
@@ -333,7 +358,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 }
 
 
-// -------------------------------------------- instance - public - observer 系
+// ----------------------------------------------------------------------------
+// instance - public - observers.
+
 //
 // 表示画像を切り替え
 //
@@ -422,7 +449,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - for IBActions.
+
 //
 // パターンを設定
 //
@@ -462,7 +491,9 @@ static  unsigned int H_MAX = 8;         // 水平要素数(個数)
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers (especially pointing device).
+
 // 
 // ボタンダウンイベントの受け入れ可否
 //

@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	PoCoView class
+// PoCoView.h
+// declare interface of the main view.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -15,7 +15,7 @@
 @class PoCoDrawBase;
 
 // ----------------------------------------------------------------------------
-@interface PoCoView : NSView
+@interface PoCoView : NSView <NSMenuItemValidation>
 {
     IBOutlet NSSlider *slider_;         // 倍率の slider
     IBOutlet MyDocument *document_;     // 編集対象の元締め

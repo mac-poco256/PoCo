@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン定義
+// PoCoMonochromePattern.h
+// implementation of base classes for monochrome pattern.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoMonochromePattern.h"
@@ -15,7 +15,9 @@
 // ============================================================================
 @implementation PoCoMonochromePattern
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -35,7 +37,24 @@
 }
 
 
-// ---------------------------------------------------------- instance - public
+//
+// property: supportsSecureCoding.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : always YES.
+//
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
+
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -355,7 +374,9 @@ EXIT:
 }
 
 
-// -------------------------------------------- instance - public - file 操作系
+// ----------------------------------------------------------------------------
+// instance - public - file I/O.
+
 //
 // 読み込み
 //
@@ -448,52 +469,58 @@ EXIT:
 // ============================================================================
 @implementation PoCoMonochromePatternContainerBase
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
-// 初期設定
+// initialise (class).
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
-+(void)initialize
++ (void)initialize
 {
-    // 何もしない
+    // do nothing.
     ;
 
     return;
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
-// initialize
+// initialise (instance).
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    function : 実体
+//  Return:
+//    function : instance.
 //
--(id)init
+- (id)init
 {
+    // forward to super class.
     return [super init];
 }
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)dealloc
+- (void)dealloc
 {
+    // forward to super class.
     [super dealloc];
 
     return;
@@ -501,35 +528,74 @@ EXIT:
 
 
 //
-// 参照
-//  基底では常に nil が返されるだけ
+// get pattern at index.
+//  in base class, always return nil.
 //
-//  Call
-//    index : 参照番号
+//  Call:
+//    index : index.
 //
-//  Return
-//    function : パターン
+//  Return:
+//    function : pattern.
 //
--(PoCoMonochromePattern *)pattern:(int)index
+- (PoCoMonochromePattern *)pattern:(int)index
 {
+    // do nothing.
+    ;
+
     return nil;
 }
 
 
 //
-// 設定
+// set pattern at index.
 //
-//  Call
-//    pat   : 設定内容
-//    index : 参照番号
+//  Call:
+//    pat   : a pattern that is set.
+//    index : index.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index
 {
-    // 何もしない
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    index : index.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern:(int)index
+{
+    // do nothing.
     ;
 
     return;

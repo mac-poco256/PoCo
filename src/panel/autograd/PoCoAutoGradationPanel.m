@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	自動グラデーション設定パネル
+// PoCoAutoGradationPanel.m
+// implementation of classes with relation to auto gradient setting.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoAutoGradationPanel.h"
@@ -18,9 +18,11 @@
 static NSString *DEFAULT_ADJACENT = @"PoCoAutoGradationDefaultAdjacent";
 static NSString *DEFAULT_AUTO = @"PoCoAutoGradationDefaultAuto";
 
-// ======================================== PoCoAutoGradationAdjacentInitialize
+// ============================================================================
 
-// ------------------------------------------------------------------ interface
+// ----------------------------------------------------------------------------
+// interface.
+
 @interface PoCoAutoGradationAdjacentInitialize : NSObject
 {
     // 生成物
@@ -59,10 +61,15 @@ static NSString *DEFAULT_AUTO = @"PoCoAutoGradationDefaultAuto";
 @end
 
 
-// ------------------------------------------------------------- implementation
+// ----------------------------------------------------------------------------
+// implementation.
+
 @implementation PoCoAutoGradationAdjacentInitialize
 
-// ---------------------------------------------------------- instance - public
+
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -143,7 +150,9 @@ static NSString *DEFAULT_AUTO = @"PoCoAutoGradationDefaultAuto";
 }
 
 
-// ------------------------------------------------------------ instance - 実行
+// ----------------------------------------------------------------------------
+// instance - public - execution.
+
 //
 // 均一状態を生成
 //  すべての対を生成し、名称登録する(この後の処理は名称で問い合わせること)
@@ -347,7 +356,9 @@ EXIT:
 // ============================================================================
 @implementation PoCoAutoGradationPanel
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
 // 初期設定
 //
@@ -376,7 +387,9 @@ EXIT:
 }
 
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 色と大きさの対群の初期値を生成
 //  ここで生成する初期値は隣接が成立している前提(verify に合格した場合のみ)
@@ -425,7 +438,9 @@ EXIT:
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -621,7 +636,9 @@ EXIT:
 }
 
 
-// --------------------------------------------------- instance - public - 結果
+// ----------------------------------------------------------------------------
+// instance - public - getter (to retrieve the results).
+
 //
 // 実行するか
 //
@@ -699,7 +716,9 @@ EXIT:
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - IBActions.
+
 //
 // 色選択
 //
@@ -1116,7 +1135,9 @@ YES)
 }
 
 
-// --------------------------------- instance - public - 個別詳細設定シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the detail setting sheet.
+
 //
 // 個別詳細設定シートを開ける
 //
@@ -1129,17 +1150,25 @@ YES)
 //  Return
 //    None
 //
--(IBAction)raiseSizeDetailSheet:(id)sender
+- (IBAction)raiseSizeDetailSheet:(id)sender
 {
     // 対群を引き渡す
     [(PoCoAutoGradationSizePairOperate *)([self->detailList_ delegate]) setSizeDetail:(NSDictionary *)(self->sizePair_)];
 
     // シートを開ける
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->detailSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf sizeDetailSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->detailSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(sizeDetailSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     // 一覧表を更新
     [self->detailList_ reloadData];
@@ -1159,7 +1188,7 @@ YES)
 //  Return
 //    None
 //
--(IBAction)endSizeDetailSheet:(id)sender
+- (IBAction)endSizeDetailSheet:(id)sender
 {
     // シートを閉じる
     [self->detailSheet_ orderOut:sender];
@@ -1185,9 +1214,13 @@ YES)
 //  Return
 //    sizePair_ : 色と大きさの対群(instance 変数)
 //
--(void)sizeDetailSheetDidEnd:(NSWindow *)sheet
-                  returnCode:(int)returnCode
-                 contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)sizeDetailSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)sizeDetailSheetDidEnd:(NSWindow *)sheet
+                   returnCode:(int)returnCode
+                  contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     NSArray *pair;
     NSEnumerator *iter;

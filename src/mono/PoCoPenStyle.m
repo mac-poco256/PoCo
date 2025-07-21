@@ -1,32 +1,35 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先管理部
+// PoCoPenStyle.m
+// implementation of classes to management pen styles.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPenStyle.h"
 
 #import "PoCoPenStyleDefault.h"
 
-// 内部変数
+// declare internal variable.
 static NSString *PATTERN_NAME = @"PoCoPenStyleData_%d";
 
-// 内部関数プロトタイプ
-static void  setPattern(PoCoMonochromePattern *pat, int i);
+// declare prototype for local functions.
+static void  setDefaultPattern(PoCoMonochromePattern *pat, int i);
 
-// ------------------------------------------------------------------- 内部関数
+// ----------------------------------------------------------------------------
+// local functions.
+
 //
-// 初期値を設定
+// set default pattern.
 //
-//  Call
-//    pat : パターン
-//    i   : インデックス
+//  Call:
+//    pat                   : a pattern.
+//    i                     : index (default pattern).
+//    PoCoPenStyleDefault[] : default patterns.(global)
 //
-//  Return
-//    pat : パターン
+//  Return:
+//    pat : a pattern.
 //
-static void  setPattern(PoCoMonochromePattern *pat, int i)
+static void  setDefaultPattern(PoCoMonochromePattern *pat, int i)
 {
     [pat setPattern:(const unsigned char *)(&(PoCoPenStyleDefault[i]))
               width:PEN_STYLE_SIZE
@@ -41,17 +44,19 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoPenStyle
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
-// 初期設定
+// initialise (class).
 //
-//  Call
-//    PoCoPenStyleDefault[] : 初期値(内部変数)
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
-+(void)initialize
++ (void)initialize
 {
     int l;
     NSMutableDictionary *dic;
@@ -61,55 +66,86 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
     dic = [NSMutableDictionary dictionary];
 
-    // ペン先初期値を順次設定
+    // create each default pattern.
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         pat = [[PoCoMonochromePattern alloc] init];
-        setPattern(pat, l);
-        [dic setObject:[NSArchiver archivedDataWithRootObject:pat]
+        setDefaultPattern(pat, l);
+        [dic setObject:[NSKeyedArchiver archivedDataWithRootObject:pat
+                                             requiringSecureCoding:YES
+                                                             error:nil]
                 forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
         [pat release];
     }
 
-    // default を設定
+    // register the default patterns in UserDefaults.
     [[NSUserDefaults standardUserDefaults] registerDefaults:dic];
 
     return;
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
-// initialize
+// initialise (instance).
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
 //  Return
-//    function   : 実体
-//    pattern_[] : ペン先(instance 変数)
+//    function   : instance.
+//    pattern_[] : the pen styles.(instance)
 //
--(id)init
+- (id)init
 {
     int l;
     NSUserDefaults *def;
+    NSData *data;
+    PoCoMonochromePattern *pat;
+    NSData *newData;
 
     DPRINT((@"[PoCoPenStyle init]\n"));
 
-    // super class の初期化
+    // forward to super class.
     self = [super init];
 
-    // 自身の初期化
+    // initialise myself.
     if (self != nil) {
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
             self->pattern_[l] = nil;
         }
 
-        // ペン先の読み込み
+        // load each pen style from UserDefaults.
         def = [NSUserDefaults standardUserDefaults];
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
-            self->pattern_[l] = [NSUnarchiver unarchiveObjectWithData:[def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]]];
+            // retrieve pen style with key.
+            data = [def objectForKey:[NSString stringWithFormat:PATTERN_NAME, l]];
+
+            // unarichve data.
+            pat = [NSKeyedUnarchiver unarchivedObjectOfClass:[PoCoMonochromePattern class]
+                                                    fromData:data
+                                                       error:nil];
+
+            // whether data could be unarchived.
+            if (pat == nil) {
+                // could not be unarchied, then assuming that this is old version. so that, convert data unarchived to current class.
+# pragma clang diagnostic push
+# pragma clang diagnostic ignored "-Wdeprecated-declarations"
+                pat = [NSUnarchiver unarchiveObjectWithData:data];
+# pragma clang diagnostic pop
+                newData = [NSKeyedArchiver archivedDataWithRootObject:pat
+                                                requiringSecureCoding:YES
+                                                                error:nil];
+                [def setObject:newData
+                        forKey:[NSString stringWithFormat:PATTERN_NAME, l]];
+#if 0    // official document says; this method is unnecessary and shouldn’t be used.
+                [def synchronize];
+#endif   // 0
+            }
+            self->pattern_[l] = pat;
             if (self->pattern_[l] == nil) {
-                DPRINT((@"can't create penstyle : %d\n", l));
+                DPRINT((@"can't create pen style : %d\n", l));
                 [self release];
                 self = nil;
                 break;
@@ -123,25 +159,25 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
 //  Return
-//    pattern_[] : ペン先(instance 変数)
+//    pattern_[] : the pen styles.(instance)
 //
--(void)dealloc
+- (void)dealloc
 {
     int l;
 
-    // 資源の解放
+    // release resources allocated.
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         [self->pattern_[l] release];
         self->pattern_[l] = nil;
     }
 
-    // super class の解放
+    // forward to super class.
     [super dealloc];
 
     return;
@@ -149,16 +185,16 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 参照
+// get pattern at index.
 //
-//  Call
-//    index      : 番号
-//    pattern_[] : ペン先(instance 変数)
+//  Call:
+//    index      : index.
+//    pattern_[] : the pen styles.(instance)
 //
-//  Return
-//    function : ペン先
+//  Return:
+//    function : a pen style.
 //
--(PoCoMonochromePattern *)pattern:(int)index
+- (PoCoMonochromePattern *)pattern:(int)index
 {
     PoCoMonochromePattern *pat;
 
@@ -173,29 +209,79 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 設定
+// set pattern at index.
 //
 //  Call
-//    pat   : パターン
-//    index : 番号
+//    pat   : a pen style.
+//    index : index.
 //
 //  Return
-//    pattern_[] : ペン先(instance 変数)
+//    pattern_[] : the pen styles.(instance)
 //
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index
 {
     if ((index < 0) || (index >= PEN_STYLE_NUM)) {
         ;
     } else {
+        // set pattern.
         [self->pattern_[index] setPattern:[pat pattern]
                                     width:[pat width]
                                    height:[pat height]];
 
-        // 設定を更新
+        // update UserDefaults.
         [[NSUserDefaults standardUserDefaults]
-            setObject:[NSArchiver archivedDataWithRootObject:self->pattern_[index]]
+            setObject:[NSKeyedArchiver archivedDataWithRootObject:self->pattern_[index]
+                                            requiringSecureCoding:YES
+                                                            error:nil]
                forKey:[NSString stringWithFormat:PATTERN_NAME, index]];
+    }
+
+    return;
+}
+
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    int l;
+
+    for (l = 0; l < PEN_STYLE_NUM; (l)++) {
+        [self revertPattern:l];
+    }
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    index : index.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern:(int)index
+{
+    if ((index < 0) || (index >= PEN_STYLE_NUM)) {
+        ;
+    } else {
+        // remove from UserDefaults.
+        [[NSUserDefaults standardUserDefaults]
+            removeObjectForKey:[NSString stringWithFormat:PATTERN_NAME, index]];
+
+        // revert pattern to default.
+        setDefaultPattern(self->pattern_[index], index);
     }
 
     return;
@@ -209,55 +295,59 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 // ============================================================================
 @implementation PoCoPenSteadyStyle
 
-// ------------------------------------------------------------- class - public
+// ----------------------------------------------------------------------------
+// class - public.
+
 //
-// 初期設定
+// initialise (class).
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
-+(void)initialize
++ (void)initialize
 {
-    // 何もしない
+    // do nothing.
     ;
 
     return;
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
-// initialize
+// initialise (instance).
 //
 //  Call
-//    PoCoPenStyleDefault[] : 初期値(内部変数)
+//    PoCoPenStyleDefault[] : default patterns.(global)
 //
 //  Return
-//    function  : 実体
-//    pattern_[] : ペン先(instance 変数)
+//    function   : instance.
+//    pattern_[] : the pen styles.(instance)
 //
--(id)init
+- (id)init
 {
     int l;
 
     DPRINT((@"[PoCoPenSteadyStyle init]\n"));
 
-    // super class の初期化
+    // forward to super class.
     self = [super init];
 
-    // 自身の初期化
+    // initialise myself.
     if (self != nil) {
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
             self->pattern_[l] = nil;
         }
 
-        // ペン先の読み込み
+        // creat each pen style.
         for (l = 0; l < PEN_STYLE_NUM; (l)++) {
             self->pattern_[l] = [[PoCoMonochromePattern alloc] init];
-            setPattern(self->pattern_[l], l);
+            setDefaultPattern(self->pattern_[l], l);
         }
     }
 
@@ -266,25 +356,25 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// deallocate
+// deallocate.
 //
-//  Call
-//    None
+//  Call:
+//    none.
 //
-//  Return
-//    pattern_[] : ペン先(instance 変数)
+//  Return:
+//    pattern_[] : the pen styles.(instance)
 //
--(void)dealloc
+- (void)dealloc
 {
     int l;
 
-    // 資源の解放
+    // release resource allocated.
     for (l = 0; l < PEN_STYLE_NUM; (l)++) {
         [self->pattern_[l] release];
         self->pattern_[l] = nil;
     }
 
-    // super class の解放
+    // forward to super class.
     [super dealloc];
 
     return;
@@ -292,16 +382,16 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 参照
+// get pattern at index.
 //
-//  Call
-//    index      : 番号
-//    pattern_[] : ペン先(instance 変数)
+//  Call:
+//    index      : index.
+//    pattern_[] : the pen styles.(instance)
 //
-//  Return
-//    function : ペン先
+//  Return:
+//    function : a pen style.
 //
--(PoCoMonochromePattern *)pattern:(int)index
+- (PoCoMonochromePattern *)pattern:(int)index
 {
     PoCoMonochromePattern *pat;
 
@@ -316,19 +406,55 @@ static void  setPattern(PoCoMonochromePattern *pat, int i)
 
 
 //
-// 設定
+// set pattern at index.
 //
 //  Call
-//    pat   : パターン
-//    index : 番号
+//    pat   : a pen style.
+//    index : index.
 //
 //  Return
-//    None
+//    pattern_[] : the pen styles.(instance)
 //
--(void)setPattern:(PoCoMonochromePattern *)pat
-          atIndex:(int)index
+- (void)setPattern:(PoCoMonochromePattern *)pat
+           atIndex:(int)index
 {
-    // 何もしない
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert all patterns.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPatterns
+{
+    // do nothing.
+    ;
+
+    return;
+}
+
+
+//
+// revert pattern at index.
+//
+//  Call:
+//    index : index.
+//
+//  Return:
+//    none.
+//
+- (void)revertPattern:(int)index
+{
+    // do nothing.
     ;
 
     return;

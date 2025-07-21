@@ -468,11 +468,11 @@ typedef struct _positionInfo {          // 位置情報
     charAttr = nil;
 
     // 背景を一旦消去
-#if (MACOSX_DEPLOYMENT_TARGET >= MAC_OS_X_VERSION_10_14)
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_14)
     iter = [[NSColor alternatingContentBackgroundColors] objectEnumerator];
-#else   // (MACOSX_DEPLOYMENT_TARGET >= MAC_OS_X_VERSION_10_14)
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_14)
     iter = [[NSColor controlAlternatingRowBackgroundColors] objectEnumerator];
-#endif  // (MACOSX_DEPLOYMENT_TARGET >= MAC_OS_X_VERSION_10_14)
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_14)
     c = [iter nextObject];
     [c set];
     if (num & 1) {

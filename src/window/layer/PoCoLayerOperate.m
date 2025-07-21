@@ -1,9 +1,10 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧操舵部
+// PoCoLayerOperate.h
+// implementation of PoCoLayerOperate class.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
+
 
 #import "PoCoLayerOperate.h"
 
@@ -35,7 +36,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 // ============================================================================
 @implementation PoCoLayerOperate
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // observer を登録
 //
@@ -94,7 +97,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -173,7 +178,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 }
 
 
-// -------------------------------------------- instance - public - observer 系
+// ----------------------------------------------------------------------------
+// instance - public - for observer.
+
 //
 // 表示画像を切り替え(通知)
 //
@@ -315,7 +322,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - IBActions.
+
 //
 // 画像レイヤー生成
 //
@@ -328,7 +337,7 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 //  Return
 //    selLayer_ : 選択中レイヤー情報(instance 変数)
 //
--(IBAction)newBitmapLayer:(id)sender
+- (IBAction)newBitmapLayer:(id)sender
 {
     id cntl;
 
@@ -366,7 +375,7 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 //  Return
 //    selLayer_ : 選択中レイヤー情報(instance 変数)
 //
--(IBAction)newStringLayer:(id)sender
+- (IBAction)newStringLayer:(id)sender
 {
     id cntl;
 
@@ -393,6 +402,50 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 
 
 //
+// copy layer.
+//
+//  Call:
+//    sender     : 操作対象
+//    layerList_ : 一覧表(outlet)
+//    docCntl_   : document controller(instance 変数)
+//    info_      : 編集情報(instance 変数)
+//
+//  Return:
+//    selLayer_ : 選択中レイヤー情報(instance 変数)
+//
+- (IBAction)copyLayer:(id)sender
+{
+    const int cnt = (int)([[[[self->docCntl_ currentDocument] picture] layer] count]);
+    const int sel = ([self->selLayer_ sel] + 1);
+    id  cntl;
+
+    // to cancel selection, notify the changing current layer.
+    [[NSNotificationCenter defaultCenter]
+        postNotificationName:PoCoSelLayerChange
+                      object:nil];
+
+    // create the edit controller.
+    cntl = [[(PoCoAppController *)([NSApp delegate]) factory]
+               createLayerMover:NO
+                            src:[self->selLayer_ sel]
+                         target:sel
+                           copy:YES];
+    if ([cntl execute]) {
+        // redraw the layer list.
+        [self->layerList_ selectRowIndexes:[NSIndexSet indexSetWithIndex:(cnt - sel)]
+                      byExtendingSelection:NO];
+        [self->layerList_ scrollRowToVisible:(cnt - sel)];
+
+        // change current layer.
+        [self->selLayer_ setSel:sel];
+    }
+    [cntl release];
+
+    return;
+}
+
+
+//
 // レイヤー削除
 //
 //  Call
@@ -404,7 +457,7 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 //  Return
 //    selLayer_ : 選択中レイヤー情報(instance 変数)
 //
--(IBAction)deleteLayer:(id)sender
+- (IBAction)deleteLayer:(id)sender
 {
     id cntl;
     int cnt;
@@ -450,7 +503,7 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 //  Return
 //    selLayer_ : 選択中レイヤー情報(instance 変数)
 //
--(IBAction)unificateLayer:(id)sender
+- (IBAction)unificateLayer:(id)sender
 {
     id cntl;
 
@@ -475,7 +528,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 }
 
 
-// --------------------------------------- instance - public - 一覧用デリゲート
+// ----------------------------------------------------------------------------
+// instance - public - delegate for table list.
+
 //
 // 行の選択可否
 //
@@ -566,7 +621,9 @@ enum ColumnType {                       // 一覧表の桁毎の区分
 }
 
 
-// ----------------------------- instance - public - 一覧用データソースメソッド
+// ----------------------------------------------------------------------------
+// instance - public - delegate for table data source.
+
 //
 // 行数の取得
 //

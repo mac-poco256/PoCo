@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧テーブル
+// PoCoLayerTableView.m
+// implementation of PoCoLayerTableView class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoLayerTableView.h"
@@ -43,6 +43,27 @@
 
 
 // ---------------------------------------------------------- instance - public
+//
+// awake from nib.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    none.
+//
+- (void)awakeFromNib
+{
+    // forwarded to super class.
+    [super awakeFromNib];
+    
+    // override style.
+    [self setStyle:NSTableViewStylePlain];
+    
+    return;
+}
+
+
 //
 // 表示要求
 //
@@ -107,11 +128,11 @@
 -(BOOL)validateMenuItem:(NSMenuItem *)menu
 {
     BOOL result;
+    
+    result = YES;
 
     if ([menu action] == @selector(selectAll:)) {
         result = ((PoCoView *)([(MyDocument *)([[NSDocumentController sharedDocumentController] currentDocument]) view]) != nil);
-    } else {
-        result = [super validateMenuItem:menu];
     }
 
     return result;
@@ -247,7 +268,7 @@
     PoCoLayerOperate *oprt = (PoCoLayerOperate *)([self delegate]);
     const int targetRow = [oprt targetRowInTableView:self];
     const BOOL isCopy = ((self->isRightDown_) ||
-                         (([evt modifierFlags] & NSControlKeyMask) != 0));
+                         (([evt modifierFlags] & NSEventModifierFlagControl) != 0));
 
     if (self->isMoving_) {
         [oprt tableView:self setTargetRow:-1];

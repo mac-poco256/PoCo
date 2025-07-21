@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	2値パターン編集領域
+// PoCoMonochromePatternEditView.h
+// declare interface of view for monochrome pattern editor.
 //
-//	Copyright (C) 2005-2015 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -24,6 +24,9 @@
 
 // deallocate
 -(void)dealloc;
+
+// awake from nib.
+- (void)awakeFromNib;
 
 // パターンを取得
 -(PoCoMonochromePattern *)pattern;

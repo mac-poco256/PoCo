@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	自動グラデーション設定パネル
+// PoCoAutoGradationPanel.h
+// declare interface of auto gradient setting panel.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -80,10 +80,14 @@
 -(IBAction)ok:(id)sender;               // 設定
 
 // 個別詳細設定シート関連
--(IBAction)raiseSizeDetailSheet:(id)sender;
--(IBAction)endSizeDetailSheet:(id)sender;
--(void)sizeDetailSheetDidEnd:(NSWindow *)sheet
-                  returnCode:(int)returnCode
-                 contextInfo:(void *)contextInfo;
+- (IBAction)raiseSizeDetailSheet:(id)sender;
+- (IBAction)endSizeDetailSheet:(id)sender;
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)sizeDetailSheetDidEnd:(NSModalResponse)returnCode;
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)sizeDetailSheetDidEnd:(NSWindow *)sheet
+                   returnCode:(int)returnCode
+                  contextInfo:(void *)contextInfo;
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
 @end

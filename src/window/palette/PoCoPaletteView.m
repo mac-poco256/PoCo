@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	全パレット表示部
+// PoCoPaletteView.m
+// implementation of PoCoPaletteView class.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPaletteView.h"
@@ -22,7 +22,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 // ============================================================================
 @implementation PoCoPaletteView
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // observer を登録
 //
@@ -177,7 +179,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -237,22 +241,28 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 
 
 //
-// nib が読み込まれた
+// awake from nib.
 //
-//  Call
+//  Call:
 //    attributeMask_        : マスク(outlet)
 //    attributeDropper_     : 吸い取り禁止(outlet)
 //    attributeTransparent_ : 透明(outlet)
 //
-//  Return
+//  Return:
 //    attributesRect_[] : 補助属性の初期位置(instance 変数)
 //
--(void)awakeFromNib
+- (void)awakeFromNib
 {
-    // 初期位置を記憶
+    // forwarded to super class.
+    [super awakeFromNib];
+
+    // store initial positions.
     self->attributesRect_[0] = [self->attributeMask_ frame];
     self->attributesRect_[1] = [self->attributeDropper_ frame];
     self->attributesRect_[2] = [self->attributeTransparent_ frame];
+
+    // set property.
+    [self setClipsToBounds:YES];
 
     return;
 }
@@ -555,7 +565,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// -------------------------- PoCoPaletteView 内 instance 関数 - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers (especially pointing device).
+
 //
 // ボタンダウンイベントの受け入れ可否
 //
@@ -633,7 +645,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// ----------------------------------- instance - public - 色詳細設定シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for the detailed colour attribute setting sheet.
+
 //
 // 色詳細設定シートを開ける
 //
@@ -647,7 +661,7 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //    accessoryDropper_     : 吸い取り禁止(outlet)
 //    accessoryTransparent_ : 透明(outlet)
 //
--(void)raiseColorInfoSheet
+- (void)raiseColorInfoSheet
 {
     PoCoColor *col;
 
@@ -678,11 +692,20 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
     [self->accessoryTransparent_ setState:([col isTrans]) ? 1 : 0];
 
     // シートを開ける
+
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->infoSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf colorInfoSheetDidEnd:returnCode];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->infoSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(colorInfoSheetDidEnd:returnCode:contextInfo:)
           contextInfo:nil];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -699,7 +722,7 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //  Return
 //    None
 //
--(IBAction)endColorInfoSheet:(id)sender
+- (IBAction)endColorInfoSheet:(id)sender
 {
     // 補助属性設定シートを閉じる
     [self->infoSheet_ orderOut:sender];
@@ -726,9 +749,13 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 //  Return
 //    None
 //
--(void)colorInfoSheetDidEnd:(NSWindow *)sheet
-                 returnCode:(int)returnCode
-                contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSModalResponse)returnCode
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)colorInfoSheetDidEnd:(NSWindow *)sheet
+                  returnCode:(int)returnCode
+                 contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     CGFloat red;
     CGFloat green;
@@ -762,7 +789,9 @@ static  unsigned int H_MAX = 16;        // 水平要素数(個数)
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - for IBActions.
+
 //
 // マスク
 //

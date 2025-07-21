@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	描画編集系 - 範囲選択
+// PoCoDrawSelection.m
+// implementation of PoCoDrawSelection class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoDrawSelection.h"
@@ -34,7 +34,9 @@ typedef enum __pocoSelEditType {
 // ============================================================================
 @implementation PoCoDrawSelection
 
-// ------------------------------------------------------------ class - private
+// ----------------------------------------------------------------------------
+// class - private.
+
 //
 // 選択範囲を拡張
 //  half-open property のため +1 する
@@ -54,7 +56,9 @@ typedef enum __pocoSelEditType {
 }
 
 
-// --------------------------------------------------------- instance - private
+// ----------------------------------------------------------------------------
+// instance - private.
+
 //
 // 編集実行
 //
@@ -283,9 +287,11 @@ KEY_MOVE:
 }
 
 
-// ---------------------------------------------------------- instance - public
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
-// initialize
+// initialise.
 //
 //  Call
 //    doc : 編集対象
@@ -326,7 +332,7 @@ KEY_MOVE:
 
 
 //
-// deallocate
+// deallocate.
 //
 //  Call
 //    document_  : 編集対象(基底 instance 変数)
@@ -371,7 +377,9 @@ KEY_MOVE:
 }
 
 
-// --------------------------------------------- instance - public - 範囲選択系
+// ----------------------------------------------------------------------------
+// instance - public - features with selection shape.
+
 //
 // ペーストボードから貼り付け
 //
@@ -492,36 +500,43 @@ KEY_MOVE:
 
 
 //
-// 画像反転
+// flip image.
 //
-//  Call
-//    hori : 水平か
-//           YES : 水平に画像反転
-//           NO  : 垂直に画像反転
+//  Call:
+//    hori : flag, indicate which axis is applied to.
+//           `YES` is horizonal.
+//           `NO`  is vertical.
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)flipImage:(BOOL)hori
+- (void)flipImage:(BOOL)hori
 {
     if ([super isNotEditLayer]) {
-        // 編集禁止レイヤー
+        // if layer is locked, then does not apply.
         ;
     } else if ([[self->shape_ resultRect] empty]) {
-        // 選択範囲が空なら何もしない
+        // if selection shape is the empty, then do nothing.
         ;
     } else {
-        // ガイドライン消去
+        // hide the guide line.
         [self drawGuideLine];
 
-        // 編集実行
-        [super beginUndo:NO];           // 取り消し開始
+        // fix selection shape.
+        if (([self->shape_ isCornerHandle]) || ([self->shape_ isEdgeHandle])) {
+            [self->shape_ copyResultToOriginal];
+            [self decideSelectionShape];
+            [self updateSelectionRect:[self->shape_ resultRect]];
+        }
+
+        // execute the edit.
+        [super beginUndo:NO];           // begin undo.
         [self->shape_ flip:hori];
         [self exec:((hori) ? edit_flip_hori : edit_flip_vert)
             isCopy:YES];
-        [super endUndo:NO];             // 取り消し終了
+        [super endUndo:NO];             // end undo.
 
-        // ガイドライン表示
+        // show the guide line.
         [self drawGuideLine];
     }
 
@@ -530,36 +545,45 @@ KEY_MOVE:
 
 
 //
-// 自動グラデーション
+// auto gradient.
 //
-//  Call
-//    size      : 大きさ(0: 任意、1-128 の範囲)
-//    adj       : 隣接(YES: 隣り合う色番号のみ)
-//    mtx       : 対象色配列(256 固定長、YES: 対象)
-//    sizePair  : 大きさと色番号の対群
-//    document_ : 編集対象(基底 instance 変数)
-//    shape_    : 範囲形状(instance 変数)
+//  Call:
+//    size      : size (0: free, 1 through 128: fixed).
+//    adj       : flag, indicate whether apply to the adjacent colour only.
+//                YES is the adjacent colour only.
+//    mtx       : matrix of the target index colours (256 fixed array by BOOL.
+//                YES means that the corresponding index is specified as target.
+//    sizePair  : combining size with the index of a colour.
+//    document_ : document.(base instance)
+//    shape_    : selection shape.(instance)
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)autoGrad:(int)size
-     isAdjacent:(BOOL)adj
-         matrix:(const BOOL *)mtx
-   withSizePair:(NSDictionary *)sizePair
+- (void)autoGrad:(int)size
+      isAdjacent:(BOOL)adj
+          matrix:(const BOOL *)mtx
+    withSizePair:(NSDictionary *)sizePair
 {
     if ([super isNotEditLayer]) {
-        // 編集禁止レイヤー
+        // if layer is locked, then does not apply.
         ;
     } else if ([[self->shape_ resultRect] empty]) {
-        // 選択範囲が空なら何もしない
+        // if selection shape is the empty, then do nothing.
         ;
     } else {
-        // ガイドライン消去
+        // hide the guide line.
         [self drawGuideLine];
 
-        // 編集実行
-        [super beginUndo:NO];           // 取り消し開始
+        // fix selection shape.
+        if (([self->shape_ isCornerHandle]) || ([self->shape_ isEdgeHandle])) {
+            [self->shape_ copyResultToOriginal];
+            [self decideSelectionShape];
+            [self updateSelectionRect:[self->shape_ resultRect]];
+        }
+
+        // execute the edit.
+        [super beginUndo:NO];           // begin undo.
         [self->shape_ autoGrad:self->document_
                        penSize:size
                     isAdjacent:adj
@@ -567,9 +591,9 @@ KEY_MOVE:
                   withSizePair:sizePair];
         [self exec:edit_autograd
             isCopy:YES];
-        [super endUndo:NO];             // 取り消し終了
+        [super endUndo:NO];             // end undo.
 
-        // ガイドライン表示
+        // show the guide line.
         [self drawGuideLine];
     }
 
@@ -578,37 +602,44 @@ KEY_MOVE:
 
 
 //
-// 色置換
+// replace color.
 //
-//  Call
-//    mtx       : 置換表(256 固定長)
-//    document_ : 編集対象(基底 instance 変数)
-//    shape_    : 範囲形状(instance 変数)
+//  Call:
+//    mtx       : matrix for replacement (256 fixed array by unsigned char).
+//    document_ : document.(base instance)
+//    shape_    : selection shape.(instance)
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)colorReplace:(const unsigned char *)mtx
+- (void)colorReplace:(const unsigned char *)mtx
 {
     if ([super isNotEditLayer]) {
-        // 編集禁止レイヤー
+        // if layer is locked, then does not apply.
         ;
     } else if ([[self->shape_ resultRect] empty]) {
-        // 選択範囲が空なら何もしない
+        // if selection shape is the empty, then do nothing.
         ;
     } else {
-        // ガイドライン消去
+        // hide the guide line.
         [self drawGuideLine];
 
-        // 編集実行
-        [super beginUndo:NO];           // 取り消し開始
+        // fix selection shape.
+        if (([self->shape_ isCornerHandle]) || ([self->shape_ isEdgeHandle])) {
+            [self->shape_ copyResultToOriginal];
+            [self decideSelectionShape];
+            [self updateSelectionRect:[self->shape_ resultRect]];
+        }
+
+        // execute the edit.
+        [super beginUndo:NO];           // begin undo.
         [self->shape_ colorReplace:self->document_
                             matrix:mtx];
         [self exec:edit_colorreplace
             isCopy:YES];
-        [super endUndo:NO];             // 取り消し終了
+        [super endUndo:NO];             // end undo.
 
-        // ガイドライン表示
+        // show the guide line.
         [self drawGuideLine];
     }
 
@@ -617,39 +648,46 @@ KEY_MOVE:
 
 
 //
-// テクスチャ
+// texture.
 //
-//  Call
-//    base : 基本色(NSArray<unsigned int>)
-//    grad : 濃淡対(NSArray<unsinged int, NSArray<unsigned int> >)
+//  Call:
+//    base : base colours (NSArray<unsigned int>).
+//    grad : gradient colours (NSArray<unsinged int, NSArray<unsigned int> >).
 //
-//  Return
-//    None
+//  Return:
+//    none.
 //
--(void)texture:(NSArray *)base
-  withGradient:(NSArray *)grad
+- (void)texture:(NSArray *)base
+   withGradient:(NSArray *)grad
 {
     if ([super isNotEditLayer]) {
-        // 編集禁止レイヤー
+        // if layer is locked, then does not apply.
         ;
     } else if ([[self->shape_ resultRect] empty]) {
-        // 選択範囲が空なら何もしない
+        // if selection shape is the empty, then do nothing.
         ;
     } else {
-        // ガイドライン消去
+        // hide the guide line.
         [self drawGuideLine];
 
-        // 編集実行
-        [super beginUndo:NO];           // 取り消し開始
+        // fix selection shape.
+        if (([self->shape_ isCornerHandle]) || ([self->shape_ isEdgeHandle])) {
+            [self->shape_ copyResultToOriginal];
+            [self decideSelectionShape];
+            [self updateSelectionRect:[self->shape_ resultRect]];
+        }
+
+        // execute the edit.
+        [super beginUndo:NO];           // begin undo.
         [self->shape_ texture:self->document_
                  withEditInfo:self->editInfo_
                    baseColors:base
                gradientColors:grad];
         [self exec:edit_texture
             isCopy:YES];
-        [super endUndo:NO];             // 取り消し終了
+        [super endUndo:NO];             // end undo.
 
-        // ガイドライン表示
+        // show the guide line.
         [self drawGuideLine];
     }
 
@@ -820,7 +858,9 @@ KEY_MOVE:
 }
 
 
-// --------------------------------------------------- instance - public - 補助
+// ----------------------------------------------------------------------------
+// instance - public - assistance functions.
+
 //
 // Pointer 形状範囲更新
 //
@@ -849,7 +889,7 @@ KEY_MOVE:
             [view addCursorRect:[view toDispRect:r]
                          cursor:[NSCursor closedHandCursor]];
             [r release];
-        } else if (([NSEvent modifierFlags] & NSCommandKeyMask) != 0x00) {
+        } else if (([NSEvent modifierFlags] & NSEventModifierFlagCommand) != 0x00) {
             // 塗り選択中は形状を変えない
             ;
         } else {
@@ -1215,7 +1255,9 @@ KEY_MOVE:
 }
 
 
-// ----------------------------------------- instance - public - イベント処理系
+// ----------------------------------------------------------------------------
+// instance - public - event handlers.
+
 //
 // 主ボタンダウン
 //
@@ -1239,33 +1281,33 @@ KEY_MOVE:
         // 編集禁止レイヤー
         ;
     } else {
-        if (([evt modifierFlags] & NSCommandKeyMask) != 0x00) {
+        if (([evt modifierFlags] & NSEventModifierFlagCommand) != 0x00) {
             // 塗り選択
             self->isPaint_ = YES;
             if (self->shape_ != nil) {
                 // ガイドライン消去
                 [self drawGuideLine];
             }
-            if ((([evt modifierFlags] & NSShiftKeyMask) != 0x00) &&
+            if ((([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) &&
                 ([self->shape_ resultRect] != nil) &&
                 (!([[self->shape_ resultRect] empty]))) {
                 // 結合
                 [self->shape_ seedJoin:[self->editInfo_ pdPos]
                                 bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                              isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                              isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                             colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
-            } else if (([evt modifierFlags] & NSAlternateKeyMask) != 0x00) {
+            } else if (([evt modifierFlags] & NSEventModifierFlagOption) != 0x00) {
                 // 分離
                 [self->shape_ seedSeparate:[self->editInfo_ pdPos]
                                     bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                                  isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                                  isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                                 colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
             } else {
                 // 範囲生成開始
                 [self initSelectionShape];
                 [self->shape_ seedNew:[self->editInfo_ pdPos]
                                bitmap:[[[self->document_ picture] layer:[[self->document_ selLayer] sel]] bitmap]
-                             isBorder:(([evt modifierFlags] & NSControlKeyMask) != 0x00)
+                             isBorder:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)
                            colorRange:(([self->editInfo_ continuationType]) ? [self->editInfo_ colorRange] : 0)];
             }
         } else if ([self->shape_ startTrans:[self->editInfo_ pdPos]
@@ -1508,7 +1550,7 @@ KEY_MOVE:
                 // 編集実行
                 [self exec:edit_withHandle
                     isCopy:((self->isCopy_) ||
-                            (([evt modifierFlags] & NSControlKeyMask) != 0x00))];
+                            (([evt modifierFlags] & NSEventModifierFlagControl) != 0x00))];
 
                 // 取り消し終了(取り消し群にする)
                 [super endUndo:YES];
@@ -1600,12 +1642,12 @@ KEY_MOVE:
             [self delete];
         } else {
             // 移動
-            if (([evt modifierFlags] & NSAlternateKeyMask) != 0x00) {
+            if (([evt modifierFlags] & NSEventModifierFlagOption) != 0x00) {
                 gap = 1;
             } else {
                 gap = MAX(1, [[self->document_ view] handleRectGap]);
             }
-            if (([evt modifierFlags] & NSShiftKeyMask) != 0x00) {
+            if (([evt modifierFlags] & NSEventModifierFlagShift) != 0x00) {
                 gap *= 5;
             }
             cp = [[self->shape_ originalHandle:PoCoHandleType_center] lefttop];
@@ -1657,7 +1699,7 @@ KEY_MOVE:
                             isLiveUpdateResult:NO];
                     [self->shape_ endTrans];
                     [self exec:edit_key_move
-                        isCopy:(([evt modifierFlags] & NSControlKeyMask) != 0x00)];
+                        isCopy:(([evt modifierFlags] & NSEventModifierFlagControl) != 0x00)];
                     [super endUndo:NO];     // 取り消し終了
 
                     // 選択範囲更新

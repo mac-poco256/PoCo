@@ -1,19 +1,23 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	レイヤー一覧テーブル
+// PoCoLayerTableView.h
+// declare interface of PoCoLayerTableView class.
+// this class is to manage PoCoLayerTableView.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Cocoa/Cocoa.h>
 
 // ----------------------------------------------------------------------------
-@interface PoCoLayerTableView : NSTableView
+@interface PoCoLayerTableView : NSTableView <NSMenuItemValidation>
 {
     BOOL isMoving_;                     // YES : 移動操作    NO : 通常操作
     BOOL isRightDown_;                  // 副ボタン押し下
     int startRow_;                      // 移動開始行
 }
+
+// awake from nib.
+- (void)awakeFromNib;
 
 // 表示要求
 -(void)drawRect:(NSRect)rect;

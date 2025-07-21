@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	Application 管理部
+// PoCoAppController.h
+// declare interface of application controller.
 //
-//	Copyright (C) 2005-2016 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import <Foundation/Foundation.h>
@@ -28,7 +28,8 @@
 @class PoCoTileSteadyPattern;
 
 // ----------------------------------------------------------------------------
-@interface PoCoAppController : NSObject {
+@interface PoCoAppController : NSObject <NSMenuItemValidation>
+{
     BOOL willFinish_;                   // 終了処理中か
 
     // 各補助・設定パネルの管理用 instance 変数
@@ -79,6 +80,9 @@
 
 // アプリケーションが終了する
 -(void)applicationWillTerminate:(NSNotification *)note;
+
+// express this app supports secure state restoration.
+- (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app;
 
 // メニューを更新
 -(BOOL)validateMenuItem:(NSMenuItem *)menu;
@@ -133,13 +137,17 @@
 -(IBAction)changeAtomizerSkip:(id)sender;
 
 // ペン先/タイルパターンの切り替え
--(IBAction)nextPenStyle:(id)sender;
--(IBAction)prevPenStyle:(id)sender;
--(IBAction)nextPenSize:(id)sender;
--(IBAction)prevPenSize:(id)sender;
--(IBAction)nextTilePattern:(id)sender;
--(IBAction)prevTilePattern:(id)sender;
--(IBAction)changeDensity:(id)sender;
+- (IBAction)nextPenStyle:(id)sender;
+- (IBAction)prevPenStyle:(id)sender;
+- (IBAction)revertAllPenStyles:(id)sender;
+- (IBAction)revertPenStyle:(id)sender;
+- (IBAction)nextPenSize:(id)sender;
+- (IBAction)prevPenSize:(id)sender;
+- (IBAction)nextTilePattern:(id)sender;
+- (IBAction)prevTilePattern:(id)sender;
+- (IBAction)revertAllTilePatterns:(id)sender;
+- (IBAction)revertTilePattern:(id)sender;
+- (IBAction)changeDensity:(id)sender;
 
 // パレット編集
 -(IBAction)lockPalette:(id)sender;
@@ -152,10 +160,11 @@
 -(IBAction)pastePalette:(id)sender;
 
 // レイヤー編集
--(IBAction)addBitmapLayer:(id)sender;
--(IBAction)addStringLayer:(id)sender;
--(IBAction)deleteLayer:(id)sender;
--(IBAction)unificateLayer:(id)sender;
+- (IBAction)addBitmapLayer:(id)sender;
+- (IBAction)addStringLayer:(id)sender;
+- (IBAction)copyLayer:(id)sender;
+- (IBAction)deleteLayer:(id)sender;
+- (IBAction)unificateLayer:(id)sender;
 
 // カラーパターン登録
 -(IBAction)registerColorPattern:(id)sender;

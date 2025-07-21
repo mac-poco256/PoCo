@@ -28,7 +28,7 @@
 	<key>CFBundleExecutable</key>
 	<string>PoCo</string>
 	<key>CFBundleGetInfoString</key>
-	<string>PoCo Version 1.4.0, Copyright (C) 2005-2020 KAENRYUU Koutoku.</string>
+	<string>PoCo Version 1.5.0, Copyright (C) 2005-2025 KAENRYUU Koutoku.</string>
 	<key>CFBundleIconFile</key>
 	<string>PoCo.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -38,11 +38,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.0</string>
+	<string>1.5.0</string>
 	<key>CFBundleSignature</key>
 	<string>POCO</string>
 	<key>CFBundleVersion</key>
-	<string>187</string>
+	<string>189</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.graphics-design</string>
 	<key>NSMainNibFile</key>

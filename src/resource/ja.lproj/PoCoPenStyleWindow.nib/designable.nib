@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PoCoPenStyleWindow">
+            <connections>
+                <outlet property="densitySlider_" destination="12" id="65"/>
+                <outlet property="patternEditView_" destination="40" id="70"/>
+                <outlet property="patternSheet_" destination="16" id="66"/>
+                <outlet property="penSizeSlider_" destination="11" id="67"/>
+                <outlet property="penStyleView_" destination="13" id="68"/>
+                <outlet property="tilePatternView_" destination="14" id="69"/>
+                <outlet property="window" destination="6" id="9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="ペン形状・タイルパターン" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="6" userLabel="Panel" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" nonactivatingPanel="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
+            <rect key="contentRect" x="1" y="520" width="296" height="60"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1710" height="1068"/>
+            <value key="minSize" type="size" width="296" height="60"/>
+            <value key="maxSize" type="size" width="296" height="60"/>
+            <view key="contentView" id="5">
+                <rect key="frame" x="0.0" y="0.0" width="296" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11">
+                        <rect key="frame" x="0.0" y="6" width="144" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <sliderCell key="cell" controlSize="mini" alignment="left" minValue="1" maxValue="16" doubleValue="1" tickMarkPosition="below" numberOfTickMarks="16" allowsTickMarkValuesOnly="YES" sliderType="linear" id="58">
+                            <font key="font" size="12" name="Helvetica"/>
+                        </sliderCell>
+                        <connections>
+                            <action selector="penSizeSet:" target="-2" id="26"/>
+                        </connections>
+                    </slider>
+                    <slider verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="12">
+                        <rect key="frame" x="152" y="6" width="144" height="12"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <sliderCell key="cell" controlSize="mini" alignment="left" minValue="1" maxValue="10" doubleValue="1" tickMarkPosition="below" sliderType="linear" id="59">
+                            <font key="font" size="12" name="Helvetica"/>
+                        </sliderCell>
+                        <connections>
+                            <action selector="densitySet:" target="-2" id="27"/>
+                        </connections>
+                    </slider>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13" customClass="PoCoPenStyleView">
+                        <rect key="frame" x="0.0" y="24" width="144" height="36"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </customView>
+                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="14" customClass="PoCoTilePatternView">
+                        <rect key="frame" x="152" y="24" width="144" height="36"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </customView>
+                    <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="37">
+                        <rect key="frame" x="145" y="0.0" width="5" height="60"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </box>
+                </subviews>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="10"/>
+            </connections>
+            <point key="canvasLocation" x="55" y="-78"/>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="16" userLabel="StyleEditSheet">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="61" y="525" width="224" height="210"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1710" height="1068"/>
+            <value key="minSize" type="size" width="224" height="210"/>
+            <value key="maxSize" type="size" width="224" height="210"/>
+            <view key="contentView" id="15">
+                <rect key="frame" x="0.0" y="0.0" width="224" height="210"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="41">
+                        <rect key="frame" x="118" y="12" width="92" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="登録する" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="60">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="endPatternSheet:" target="-2" id="47"/>
+                        </connections>
+                    </button>
+                    <button tag="1" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42">
+                        <rect key="frame" x="19" y="12" width="99" height="32"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <buttonCell key="cell" type="push" title="キャンセル" bezelStyle="rounded" alignment="center" borderStyle="border" tag="1" inset="2" id="61">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="endPatternSheet:" target="-2" id="46"/>
+                        </connections>
+                    </button>
+                    <box fixedFrame="YES" boxType="oldStyle" borderType="line" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="53">
+                        <rect key="frame" x="74" y="60" width="130" height="130"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" id="lvd-5Y-RLb">
+                            <rect key="frame" x="1" y="1" width="128" height="128"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="40" customClass="PoCoMonochromePatternEditView">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <connections>
+                                        <outlet property="sampleView_" destination="39" id="64"/>
+                                    </connections>
+                                </customView>
+                            </subviews>
+                        </view>
+                    </box>
+                    <box fixedFrame="YES" boxType="oldStyle" borderType="line" title="Title" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="55">
+                        <rect key="frame" x="20" y="156" width="34" height="34"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <view key="contentView" id="5Us-qQ-8YQ">
+                            <rect key="frame" x="1" y="1" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="39" customClass="PoCoMonochromePatternSampleView">
+                                    <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </customView>
+                            </subviews>
+                        </view>
+                    </box>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="132" y="465"/>
+        </window>
+    </objects>
+</document>

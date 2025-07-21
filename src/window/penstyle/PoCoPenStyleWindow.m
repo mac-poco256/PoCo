@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	ペン先ウィンドウ管理部
+// PoCoPenStyleWindow.m
+// implementation of PoCoPenStyleWindow class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoPenStyleWindow.h"
@@ -18,7 +18,9 @@
 // ============================================================================
 @implementation PoCoPenStyleWindow
 
-// ---------------------------------------- PoCoPenStyleWindow 内 instance 関数
+// ----------------------------------------------------------------------------
+// instance - public.
+
 //
 // initialize
 //
@@ -114,7 +116,9 @@
 }
 
 
-// -------------------------------------------- instance - public - IBAction 系
+// ----------------------------------------------------------------------------
+// instance - public - for IBActions.
+
 //
 // ペン先太さ指定
 //
@@ -149,7 +153,9 @@
 }
 
 
-// ----------------------------------------- instance - public - イベントの取得
+// ----------------------------------------------------------------------------
+// instance - public - event handler.
+
 //
 // キーダウン処理
 //
@@ -202,7 +208,9 @@
 }
 
 
-// --------------------------------- instance - public - パターン設定シート関連
+// ----------------------------------------------------------------------------
+// instance - public - for pattern setting sheet.
+
 //
 // パターン設定シートを開ける
 //
@@ -215,7 +223,8 @@
 //  Return
 //    None
 //
--(void)raisePatternSheet:(id)sender pattern:(PoCoMonochromePattern *)pat
+- (void)raisePatternSheet:(id)sender
+                  pattern:(PoCoMonochromePattern *)pat
 {
     DPRINT((@"open patternSheet\n"));
 
@@ -224,11 +233,20 @@
 
     // パレット入れ替えシートを開ける
     [self->patternEditView_ setNeedsDisplay:YES];
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+    __block typeof(self) tmpSelf = self;
+    [[self window] beginSheet:self->patternSheet_
+            completionHandler:^(NSModalResponse returnCode) {
+        [tmpSelf patternSheetDidEnd:returnCode
+                        contextInfo:(void *)(sender)];
+    }];
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
     [NSApp beginSheet:self->patternSheet_
        modalForWindow:[self window]
         modalDelegate:self
        didEndSelector:@selector(patternSheetDidEnd:returnCode:contextInfo:)
           contextInfo:(void *)(sender)];
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 
     return;
 }
@@ -244,7 +262,7 @@
 //  Return
 //    None
 //
--(IBAction)endPatternSheet:(id)sender
+- (IBAction)endPatternSheet:(id)sender
 {
     DPRINT((@"will close patternSheet\n"));
 
@@ -269,9 +287,14 @@
 //  Return
 //    None
 //
--(void)patternSheetDidEnd:(NSWindow *)sheet
-               returnCode:(int)returnCode
-              contextInfo:(void *)contextInfo
+#if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)patternSheetDidEnd:(NSModalResponse)returnCode
+               contextInfo:(void *)contextInfo
+#else   // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
+- (void)patternSheetDidEnd:(NSWindow *)sheet
+                returnCode:(int)returnCode
+               contextInfo:(void *)contextInfo
+#endif  // (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_9)
 {
     PoCoMonochromePatternView *view = (PoCoMonochromePatternView *)(contextInfo);
 
@@ -289,7 +312,9 @@ EXIT:
 }
 
 
-// -------------------------- instance - public - パターン/スライダーの切り替え
+// ----------------------------------------------------------------------------
+// instance - public - set pen style / pen size / tile pattern / density.
+
 //
 // 次のペン先
 //
@@ -299,7 +324,7 @@ EXIT:
 //  Return
 //    None
 //
--(void)nextPenStyle
+- (void)nextPenStyle
 {
     [self->penStyleView_ nextSelection];
 
@@ -316,10 +341,44 @@ EXIT:
 //  Return
 //    None
 //
--(void)prevPenStyle
+- (void)prevPenStyle
 {
     [self->penStyleView_ prevSelection];
 
+    return;
+}
+
+
+//
+// revert all pen styles to default.
+//
+//  Call:
+//    penStyleView_ : view for pen style.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertAllPenStyles
+{
+    [self->penStyleView_ revertAllPatterns];
+
+    return;
+}
+
+
+//
+// revert current pen style to default.
+//
+//  Call:
+//    penStyleView_ : view for pen style.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertPenStyle
+{
+    [self->penStyleView_ revertPattern];
+    
     return;
 }
 
@@ -333,7 +392,7 @@ EXIT:
 //  Return
 //    penSizeSlider_ : ペン先大きさ(outlet)
 //
--(void)nextPenSize
+- (void)nextPenSize
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
 
@@ -355,7 +414,7 @@ EXIT:
 //  Return
 //    penSizeSlider_ : ペン先大きさ(outlet)
 //
--(void)prevPenSize
+- (void)prevPenSize
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
 
@@ -377,7 +436,7 @@ EXIT:
 //  Return
 //    None
 //
--(void)nextTilePattern
+- (void)nextTilePattern
 {
     [self->tilePatternView_ nextSelection];
 
@@ -394,9 +453,43 @@ EXIT:
 //  Return
 //    None
 //
--(void)prevTilePattern
+- (void)prevTilePattern
 {
     [self->tilePatternView_ prevSelection];
+
+    return;
+}
+
+
+//
+// revert all tile patterns to default.
+//
+//  Call:
+//    tilePatternView_ : view for tile pattern.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertAllTilePatterns
+{
+    [self->tilePatternView_ revertAllPatterns];
+
+    return;
+}
+
+
+//
+// revert current tile pattern to default.
+//
+//  Call:
+//    tilePatternView_ : view for tile pattern.(outlet)
+//
+//  Return:
+//    none.
+//
+- (void)revertTilePattern
+{
+    [self->tilePatternView_ revertPattern];
 
     return;
 }
@@ -411,7 +504,7 @@ EXIT:
 //  Return
 //    densitySlider_ : 濃度(outlet)
 //
--(void)addDensity:(int)val
+- (void)addDensity:(int)val
 {
     PoCoEditInfo *info = [(PoCoAppController *)([NSApp delegate]) editInfo];
     int den;

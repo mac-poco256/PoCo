@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	Application 管理部
+// PoCoAppController.m
+// implementation of PoCoAppController class.
 //
-//	Copyright (C) 2005-2018 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoAppController.h"
@@ -380,6 +380,21 @@ EXIT:
 
 
 //
+// express this app supports secure state restoration.
+//
+//  Call:
+//    none.
+//
+//  Return:
+//    function : always YES.
+//
+- (BOOL)applicationSupportsSecureRestorableState:(NSApplication *)app
+{
+    return YES;
+}
+
+
+//
 // 主ツールバーを取得
 //
 //  Call
@@ -543,49 +558,49 @@ EXIT:
     result = YES;
 
     if ([menu action] == @selector(showSubViewWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:SUBVIEW_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:SUBVIEW_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showPaletteWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PALETTE_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PALETTE_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showPenStyleWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PENSTYLE_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:PENSTYLE_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showLayerWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:LAYER_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:LAYER_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showInformationWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:INFORMATION_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:INFORMATION_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showToolbarWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:TOOLBAR_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:TOOLBAR_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(showColorPatternWindow:)) {
-        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:COLORPATTERN_OPEN_NAME]) ? NSOnState : NSOffState)];
+        [menu setState:(([[NSUserDefaults standardUserDefaults] boolForKey:COLORPATTERN_OPEN_NAME]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeFunction:)) {
-        [menu setState:(((int)([self->editInfo_ drawModeType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ drawModeType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeDrawing:)) {
-        [menu setState:(((int)([self->editInfo_ penStyleType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ penStyleType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(continuesLine:)) {
-        [menu setState:(([self->editInfo_ continuationType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ continuationType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(flipPattern:)) {
-        [menu setState:(([self->editInfo_ flipType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ flipType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(useHandle:)) {
-        [menu setState:(([self->editInfo_ useHandle]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ useHandle]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changePointMove:)) {
-        [menu setState:(((int)([self->editInfo_ pointModeType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ pointModeType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changePenSizeProp:)) {
-        [menu setState:(((int)([self->editInfo_ sizePropType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ sizePropType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeDensityProp:)) {
-        [menu setState:(((int)([self->editInfo_ densityPropType]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ densityPropType]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(normalTone:)) {
-        [menu setState:(([self->editInfo_ atomizerType]) ? NSOffState : NSOnState)];
+        [menu setState:(([self->editInfo_ atomizerType]) ? NSControlStateValueOff : NSControlStateValueOn)];
     } else if ([menu action] == @selector(halfTone:)) {
-        [menu setState:(([self->editInfo_ atomizerType]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ atomizerType]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(changeAtomizerSkip:)) {
-        [menu setState:(((int)([self->editInfo_ atomizerSkip]) == [menu tag]) ? NSOnState : NSOffState)];
+        [menu setState:(((int)([self->editInfo_ atomizerSkip]) == [menu tag]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorMixingRGB:)) {
-        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_RGB) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_RGB) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorMixingHLS:)) {
-        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_HLS) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ colorMode] == PoCoColorMode_HLS) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(lockPalette:)) {
-        [menu setState:(([self->editInfo_ lockPalette]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ lockPalette]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(paletteDisclose:)) {
-        [menu setState:(([self->paletteWindow_ isDisclose]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->paletteWindow_ isDisclose]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(registerColorPattern:)) {
         result = (!([[self->editInfo_ selRect] empty]));
     }
@@ -1269,7 +1284,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextPenStyle:(id)sender
+- (IBAction)nextPenStyle:(id)sender
 {
     [self->penStyleWindow_ nextPenStyle];
 
@@ -1287,9 +1302,45 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevPenStyle:(id)sender
+- (IBAction)prevPenStyle:(id)sender
 {
     [self->penStyleWindow_ prevPenStyle];
+
+    return;
+}
+
+
+//
+// revert all pen styles to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertAllPenStyles:(id)sender
+{
+    [self->penStyleWindow_ revertAllPenStyles];
+
+    return;
+}
+
+
+//
+// revert current pen style to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertPenStyle:(id)sender
+{
+    [self->penStyleWindow_ revertPenStyle];
 
     return;
 }
@@ -1305,7 +1356,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextPenSize:(id)sender
+- (IBAction)nextPenSize:(id)sender
 {
     [self->penStyleWindow_ nextPenSize];
 
@@ -1323,7 +1374,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevPenSize:(id)sender
+- (IBAction)prevPenSize:(id)sender
 {
     [self->penStyleWindow_ prevPenSize];
 
@@ -1341,7 +1392,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)nextTilePattern:(id)sender
+- (IBAction)nextTilePattern:(id)sender
 {
     [self->penStyleWindow_ nextTilePattern];
 
@@ -1359,9 +1410,45 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)prevTilePattern:(id)sender
+- (IBAction)prevTilePattern:(id)sender
 {
     [self->penStyleWindow_ prevTilePattern];
+
+    return;
+}
+
+
+//
+// revert all tile patterns to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertAllTilePatterns:(id)sender
+{
+    [self->penStyleWindow_ revertAllTilePatterns];
+
+    return;
+}
+
+
+//
+// revert current tile pattern to default.
+//
+//  Call:
+//    sender          : sender.
+//    penStyleWindow_ : pen style window.(instance)
+//
+//  Return:
+//    none.
+//
+- (IBAction)revertTilePattern:(id)sender
+{
+    [self->penStyleWindow_ revertTilePattern];
 
     return;
 }
@@ -1377,7 +1464,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)changeDensity:(id)sender
+- (IBAction)changeDensity:(id)sender
 {
     [self->penStyleWindow_ addDensity:(int)([sender tag])];
 
@@ -1541,7 +1628,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)addBitmapLayer:(id)sender
+- (IBAction)addBitmapLayer:(id)sender
 {
     [self->layerWindow_ newBitmapLayer:sender];
 
@@ -1559,9 +1646,27 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)addStringLayer:(id)sender
+- (IBAction)addStringLayer:(id)sender
 {
     [self->layerWindow_ newStringLayer:sender];
+
+    return;
+}
+
+
+//
+// copy layer.
+//
+//  Call:
+//    sender       : 送信元(api 引数)
+//    layerWindow_ : レイヤー(instance 変数)
+//
+//  Return:
+//    none.
+//
+- (IBAction)copyLayer:(id)sender
+{
+    [self->layerWindow_ copyLayer:sender];
 
     return;
 }
@@ -1577,7 +1682,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)deleteLayer:(id)sender
+- (IBAction)deleteLayer:(id)sender
 {
     [self->layerWindow_ deleteLayer:sender];
 
@@ -1595,7 +1700,7 @@ EXIT:
 //  Return
 //    None
 //
--(IBAction)unificateLayer:(id)sender
+- (IBAction)unificateLayer:(id)sender
 {
     [self->layerWindow_ unificateLayer:sender];
 

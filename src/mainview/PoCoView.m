@@ -1,8 +1,8 @@
 //
-//	Pelistina on Cocoa - PoCo -
-//	PoCoView class
+// PoCoView.m
+// implementation of PoCoView class.
 //
-//	Copyright (C) 2005-2019 KAENRYUU Koutoku.
+// Copyright (C) 2005-2025 KAENRYUU Koutoku.
 //
 
 #import "PoCoView.h"
@@ -377,8 +377,8 @@ static const int ZOOM_FACTOR[] = {      // 表示倍率テーブル(0.1%単位)
                     object:nil];
 
 #if (MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6)
-        // touch event を受け取る
-        [self setAcceptsTouchEvents:YES];
+        // set the allowed touch event types.
+        [self setAllowedTouchTypes:(NSTouchTypeMaskDirect | NSTouchTypeMaskIndirect)];
         [self setWantsRestingTouches:YES];
 #endif  // MAC_OS_X_VERSION_MAX_ALLOWED >= MAC_OS_X_VERSION_10_6
     }
@@ -698,13 +698,13 @@ static const int ZOOM_FACTOR[] = {      // 表示倍率テーブル(0.1%単位)
             result = NO;
         }
     } else if ([menu action] == @selector(colorAttributeMask:)) {
-        [menu setState:(([col isMask]) ? NSOnState : NSOffState)];
+        [menu setState:(([col isMask]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorAttribueDropper:)) {
-        [menu setState:(([col noDropper]) ? NSOnState : NSOffState)];
+        [menu setState:(([col noDropper]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(colorAttribueTransparent:)) {
-        [menu setState:(([col isTrans]) ? NSOnState : NSOffState)];
+        [menu setState:(([col isTrans]) ? NSControlStateValueOn : NSControlStateValueOff)];
     } else if ([menu action] == @selector(useUnderLayer:)) {
-        [menu setState:(([self->editInfo_ useUnderPattern]) ? NSOnState : NSOffState)];
+        [menu setState:(([self->editInfo_ useUnderPattern]) ? NSControlStateValueOn : NSControlStateValueOff)];
     }
 
     return result;
@@ -1713,7 +1713,7 @@ EXIT:
 //    DPRINT((@"\nenter : %s\npointingDeviceType : %d\nPointingDeviceID : %d\n", [evt isEnteringProximity] ? "YES" : "NO", [evt pointingDeviceType], [evt pointingDeviceID]));
 
     if ([self->editInfo_ enableEraser]) {
-        [self->editInfo_ setEraserType:([evt pointingDeviceType] == NSEraserPointingDevice)];
+        [self->editInfo_ setEraserType:([evt pointingDeviceType] == NSPointingDeviceTypeEraser)];
     }
 
     return;
@@ -1751,7 +1751,7 @@ EXIT:
         // すでに描画中
         ;
     } else if (!(self->isSpaceMode_)) {
-        self->isAltMode_ = ((([evt modifierFlags] & NSCommandKeyMask) == 0) && (([evt modifierFlags] & NSAlternateKeyMask) != 0));
+        self->isAltMode_ = ((([evt modifierFlags] & NSEventModifierFlagCommand) == 0) && (([evt modifierFlags] & NSEventModifierFlagOption) != 0));
     }
 
     // 操作実行
@@ -2057,7 +2057,7 @@ EXIT:
 {
     int num;
 
-    if ([evt modifierFlags] & NSControlKeyMask) {
+    if ([evt modifierFlags] & NSEventModifierFlagControl) {
         // 表示倍率変更
         if (((int)([evt deltaX]) == 0) &&
             ((int)([evt deltaY]) == 0) &&
