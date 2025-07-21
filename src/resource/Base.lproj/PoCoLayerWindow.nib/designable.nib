@@ -94,8 +94,8 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="isDisplay" width="28" minWidth="28" maxWidth="28" id="64">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="justified" title="Visible">
+                                        <tableColumn identifier="isDisplay" width="28" minWidth="28" maxWidth="28" id="64" customClass="PoCoLayerTableColumnDisplay">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="justified" title="Show">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -104,8 +104,8 @@
                                                 <font key="font" metaFont="titleBar" size="12" textStyle="headline"/>
                                             </buttonCell>
                                         </tableColumn>
-                                        <tableColumn identifier="drawLock" width="28" minWidth="28" maxWidth="28" id="61">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="justified" title="Protection">
+                                        <tableColumn identifier="drawLock" width="28" minWidth="28" maxWidth="28" id="61" customClass="PoCoLayerTableColumnDrawLock">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="justified" title="Lock">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -125,14 +125,14 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </tableColumn>
-                                        <tableColumn identifier="preview" editable="NO" width="60" minWidth="60" maxWidth="60" id="66">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="justified" title="Preview">
+                                        <tableColumn identifier="preview" editable="NO" width="60" minWidth="60" maxWidth="60" id="66" customClass="PoCoLayerTableColumnPreview">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Preview">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
                                             <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="imageCell:71:image" id="71"/>
                                         </tableColumn>
-                                        <tableColumn identifier="name" width="124" minWidth="4" maxWidth="1920" id="67" userLabel="name">
+                                        <tableColumn identifier="name" width="124" minWidth="4" maxWidth="1920" id="67" userLabel="name" customClass="PoCoLayerTableColumnName">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
